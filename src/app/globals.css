@@ -1,26 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-sol-cream: #F5F0E8;
+  --color-sol-sand: #E8DCC8;
+  --color-sol-terracotta: #C4714A;
+  --color-sol-olive: #7A8C5E;
+  --color-sol-lake: #4A7C9E;
+  --color-sol-bark: #5C4A32;
+  --color-sol-mist: #F9F6F0;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-sol-cream text-sol-bark font-sans;
+    scrollbar-gutter: stable;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-sol-bark;
+  }
+
+  html {
+    overflow-x: clip;
+  }
 }

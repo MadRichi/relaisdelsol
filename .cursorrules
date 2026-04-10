@@ -1,0 +1,14 @@
+- Next.js 16 App Router only. No Pages Router.
+- TypeScript strict. No `any` types.
+- Tailwind CSS v4 only. No inline styles. No CSS modules.
+- In Tailwind v4, all theme tokens are defined in globals.css via @theme. Do not use tailwind.config.ts for tokens.
+- All images via next/image with width, height, alt.
+- All navigation via next/link. No <a> tags.
+- Mobile-first. Base styles for 375px, then md: lg: breakpoints.
+- No shadcn, no MUI, no external component libraries.
+- Colors: only sol.* tokens defined in tailwind.config.ts.
+- Fonts: Cormorant Garamond (headings), DM Sans (body).
+- Sections padding: py-24 md:py-32. Never feel cramped.
+- No pure black (#000). Use sol-bark for all text.
+- Rounded corners: rounded-none or rounded-sm maximum.
+- No icon libraries. SVG inline only where strictly necessary.
