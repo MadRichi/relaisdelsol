@@ -53,7 +53,6 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(roomSchema) }}
       />
-
       <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <Image
           src={room.images[0].src}

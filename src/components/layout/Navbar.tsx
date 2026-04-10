@@ -10,7 +10,7 @@ const BOOKING_URL =
 
 const navLinks = [
   { label: "Camere", href: "/camere" },
-  { label: "Agricamping", href: "/agricamping" },
+  { label: "Agriglamping", href: "/agricamping" },
   { label: "Esperienze", href: "/esperienze" },
   { label: "Prodotti", href: "/prodotti" },
   { label: "Chi Siamo", href: "/chi-siamo" },
