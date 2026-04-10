@@ -3,6 +3,7 @@ export interface Room {
   name: string;
   shortDescription: string;
   longDescription: string;
+  navbarTheme?: "light" | "dark";
   badge?: string;
   features: string[];
   amenities: string[];
@@ -97,6 +98,7 @@ export const rooms: Room[] = [
   {
     slug: "camera-angolo-cottura-veranda",
     name: "Camera con Angolo Cottura e Veranda",
+    navbarTheme: "dark",
     shortDescription:
       "Hai i tuoi tempi: cucini qualcosa di semplice, poi ti siedi in veranda mentre la sera profuma di lago e campagna.",
     longDescription:

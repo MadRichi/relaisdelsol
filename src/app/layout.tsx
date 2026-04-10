@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
+import { NavbarThemeProvider } from "@/lib/navbar-theme";
 import { siteConfig } from "@/lib/seo/metadata";
 import { getLodgingBusinessSchema } from "@/lib/seo/schemas";
 import "./globals.css";
@@ -30,9 +31,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </head>
       <body className="bg-sol-cream text-sol-bark antialiased overflow-x-hidden">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <NavbarThemeProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </NavbarThemeProvider>
       </body>
     </html>
   );

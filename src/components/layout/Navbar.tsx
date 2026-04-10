@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useNavbarTheme } from "@/lib/navbar-theme";
 import Button from "../ui/Button";
 
 const BOOKING_URL =
@@ -20,6 +21,7 @@ function joinClasses(...classes: Array<string | false>) {
 }
 
 export default function Navbar() {
+  const { theme } = useNavbarTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -55,6 +57,9 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const transparentTextClass = theme === "dark" ? "text-sol-bark" : "text-sol-cream";
+  const transparentHoverClass =
+    theme === "dark" ? "hover:text-sol-terracotta" : "hover:text-sol-cream/70";
 
   return (
     <header
@@ -68,7 +73,10 @@ export default function Navbar() {
 
         <Link
           href="/"
-          className="flex-1 text-center font-serif text-2xl italic text-sol-bark md:flex-none md:text-left"
+          className={joinClasses(
+            "flex-1 text-center font-serif text-2xl italic md:flex-none md:text-left",
+            isScrolled ? "text-sol-bark" : transparentTextClass,
+          )}
           onClick={closeMobileMenu}
         >
           Ca&apos; del Sol
@@ -79,7 +87,12 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-sans text-sm uppercase tracking-wide text-sol-bark transition-colors hover:text-sol-terracotta"
+              className={joinClasses(
+                "font-sans text-sm uppercase tracking-wide transition-colors",
+                isScrolled
+                  ? "text-sol-bark hover:text-sol-terracotta"
+                  : joinClasses(transparentTextClass, transparentHoverClass),
+              )}
             >
               {link.label}
             </Link>
@@ -94,7 +107,10 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center text-sol-bark md:hidden"
+          className={joinClasses(
+            "ml-auto inline-flex h-10 w-10 items-center justify-center md:hidden",
+            isScrolled ? "text-sol-bark" : transparentTextClass,
+          )}
           aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
           aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen((open) => !open)}
