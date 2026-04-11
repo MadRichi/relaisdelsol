@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import StickyBookingBar from "@/components/booking/StickyBookingBar";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import { NavbarThemeProvider } from "@/lib/navbar-theme";
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <StickyBookingBar />
         </NavbarThemeProvider>
       </body>
     </html>

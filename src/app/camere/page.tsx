@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import RoomCard from "@/components/cards/RoomCard";
 import { rooms } from "@/lib/content/rooms";
+import Link from "next/link";
 
 export const metadata = {
   title: "Camere | Agriturismo Ca' del Sol — Lazise, Lago di Garda",
@@ -85,19 +86,27 @@ export default function CamerePage() {
       </section>
 
       <section className="bg-sol-terracotta py-16 text-center">
-        <div className="flex flex-col items-center px-6">
+        <div className="px-6">
           <SectionLabel>
             <span className="text-sol-cream/70">Prenota direttamente</span>
           </SectionLabel>
           <h2 className="mt-3 font-serif text-3xl font-light text-sol-cream md:text-4xl">
             Miglior prezzo garantito sul sito ufficiale
           </h2>
-          <Button
-            href={BOOKING_URL}
-            className="mt-6 block bg-sol-cream px-8 py-4 text-sol-bark hover:bg-sol-sand"
-          >
-            Verifica disponibilità
-          </Button>
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <Button
+              href={BOOKING_URL}
+              className="rounded-none bg-sol-cream px-8 py-4 uppercase tracking-wide text-sol-bark hover:bg-sol-sand"
+            >
+              Verifica disponibilità
+            </Button>
+            <p className="mt-2 font-sans text-xs text-sol-cream/60">
+              Oppure chiamaci:{" "}
+              <Link href="tel:+390456490008" className="underline underline-offset-2">
+                +39 045 649 0008
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
     </main>
