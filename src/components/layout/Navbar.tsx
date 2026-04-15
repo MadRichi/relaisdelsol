@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useNavbarTheme } from "@/lib/navbar-theme";
@@ -75,12 +76,25 @@ export default function Navbar() {
         <Link
           href="/"
           className={joinClasses(
-            "flex-1 text-center font-serif text-2xl italic md:flex-none md:text-left",
-            isScrolled ? "text-sol-bark" : transparentTextClass,
+            "flex flex-1 items-center justify-center gap-2 md:flex-none md:justify-start",
           )}
           onClick={closeMobileMenu}
         >
-          Relais del Sol
+          <Image
+            src="/images/logo.png"
+            alt="Relais Del Sol"
+            width={36}
+            height={36}
+            className="object-contain"
+          />
+          <span
+            className={joinClasses(
+              "font-serif text-2xl italic",
+              isScrolled ? "text-sol-bark" : transparentTextClass,
+            )}
+          >
+            Relais Del Sol
+          </span>
         </Link>
 
         <nav className="ml-10 hidden items-center gap-7 md:flex">

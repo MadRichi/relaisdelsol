@@ -10,7 +10,7 @@ const serviceCards = [
     title: "Colazione con i sapori di casa",
     description:
       "Marmellate fatte in casa, formaggi locali, pane fresco e i prodotti della nostra terra. La colazione a Relais del Sol è il momento in cui capisci che questo posto è diverso.",
-    href: "/colazione",
+    href: "/esperienze#colazione",
   },
   {
     image: "/images/services/piscina.jpg",
@@ -19,7 +19,7 @@ const serviceCards = [
     title: "Parco e piscina a sfioro",
     description:
       "Un grande parco verde dove il tempo si dilata. La piscina a sfioro guarda verso il lago — ci sono pomeriggi qui che non dimenticherai.",
-    href: "/parco",
+    href: "/esperienze#piscina",
   },
   {
     image: "/images/services/eventi.jpg",
@@ -28,7 +28,7 @@ const serviceCards = [
     title: "Matrimoni ed eventi privati",
     description:
       "La cornice naturale di Relais del Sol diventa lo sfondo perfetto per il tuo evento. Matrimoni, anniversari, celebrazioni in famiglia: ci occupiamo di ogni dettaglio.",
-    href: "/eventi-privati",
+    href: "/esperienze#eventi",
   },
 ] as const;
 

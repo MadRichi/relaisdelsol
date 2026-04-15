@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Button from "../ui/Button";
 
@@ -20,7 +21,18 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="space-y-4">
-            <p className="font-serif text-2xl italic text-sol-cream">Relais del Sol</p>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/logo.png"
+                alt="Relais Del Sol"
+                width={80}
+                height={80}
+                className="object-contain w-20 h-auto"
+              />
+              <p className="font-serif text-2xl italic text-sol-cream">
+                Relais Del Sol
+              </p>
+            </div>
             <p className="font-sans text-sm text-sol-cream/80">
               Dove la campagna tocca il lago
             </p>
