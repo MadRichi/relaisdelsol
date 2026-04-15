@@ -6,9 +6,9 @@ import { rooms } from "@/lib/content/rooms";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Camere | Agriturismo Ca' del Sol — Lazise, Lago di Garda",
+  title: "Camere | Agriturismo Relais del Sol — Lazise, Lago di Garda",
   description:
-    "Le camere dell'Agriturismo Ca' del Sol: eleganti, romantiche, alcune con vista lago, alcune con angolo cottura e veranda. Prenota direttamente sul sito ufficiale.",
+    "Le camere dell'Agriturismo Relais del Sol: eleganti, romantiche, alcune con vista lago, alcune con angolo cottura e veranda. Prenota direttamente sul sito ufficiale.",
 };
 
 const BOOKING_URL =
@@ -29,7 +29,7 @@ export default function CamerePage() {
       <section className="relative h-64 overflow-hidden md:h-96">
         <Image
           src="/images/camere-hero.jpg"
-          alt="Le camere dell'Agriturismo Ca' del Sol"
+          alt="Le camere dell'Agriturismo Relais del Sol"
           fill
           className="object-cover"
           priority
@@ -48,17 +48,13 @@ export default function CamerePage() {
       <section className="bg-sol-cream py-16 md:py-20">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <p className="font-sans text-base leading-relaxed text-sol-bark/70">
-            Ogni stanza dell&apos;Agriturismo Ca&apos; del Sol è diversa. Alcune
-            hanno le travi a vista, altre il balcone con vista lago, altre ancora
-            una piccola veranda dove fare colazione all&apos;aperto. Tutte hanno in
-            comune il calore di un posto pensato per farti sentire a casa — con
-            qualcosa di più.
+            Ogni stanza dell&apos;Agriturismo Relais del Sol è diversa, ognuna improntata al benessere e al comfort. In tutte le stanze è presente:
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-6">
             {amenities.map((amenity) => (
               <div
                 key={amenity}
-                className="flex items-center gap-2 font-sans text-xs uppercase tracking-wide text-sol-bark/50"
+                className="flex items-center gap-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70"
               >
                 <span className="h-1 w-1 rounded-full bg-sol-terracotta" />
                 <span>{amenity}</span>

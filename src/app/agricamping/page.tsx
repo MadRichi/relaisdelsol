@@ -7,7 +7,7 @@ import AgricampingGallery from "./AgricampingGallery";
 import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter";
 
 export const metadata: Metadata = {
-  title: "Agriglamping | Agriturismo Ca' del Sol — Lazise, Lago di Garda",
+  title: "Agriglamping | Agriturismo Relais del Sol — Lazise, Lago di Garda",
   description:
     "8 mobilhome luxury da 40mq con veranda privata, giardino e vista sui vigneti. L'esperienza glamping autentica sul Lago di Garda.",
 };
@@ -43,7 +43,7 @@ const amenities = [
 
 const agricampingImages = Array.from({ length: 11 }, (_, index) => ({
   src: `/images/agricamping/agricamping-${index + 1}.jpg`,
-  alt: "Mobilhome luxury Agriglamping Ca' del Sol",
+  alt: "Mobilhome luxury Agriglamping Relais del Sol",
   width: 1024,
   height: 683,
 }));
@@ -55,7 +55,7 @@ export default function AgricampingPage() {
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <Image
           src="/images/agricamping/agricamping-1.jpg"
-          alt="Mobilhome luxury Agriglamping Ca' del Sol"
+          alt="Mobilhome luxury Agriglamping Relais del Sol"
           fill
           priority
           className="object-cover"
@@ -66,7 +66,7 @@ export default function AgricampingPage() {
             <span className="text-sol-cream">Glamping di lusso</span>
           </SectionLabel>
           <h1 className="mt-3 font-serif text-4xl font-light text-sol-cream md:text-6xl">
-            Agriglamping Ca&apos; del Sol
+            Agriglamping Relais del Sol
           </h1>
           <p className="mt-2 max-w-lg font-sans text-base text-sol-cream/80">
             Otto mobilhome luxury tra vigneti e oliveti, con il lago di Garda
@@ -85,7 +85,7 @@ export default function AgricampingPage() {
             <p className="mt-6 font-sans text-sm leading-relaxed text-sol-bark/70">
               Svegliarsi con la veranda che guarda i vigneti. Fare colazione
               fuori, nell&apos;aria del mattino, con il lago che si intuisce tra gli
-              ulivi sullo sfondo. Le mobilhome di Ca&apos; del Sol non sono una
+              ulivi sullo sfondo. Le mobilhome di Relais del Sol non sono una
               sistemazione — sono un modo diverso di stare in vacanza.
             </p>
             <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">

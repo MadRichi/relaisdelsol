@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!room) return {};
 
   return generatePageMetadata({
-    title: `${room.name} | Agriturismo Ca' del Sol`,
+    title: `${room.name} | Agriturismo Relais del Sol`,
     description: room.shortDescription,
     path: `/camere/${room.slug}`,
     image: room.images[0]?.src,

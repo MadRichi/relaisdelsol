@@ -12,13 +12,13 @@ const items = [
     number: "02",
     title: "Ospitalità di famiglia",
     description:
-      "Paolo e Sabrina hanno scelto ogni tessuto, ogni profumo, ogni dettaglio. Non per fare un albergo, ma per condividere il posto dove vivono.",
+      "Una grande cura ha caraterizzato la scelta di ogni tessuto, ogni profumo, ogni dettaglio. Non per fare un albergo, ma per condividere il posto dove vivono.",
   },
   {
     number: "03",
     title: "Natura e autenticità",
     description:
-      "Vino, olio, prodotti della terra. La colazione con le marmellate di casa. Il silenzio della campagna la mattina presto.",
+      "Vino, olio, prodotti della terra. La colazione con le marmellate di casa. Il benessere della natura in ogni dettaglio.",
   },
 ] as const;
 
@@ -26,7 +26,7 @@ export default function ValueProposition() {
   return (
     <section className="bg-sol-sand py-24 md:py-32">
       <div className="mx-auto max-w-2xl px-6 text-center">
-        <SectionLabel>Perché Ca&apos; del Sol</SectionLabel>
+        <SectionLabel>Perché Relais del Sol</SectionLabel>
         <Divider className="mt-4" />
         <h2 className="mt-4 font-serif text-4xl font-light text-sol-bark md:text-5xl">
           Non un hotel. Un posto dove tornare.

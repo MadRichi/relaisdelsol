@@ -9,7 +9,7 @@ import { getLodgingBusinessSchema } from "@/lib/seo/schemas";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Agriturismo Ca' del Sol | Lazise, Lago di Garda",
+  title: "Agriturismo Relais del Sol | Lazise, Lago di Garda",
   description: siteConfig.description,
 };
 

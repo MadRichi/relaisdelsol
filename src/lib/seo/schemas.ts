@@ -6,7 +6,7 @@ export function getLodgingBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
-    name: "Agriturismo Ca' del Sol",
+    name: "Agriturismo Relais del Sol",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Loc. Casa Antonia, 1",
@@ -51,7 +51,7 @@ export function getRoomSchema(room: Room) {
     ),
     containedInPlace: {
       "@type": "LodgingBusiness",
-      name: "Agriturismo Ca' del Sol",
+      name: "Agriturismo Relais del Sol",
       url: SITE_URL,
     },
     offers: room.available

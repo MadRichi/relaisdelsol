@@ -29,7 +29,7 @@ export const rooms: Room[] = [
     badge: "Romantica",
     features: [
       "Atmosfera provenzale e country-romantica",
-      "Materiali naturali e travi a vista",
+      "Materiali naturali e curati",
       "Ideale per una fuga di coppia",
     ],
     amenities: [
@@ -77,6 +77,7 @@ export const rooms: Room[] = [
       "Colazione inclusa",
       "Accesso piscina",
       "Dog friendly",
+      "Balcone privato",
     ],
     images: [
       {
@@ -102,7 +103,7 @@ export const rooms: Room[] = [
     shortDescription:
       "Hai i tuoi tempi: cucini qualcosa di semplice, poi ti siedi in veranda mentre la sera profuma di lago e campagna.",
     longDescription:
-      "Questa camera ti lascia la liberta di vivere la vacanza con un ritmo tutto tuo. La zona con angolo cottura rende facili i momenti quotidiani, senza rinunciare all'atmosfera calda e curata di Ca' del Sol. In veranda trovi spazio, luce e quiete: un tavolo, una pausa lunga, una colazione lenta all'aperto prima di partire verso Lazise o restare in piscina. E' la scelta giusta quando cerchi comfort, intimita e un po' di autonomia in piu.",
+      "Questa camera ti lascia la liberta di vivere la vacanza con un ritmo tutto tuo. La zona con angolo cottura rende facili i momenti quotidiani, senza rinunciare all'atmosfera calda e curata di Relais del Sol. In veranda trovi spazio, luce e quiete: un tavolo, una pausa lunga, una colazione lenta all'aperto prima di partire verso Lazise o restare in piscina. E' la scelta giusta quando cerchi comfort, intimita e un po' di autonomia in piu.",
     badge: "Con Cucina",
     features: [
       "Angolo cottura funzionale",

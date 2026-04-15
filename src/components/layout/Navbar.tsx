@@ -14,6 +14,7 @@ const navLinks = [
   { label: "Esperienze", href: "/esperienze" },
   { label: "Prodotti", href: "/prodotti" },
   { label: "Chi Siamo", href: "/chi-siamo" },
+  { label: "Contatti", href: "/contatti" },
 ] as const;
 
 function joinClasses(...classes: Array<string | false>) {
@@ -79,7 +80,7 @@ export default function Navbar() {
           )}
           onClick={closeMobileMenu}
         >
-          Ca&apos; del Sol
+          Relais del Sol
         </Link>
 
         <nav className="ml-10 hidden items-center gap-7 md:flex">

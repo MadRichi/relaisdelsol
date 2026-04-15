@@ -3,9 +3,9 @@ import Link from "next/link";
 export default function FinalCTA() {
   return (
     <section className="bg-sol-bark py-20 md:py-24">
-      <div className="mx-auto max-w-2xl px-6 text-center">
+      <div className="mx-auto max-w-3xl px-6 text-center">
         <h2 className="font-serif text-4xl font-light text-sol-cream md:text-5xl">
-          Pronto a vivere Ca&apos; del Sol?
+          Pronto a vivere Relais del Sol?
         </h2>
         <p className="mt-4 font-sans text-sm text-sol-cream/70">
           Prenota direttamente sul sito ufficiale. Il prezzo migliore è sempre

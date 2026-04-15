@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteConfig = {
-  name: "Agriturismo Ca' del Sol",
+  name: "Agriturismo Relais del Sol",
   description:
     "Agriturismo sul Lago di Garda a Pacengo di Lazise: camere eleganti, agricamping luxury, piscina, colazione e atmosfera autentica tra campagna e lago.",
   url: "https://www.cadelsol.com",

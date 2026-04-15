@@ -9,7 +9,7 @@ export default function FamilyStory() {
         <div className="relative min-h-[400px] overflow-hidden md:min-h-[600px]">
           <Image
             src="/images/family.jpg"
-            alt="La famiglia Pietropoli, il cuore di Ca' del Sol"
+            alt="La famiglia Pietropoli, il cuore di Relais del Sol"
             fill
             className="object-cover"
           />
@@ -31,7 +31,7 @@ export default function FamilyStory() {
           </h2>
 
           <p className="mt-6 font-sans text-sm leading-relaxed text-sol-bark/70">
-            Ca&apos; del Sol è la casa della famiglia Pietropoli, e da anni è
+            Relais del Sol è la casa della famiglia Pietropoli, e da anni è
             anche la casa dei loro ospiti. Un angolo di campagna veneta a due
             passi dal Lago di Garda, dove il ritmo della giornata lo decide il
             sole — non la sveglia.

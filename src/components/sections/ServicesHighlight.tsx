@@ -9,7 +9,7 @@ const serviceCards = [
     label: "Ogni mattina",
     title: "Colazione con i sapori di casa",
     description:
-      "Marmellate fatte in casa, formaggi locali, pane fresco e i prodotti della nostra terra. La colazione a Ca' del Sol è il momento in cui capisci che questo posto è diverso.",
+      "Marmellate fatte in casa, formaggi locali, pane fresco e i prodotti della nostra terra. La colazione a Relais del Sol è il momento in cui capisci che questo posto è diverso.",
     href: "/colazione",
   },
   {
@@ -27,7 +27,7 @@ const serviceCards = [
     label: "Momenti speciali",
     title: "Matrimoni ed eventi privati",
     description:
-      "La cornice naturale di Ca' del Sol diventa lo sfondo perfetto per il tuo evento. Matrimoni, anniversari, celebrazioni in famiglia: ci occupiamo di ogni dettaglio.",
+      "La cornice naturale di Relais del Sol diventa lo sfondo perfetto per il tuo evento. Matrimoni, anniversari, celebrazioni in famiglia: ci occupiamo di ogni dettaglio.",
     href: "/eventi-privati",
   },
 ] as const;

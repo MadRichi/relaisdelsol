@@ -61,7 +61,7 @@ export default function LocationTeaser() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Posizione Agriturismo Ca' del Sol"
+            title="Posizione Agriturismo Relais del Sol"
             className="min-h-[400px] w-full md:min-h-[500px]"
           />
         </div>

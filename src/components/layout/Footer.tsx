@@ -20,7 +20,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="space-y-4">
-            <p className="font-serif text-2xl italic text-sol-cream">Ca&apos; del Sol</p>
+            <p className="font-serif text-2xl italic text-sol-cream">Relais del Sol</p>
             <p className="font-sans text-sm text-sol-cream/80">
               Dove la campagna tocca il lago
             </p>
@@ -136,7 +136,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-sol-cream/20 pt-6">
           <div className="flex flex-col gap-2 font-sans text-xs text-sol-cream/70 md:flex-row md:items-center md:justify-between">
-            <p>© {new Date().getFullYear()} Ca&apos; del Sol. Tutti i diritti riservati.</p>
+            <p>© {new Date().getFullYear()} Relais del Sol. Tutti i diritti riservati.</p>
             <div className="flex items-center gap-4">
               <p>P.IVA 01930050230</p>
               <Link href="/privacy-policy" className="hover:text-sol-cream transition-colors">

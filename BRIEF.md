@@ -1,8 +1,8 @@
-# CA' DEL SOL — AGRITURISMO WEBSITE REBUILD
+# RELAIS DEL SOL — AGRITURISMO WEBSITE REBUILD
 ## Cursor Project Initialization Prompt
 
 You are a senior full-stack developer and hospitality UX specialist.
-Rebuild the website for Ca' del Sol, a family-run agriturismo in
+Rebuild the website for Relais Del Sol, a family-run agriturismo in
 Pacengo di Lazise (VR), directly on Lake Garda.
 
 ---
@@ -244,7 +244,7 @@ Example rewrite:
      di lavanda — e trovi tutto quello che ti serve per dimenticare
      il resto del mondo."
 
-**Family story framing:** Paolo & Sabrina are not "the owners."
+**Family story framing:** Sabrina and her family are not "the owners."
 They are the reason the place feels different.
 Always reference their personal choices (profumi, tessuti,
 prodotti ecocompatibili) as intentional acts of care.
@@ -306,7 +306,7 @@ This is not a hotel website.
 This is a place where a family decided to share
 what they love most about living on Lake Garda.
 Every design decision should make the visitor feel
-that visiting Ca' del Sol is a privilege,
+that visiting Relais Del Sol is a privilege,
 not a transaction.
 
 Build accordingly.

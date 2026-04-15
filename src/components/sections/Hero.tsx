@@ -219,7 +219,7 @@ export default function Hero() {
     <section className="relative min-h-screen h-screen w-full overflow-hidden">
       <Image
         src="/images/hero.jpg"
-        alt="Vista del lago e della campagna di Ca' del Sol"
+        alt="Vista del lago e della campagna di Relais del Sol"
         fill
         priority
         className="object-cover"
