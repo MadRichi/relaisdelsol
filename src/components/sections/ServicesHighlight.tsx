@@ -27,7 +27,7 @@ const serviceCards = [
     label: "Momenti speciali",
     title: "Matrimoni ed eventi privati",
     description:
-      "La cornice naturale di Relais del Sol diventa lo sfondo perfetto per il tuo evento. Matrimoni, anniversari, celebrazioni in famiglia: ci occupiamo di ogni dettaglio.",
+      "La cornice naturale di Relais del Sol diventa lo sfondo perfetto per il tuo evento. Eventi privati e celebrazioni speciali: ci occupiamo di ogni dettaglio.",
     href: "/esperienze#eventi",
   },
 ] as const;

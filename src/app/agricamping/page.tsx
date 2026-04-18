@@ -16,14 +16,12 @@ const BOOKING_URL =
   "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
 
 const features = [
-  { value: "8", label: "Mobilhome luxury" },
   { value: "40mq", label: "Superficie interna" },
   { value: "2", label: "Camere da letto" },
   { value: "2", label: "Bagni" },
   { value: "18mq", label: "Veranda privata" },
   { value: "30mq", label: "Giardino privato" },
   { value: "150mq", label: "Parcheggio privato" },
-  { value: "BBQ", label: "Barbecue disponibile" },
 ];
 
 const amenities = [
@@ -38,7 +36,7 @@ const amenities = [
   "Aria condizionata",
   "Vista vigneti e oliveti",
   "Vista lago",
-  "Barbecue",
+  "Barbecue (su richiesta, soggetto a disponibilità)",
 ];
 
 const agricampingImages = Array.from({ length: 11 }, (_, index) => ({

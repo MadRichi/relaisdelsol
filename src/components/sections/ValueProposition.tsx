@@ -33,14 +33,13 @@ export default function ValueProposition() {
         </h2>
       </div>
 
-      <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-3 md:px-16">
+      <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 items-stretch gap-12 px-6 md:grid-cols-3 md:px-16">
         {items.map((item) => (
-          <article key={item.number}>
-            <p className="font-serif text-6xl font-light text-sol-terracotta/30">
-              {item.number}
-            </p>
-            <h3 className="mt-2 font-serif text-xl text-sol-bark">{item.title}</h3>
-            <p className="mt-3 font-sans text-sm leading-relaxed text-sol-bark/70">
+          <article key={item.number} className="h-full flex flex-col">
+            <h3 className="font-serif text-3xl text-sol-bark/70 mb-3">
+              {item.title}
+            </h3>
+            <p className="mt-auto font-sans text-sm leading-relaxed text-sol-bark/70">
               {item.description}
             </p>
           </article>

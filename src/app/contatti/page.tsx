@@ -14,8 +14,7 @@ const BOOKING_URL =
   "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
 
 const MAP_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.5!2d10.7378!3d45.5083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDMwJzI5LjkiTiAxMMKwNDQnMTYuMSJF!5e0!3m2!1sit!2sit!4v1234567890";
-
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.1668086373817!2d10.721606350999053!3d45.4714915715088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781e94ba76f9b2f%3A0xfec8bc838a99fc43!2sCa&#39;%20del%20Sol!5e1!3m2!1sit!2sit!4v1776344579227!5m2!1sit!2sit"
 export default function ContattiPage() {
   return (
     <>
@@ -173,7 +172,7 @@ export default function ContattiPage() {
 
             <div className="min-h-[500px] h-full w-full">
               <iframe
-                src={MAP_EMBED_SRC}
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.1668086373817!2d10.721606350999053!3d45.4714915715088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781e94ba76f9b2f%3A0xfec8bc838a99fc43!2sCa&#39;%20del%20Sol!5e1!3m2!1sit!2sit!4v1776344579227!5m2!1sit!2sit"
                 width="100%"
                 height="100%"
                 allowFullScreen

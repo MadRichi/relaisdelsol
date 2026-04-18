@@ -10,7 +10,7 @@ import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter"
 export default function Home() {
   return (
     <main>
-      <NavbarThemeSetter theme="dark" />
+      <NavbarThemeSetter theme="dark" heroLogo={true} />
       <Hero />
       <ValueProposition />
       <RoomsPreview />

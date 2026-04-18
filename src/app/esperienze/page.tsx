@@ -17,21 +17,21 @@ const BOOKING_URL =
 
 const poolInfo = [
   { label: "Orario piscina", value: "10:00 - 19:00" },
-  { label: "Lettini inclusi", value: "2 per camera" },
+  { label: "Lettini", value: "Inclusi con ogni camera" },
   { label: "Chiosco bordo piscina", value: "10:00 - 19:00" },
   { label: "Campi sportivi", value: "Calcio e pallavolo" },
 ] as const;
 
 const breakfastInfo = [
-  { label: "Orario buffet", value: "8:00 - 10:30" },
-  { label: "Su richiesta", value: "Accesso anticipato" },
+  { label: "Orario buffet", value: "8:00 – 10:00" },
+  { label: "Prodotti", value: "Freschi e locali" },
   { label: "Senza glutine", value: "Disponibile" },
   { label: "Senza lattosio", value: "Disponibile" },
 ] as const;
 
 const eventsInfo = [
   { label: "Ospiti max", value: "Su richiesta" },
-  { label: "Catering", value: "Esterno convenzionato" },
+  { label: "Vista", value: "Lago e vigneti" },
   { label: "Allestimento", value: "Personalizzabile" },
   { label: "Sopralluogo", value: "Gratuito" },
 ] as const;
@@ -43,13 +43,15 @@ const practicalInfo = [
 ] as const;
 
 const territoryServices = [
-  "Noleggio biciclette gratuito (su prenotazione)",
+  "Noleggio bici convenzionato nelle vicinanze",
   "Servizio transfer privato disponibile",
   "Sconti convenzionati in ristoranti e negozi della zona",
 ] as const;
 
 const distanceCards = [
   { dist: "1.8 km", name: "Gardaland", desc: "Parco divertimenti n°1 in Italia" },
+  { dist: "200 m", name: "Movieland Park", desc: "Parco tematico dedicato al cinema" },
+  { dist: "200 m", name: "Caneva Aquapark", desc: "Uno dei parchi acquatici più grandi d'Italia" },
   { dist: "2 km", name: "Parco Natura Viva", desc: "Parco zoologico a Pastrengo" },
   { dist: "3 km", name: "Bardolino", desc: "Vino DOC e lungolago" },
   {
@@ -245,15 +247,14 @@ export default function EsperienzePage() {
               <div className="flex flex-col justify-center p-10 md:p-14">
                 <SectionLabel>Momenti speciali</SectionLabel>
                 <h3 className="mt-3 font-serif text-3xl text-sol-bark">
-                  Matrimoni ed eventi privati
+                  Eventi privati
                 </h3>
                 <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">
-                  La campagna veneta, i vigneti, gli ulivi, il lago sullo
-                  sfondo. Il Relais Del Sol offre una cornice naturale
-                  difficile da trovare altrove. Per matrimoni, anniversari,
-                  compleanni importanti e celebrazioni in famiglia, ogni
-                  dettaglio viene curato con la stessa cura che mettiamo in
-                  ogni aspetto del Relais.
+                  Il lago di Garda fa da sfondo, i vigneti incorniciano la
+                  scena, la veranda guarda verso l&apos;acqua. Il Relais Del Sol
+                  è la cornice perfetta per eventi privati e celebrazioni
+                  speciali. Ogni dettaglio viene curato con la stessa cura che
+                  mettiamo in ogni aspetto del Relais.
                 </p>
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   {eventsInfo.map((item) => (

@@ -4,9 +4,11 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from "re
 
 export type NavbarTheme = "light" | "dark";
 
-type NavbarThemeContextValue = {
+export type NavbarThemeContextValue = {
   theme: NavbarTheme;
   setTheme: (theme: NavbarTheme) => void;
+  hasHeroLogo: boolean;
+  setHasHeroLogo: (value: boolean) => void;
 };
 
 const NavbarThemeContext = createContext<NavbarThemeContextValue | undefined>(undefined);
@@ -17,13 +19,16 @@ type NavbarThemeProviderProps = {
 
 export function NavbarThemeProvider({ children }: NavbarThemeProviderProps) {
   const [theme, setTheme] = useState<NavbarTheme>("light");
+  const [hasHeroLogo, setHasHeroLogo] = useState(false);
 
   const value = useMemo(
     () => ({
       theme,
       setTheme,
+      hasHeroLogo,
+      setHasHeroLogo,
     }),
-    [theme],
+    [theme, hasHeroLogo],
   );
 
   return <NavbarThemeContext.Provider value={value}>{children}</NavbarThemeContext.Provider>;

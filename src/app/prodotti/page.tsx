@@ -6,20 +6,18 @@ import SectionLabel from "@/components/ui/SectionLabel";
 export const metadata: Metadata = {
   title: "Prodotti | Relais Del Sol — Lazise, Lago di Garda",
   description:
-    "Vino, olio extravergine, oli aromatizzati e miele prodotti dal Relais Del Sol a Pacengo di Lazise. Acquistali direttamente in struttura.",
+    "Vino e olio extravergine prodotti dal Relais Del Sol a Pacengo di Lazise. Acquistali direttamente in struttura.",
 };
 
 const BOOKING_URL =
   "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
 
-// const galleryImages = [
-//   "/images/prodotti/prodotti-1.jpg",
-//   "/images/prodotti/prodotti-2.jpg",
-//   "/images/prodotti/prodotti-3.jpg",
-//   "/images/prodotti/prodotti-4.jpg",
-//   "/images/prodotti/prodotti-5.jpg",
-//   "/images/prodotti/prodotti-6.jpg",
-// ] as const;
+const galleryImages = [
+  "/images/prodotti/prodotti-1.jpg",
+  "/images/prodotti/prodotti-2.jpg",
+  "/images/prodotti/prodotti-3.jpg",
+  "/images/prodotti/prodotti-4.jpg",
+] as const;
 
 export default function ProdottiPage() {
   return (
@@ -42,7 +40,7 @@ export default function ProdottiPage() {
             I Prodotti del Relais
           </h1>
           <p className="mt-2 max-w-lg font-sans text-base text-sol-cream/80">
-            Vino, olio, miele. Quello che trovi a colazione, puoi portarlo a
+            Vino, olio extravergine. Puoi degustarli in struttura e portarteli a
             casa.
           </p>
         </div>
@@ -51,12 +49,12 @@ export default function ProdottiPage() {
       <section className="bg-sol-cream py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <p className="font-sans text-base leading-relaxed text-sol-bark/70">
-            Nella saletta vicino alla reception, tra le bottiglie e i vasetti
-            allineati sugli scaffali, si racconta la storia di questa terra.
-            Ogni prodotto nasce qui, a Pacengo di Lazise, tra i vigneti e gli
-            oliveti che circondano il Relais. Puoi assaggiarli a colazione,
-            trovarli al chiosco della piscina, e portarli a casa come ricordo
-            di un posto che non si dimentica.
+            Nella saletta vicino alla reception, tra le bottiglie allineate
+            sugli scaffali, si racconta la storia di questa terra. Il vino e
+            l&apos;olio nascono qui, a Pacengo di Lazise, tra i vigneti e gli
+            oliveti che circondano il Relais. Puoi degustarli durante il tuo
+            soggiorno e portarli a casa come ricordo di un posto che non si
+            dimentica.
           </p>
         </div>
       </section>
@@ -149,86 +147,6 @@ export default function ProdottiPage() {
                 />
               </div>
             </article>
-
-            <article className="grid grid-cols-1 gap-0 md:grid-cols-2">
-              <div className="relative min-h-[400px] overflow-hidden">
-                <Image
-                  src="/images/prodotti/olio-aromatizzato.jpg"
-                  alt="Oli aromatizzati del Relais Del Sol"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex flex-col justify-center bg-sol-cream p-10 md:p-14">
-                <SectionLabel>Aromi della campagna</SectionLabel>
-                <h3 className="mt-3 font-serif text-3xl text-sol-bark">
-                  Oli Aromatizzati
-                </h3>
-                <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">
-                  Partendo dal nostro extravergine, creiamo oli aromatizzati con
-                  le erbe e i sapori della campagna veneta. Al rosmarino, al
-                  peperoncino, al limone, al tartufo. Ogni bottiglia è un
-                  condimento e un souvenir allo stesso tempo — il modo più
-                  semplice per portare un po&apos; di Relais Del Sol nella tua
-                  cucina.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="bg-sol-sand px-4 py-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70">
-                    Al rosmarino
-                  </span>
-                  <span className="bg-sol-sand px-4 py-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70">
-                    Al peperoncino
-                  </span>
-                  <span className="bg-sol-sand px-4 py-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70">
-                    Al limone
-                  </span>
-                  <span className="bg-sol-sand px-4 py-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70">
-                    Al tartufo
-                  </span>
-                </div>
-                <p className="mt-4 font-sans text-xs italic text-sol-bark/40">
-                  Assortimento variabile — chiedi disponibilità in reception
-                </p>
-              </div>
-            </article>
-
-            <article className="grid grid-cols-1 gap-0 md:grid-cols-2">
-              <div className="order-1 flex flex-col justify-center bg-sol-cream p-10 md:p-14">
-                <SectionLabel>Dal giardino</SectionLabel>
-                <h3 className="mt-3 font-serif text-3xl text-sol-bark">
-                  Miele Artigianale
-                </h3>
-                <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">
-                  Le api del Relais raccolgono il nettare tra i fiori del parco,
-                  i vigneti e gli ulivi. Il risultato è un miele artigianale dal
-                  sapore complesso e autentico, che varia con le stagioni. Lo
-                  trovi ogni mattina sulla tavola della colazione — se ti piace,
-                  puoi acquistarlo in reception.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  <span className="bg-sol-sand px-4 py-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70">
-                    Millefiori
-                  </span>
-                  <span className="bg-sol-sand px-4 py-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70">
-                    Produzione artigianale
-                  </span>
-                  <span className="bg-sol-sand px-4 py-2 font-sans text-xs uppercase tracking-wide text-sol-bark/70">
-                    Stagionale
-                  </span>
-                </div>
-                <p className="mt-4 font-sans text-xs italic text-sol-bark/40">
-                  Produzione limitata — disponibile fino ad esaurimento
-                </p>
-              </div>
-              <div className="order-2 relative min-h-[400px] overflow-hidden">
-                <Image
-                  src="/images/prodotti/olio-aromatizzato.jpg"
-                  alt="Miele del Relais Del Sol"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </article>
           </div>
         </div>
       </section>
@@ -278,7 +196,7 @@ export default function ProdottiPage() {
         </div>
       </section>
 
-      {/* <section className="bg-sol-sand py-12">
+      <section className="bg-sol-sand py-12">
         <div className="mx-auto max-w-7xl px-6 md:px-16">
           <div className="mb-8 text-center">
             <SectionLabel>I nostri prodotti</SectionLabel>
@@ -299,7 +217,7 @@ export default function ProdottiPage() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       <section className="bg-sol-terracotta px-6 py-16 text-center">
         <SectionLabel>
