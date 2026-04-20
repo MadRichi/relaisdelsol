@@ -204,14 +204,6 @@ export default function Hero() {
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [guests, setGuests] = useState<number>(2);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleBookingClick = () => {
     const url = `https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR${
@@ -240,24 +232,6 @@ export default function Hero() {
             "linear-gradient(to bottom, transparent 0%, rgba(92,74,50,0.7) 100%)",
         }}
       />
-
-      <div
-        className="absolute top-8 left-6 z-20 md:top-12 md:left-16"
-        style={{
-          opacity: Math.max(0, 1 - scrollY / 60),
-          transform: `translateY(-${scrollY * 0.55}px) scale(${1 + scrollY * 0.006})`,
-          pointerEvents: scrollY >= 60 ? "none" : "auto",
-        }}
-      >
-        <Image
-          src="/images/logo.png"
-          alt="Relais Del Sol"
-          width={120}
-          height={120}
-          className="object-contain w-36 h-auto md:w-48"
-          priority
-        />
-      </div>
 
       <div className="absolute inset-x-0 bottom-36 md:bottom-44 px-6 md:px-16">
         <div className="max-w-4xl">

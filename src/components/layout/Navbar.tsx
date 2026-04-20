@@ -23,7 +23,7 @@ function joinClasses(...classes: Array<string | false>) {
 }
 
 export default function Navbar() {
-  const { theme, hasHeroLogo } = useNavbarTheme();
+  const { theme } = useNavbarTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -75,12 +75,7 @@ export default function Navbar() {
 
         <Link
           href="/"
-          className={joinClasses(
-            "flex flex-1 items-center justify-center gap-2 transition-all duration-300 md:flex-none md:justify-start",
-            hasHeroLogo && !isScrolled
-              ? "opacity-0 -translate-y-2 pointer-events-none"
-              : "opacity-100 translate-y-0",
-          )}
+          className="flex flex-1 items-center justify-center gap-2 transition-all duration-300 md:flex-none md:justify-start"
           onClick={closeMobileMenu}
         >
           <Image
