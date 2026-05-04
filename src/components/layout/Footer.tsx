@@ -41,7 +41,7 @@ export default function Footer() {
             </p>
             <p className="font-sans text-sm">
               <Link
-                href="tel:+390456490008"
+                href="https://wa.me/390456490008"
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
               >
                 +39 045 649 0008
@@ -49,10 +49,10 @@ export default function Footer() {
             </p>
             <p className="font-sans text-sm">
               <Link
-                href="mailto:agriturismo@cadelsol.com"
+                href="mailto:info@relaisdelsol.com"
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
               >
-                agriturismo@cadelsol.com
+                info@relaisdelsol.com
               </Link>
             </p>
           </div>

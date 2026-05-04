@@ -151,10 +151,10 @@ export default function ContattiPage() {
                       Email
                     </p>
                     <Link
-                      href="mailto:agriturismo@cadelsol.com"
+                      href="mailto:info@relaisdelsol.com"
                       className="mt-0.5 font-sans text-sm text-sol-cream transition-colors hover:text-sol-cream/80"
                     >
-                      agriturismo@cadelsol.com
+                      info@relaisdelsol.com
                     </Link>
                   </div>
                 </div>

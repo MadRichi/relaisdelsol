@@ -26,6 +26,7 @@ const errorClassName = "mt-1 font-sans text-xs text-sol-terracotta";
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -40,9 +41,25 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitted(true);
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      setIsError(false);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Errore durante l'invio");
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      // Show error state — add isError state
+      setIsError(true);
+    }
   };
 
   if (isSubmitted) {
@@ -187,6 +204,12 @@ export default function ContactForm() {
           "Invia messaggio"
         )}
       </button>
+      {isError ? (
+        <p className="mt-3 font-sans text-xs text-sol-terracotta">
+          Si è verificato un errore. Riprova o contattaci direttamente a
+          info@relaisdelsol.com
+        </p>
+      ) : null}
     </form>
   );
 }
