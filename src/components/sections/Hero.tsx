@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -217,13 +216,18 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen h-screen w-full overflow-hidden">
-      <Image
-        src="/images/hero.jpg"
-        alt="Vista del lago e della campagna di Relais del Sol"
-        fill
-        priority
-        className="object-cover"
-      />
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/images/hero.jpg"
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videos/hero.webm" type="video/webm" />
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
 
       <div
         className="absolute inset-0"

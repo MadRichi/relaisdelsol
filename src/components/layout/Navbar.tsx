@@ -90,6 +90,7 @@ export default function Navbar() {
               "font-serif text-2xl italic",
               isScrolled ? "text-sol-bark" : transparentTextClass,
             )}
+            style={!isScrolled ? { textShadow: "0 1px 3px rgba(0,0,0,0.4)" } : undefined}
           >
             Relais Del Sol
           </span>
@@ -103,9 +104,10 @@ export default function Navbar() {
               className={joinClasses(
                 "font-sans text-sm uppercase tracking-wide transition-colors",
                 isScrolled
-                  ? "text-sol-bark hover:text-sol-terracotta"
-                  : joinClasses(transparentTextClass, transparentHoverClass),
+                  ? "text-sol-bark hover:text-sol-terracotta font-medium"
+                  : joinClasses(transparentTextClass, transparentHoverClass, "font-medium"),
               )}
+              style={!isScrolled ? { textShadow: "0 1px 3px rgba(0,0,0,0.4)" } : undefined}
             >
               {link.label}
             </Link>
