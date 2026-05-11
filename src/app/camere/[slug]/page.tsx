@@ -10,6 +10,8 @@ import { generatePageMetadata } from "@/lib/seo/metadata";
 import { getRoomSchema } from "@/lib/seo/schemas";
 import RoomGallery from "./RoomGallery";
 
+export const runtime = 'edge'
+
 const BOOKING_URL =
   "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
 
