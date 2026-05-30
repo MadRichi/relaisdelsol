@@ -1,0 +1,14 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/agricamping/page": "/agricamping",
+  "/api/contact/route": "/api/contact",
+  "/camere/[slug]/page": "/camere/[slug]",
+  "/camere/page": "/camere",
+  "/chi-siamo/page": "/chi-siamo",
+  "/contatti/page": "/contatti",
+  "/esperienze/page": "/esperienze",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/prodotti/page": "/prodotti"
+}

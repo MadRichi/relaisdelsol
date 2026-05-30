@@ -1,0 +1,14 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/agricamping/page": "app/agricamping/page.js",
+  "/api/contact/route": "app-edge-has-no-entrypoint",
+  "/camere/[slug]/page": "app/camere/[slug]/page.js",
+  "/camere/page": "app/camere/page.js",
+  "/chi-siamo/page": "app/chi-siamo/page.js",
+  "/contatti/page": "app/contatti/page.js",
+  "/esperienze/page": "app/esperienze/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/prodotti/page": "app/prodotti/page.js"
+}

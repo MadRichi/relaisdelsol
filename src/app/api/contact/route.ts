@@ -3,16 +3,10 @@ import { NextResponse } from 'next/server'
 
 export const runtime = 'edge'
 
+const resend = new Resend(process.env.RESEND_API_KEY)
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? 'info@relaisdelsol.com'
 
 export async function POST(request: Request) {
-  const resend = new Resend(process.env.RESEND_API_KEY ?? '')
-  if (!process.env.RESEND_API_KEY) {
-    return NextResponse.json(
-      { error: 'Configurazione email non disponibile' },
-      { status: 500 }
-    )
-  }
   try {
     const body = await request.json()
     const { nome, email, telefono, oggetto, messaggio } = body
