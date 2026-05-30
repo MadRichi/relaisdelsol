@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 
 const PREVIEW_KEY = 'relais2025'
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl
 
   // Allow all non-home pages freely
