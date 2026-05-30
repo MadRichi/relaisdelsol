@@ -87,7 +87,7 @@ export default function Navbar() {
           />
           <span
             className={joinClasses(
-              "font-serif text-2xl italic",
+              "font-serif text-2xl",
               isScrolled ? "text-sol-bark" : transparentTextClass,
             )}
             style={!isScrolled ? { textShadow: "0 1px 3px rgba(0,0,0,0.4)" } : undefined}

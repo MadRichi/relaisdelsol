@@ -29,7 +29,7 @@ export default function Footer() {
                 height={80}
                 className="object-contain w-20 h-auto"
               />
-              <p className="font-serif text-2xl italic text-sol-cream">
+              <p className="font-serif text-2xl text-sol-cream">
                 Relais Del Sol
               </p>
             </div>

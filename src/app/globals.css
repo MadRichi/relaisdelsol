@@ -1,17 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-sol-cream: #F5F0E8;
-  --color-sol-sand: #E8DCC8;
-  --color-sol-terracotta: #C4714A;
-  --color-sol-olive: #7A8C5E;
+  --color-sol-cream: #F5F1EA;
+  --color-sol-sand: #fffaf4;
+  --color-sol-terracotta: #D48A3A;
+  --color-sol-olive: #4A593F;
   --color-sol-lake: #4A7C9E;
-  --color-sol-bark: #5C4A32;
-  --color-sol-mist: #F9F6F0;
+  --color-sol-bark: #2f382b;
+  --color-sol-mist: #F5F1EA;
 
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
+  /* Extended palette */
+  --color-sol-burgundy: #441015;
+  --color-sol-rose-clay: #C39583;
+  --color-sol-olive-soft: #786F50;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", system-ui, sans-serif;
 }
 
 @layer base {
