@@ -207,12 +207,36 @@ export default function Hero() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.muted = true;
-      video.play().catch(() => {
-        // Autoplay blocked, poster will show
-      });
-    }
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+
+    const tryPlay = () => {
+      video.play().catch(() => {});
+    };
+
+    // Try immediately
+    tryPlay();
+
+    // Try when video metadata is loaded
+    video.addEventListener("loadeddata", tryPlay);
+
+    // Try when page becomes visible
+    document.addEventListener("visibilitychange", tryPlay);
+
+    // Try on first user interaction (iOS fallback)
+    const onInteraction = () => {
+      tryPlay();
+      document.removeEventListener("touchstart", onInteraction);
+    };
+    document.addEventListener("touchstart", onInteraction);
+
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      document.removeEventListener("visibilitychange", tryPlay);
+      document.removeEventListener("touchstart", onInteraction);
+    };
   }, []);
 
   const handleBookingClick = () => {
