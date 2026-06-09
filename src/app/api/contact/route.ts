@@ -20,8 +20,8 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: 'Relais Del Sol <onboarding@resend.dev>',
-      to: "riccardorampin@outlook.com" , /* TODO: replace with the email address with the info one */
+      from: 'Relais Del Sol <info@relaisdelsol.it>',
+      to: process.env.CONTACT_EMAIL ?? 'info@relaisdelsol.it', /* TODO: replace with the email address with the info one */
       replyTo: email,
       subject: `[Contatto] ${oggetto} — ${nome}`,
       html: `
