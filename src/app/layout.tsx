@@ -20,7 +20,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="it">
       <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          type="text/javascript"
+          src="https://embeds.iubenda.com/widgets/28d07542-847b-487d-a307-d535a312f3a2.js"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
