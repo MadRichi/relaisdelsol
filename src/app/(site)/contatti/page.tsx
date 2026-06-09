@@ -97,10 +97,10 @@ export default function ContattiPage() {
                       Telefono
                     </p>
                     <Link
-                      href="tel:+390456490008"
+                      href="tel:+3904511177408"
                       className="mt-0.5 font-sans text-sm text-sol-cream transition-colors hover:text-sol-cream/80"
                     >
-                      +39 045 649 0008
+                      +39 045 1117 7408
                     </Link>
                   </div>
                 </div>
@@ -125,12 +125,12 @@ export default function ContattiPage() {
                       WhatsApp
                     </p>
                     <Link
-                      href="https://wa.me/390456490008"
+                      href="https://wa.me/393480702953"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-0.5 font-sans text-sm text-sol-cream transition-colors hover:text-sol-cream/80"
                     >
-                      +39 045 649 0008
+                      +39 348 0702953
                     </Link>
                   </div>
                 </div>
@@ -151,10 +151,10 @@ export default function ContattiPage() {
                       Email
                     </p>
                     <Link
-                      href="mailto:info@relaisdelsol.com"
+                      href="mailto:info@relaisdelsol.it"
                       className="mt-0.5 font-sans text-sm text-sol-cream transition-colors hover:text-sol-cream/80"
                     >
-                      info@relaisdelsol.com
+                      info@relaisdelsol.it
                     </Link>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function ContattiPage() {
         </div>
       </section>
 
-      <section className="bg-sol-terracotta py-16 text-center">
+      {/*<section className="bg-sol-terracotta py-16 text-center">
         <div className="px-6">
           <SectionLabel>
             <span className="text-sol-cream/70">Prenota direttamente</span>
@@ -213,7 +213,7 @@ export default function ContattiPage() {
             </p>
           </div>
         </div>
-      </section>
+      </section>*/} 
     </>
   );
 }

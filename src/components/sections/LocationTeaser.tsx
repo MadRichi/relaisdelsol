@@ -46,9 +46,9 @@ export default function LocationTeaser() {
             >
               Ottieni indicazioni
             </Button>
-            <Button variant="outline" href="/esperienze#territorio">
+            {/*<Button variant="outline" href="/esperienze#territorio">
               Scopri la zona
-            </Button>
+            </Button>*/}
           </div>
         </div>
 

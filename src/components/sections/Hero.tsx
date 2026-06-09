@@ -100,7 +100,7 @@ function DateField({ label, value, onChange }: DateFieldProps) {
     setViewMonth((prev) => prev + 1);
   };
 
-  return (
+  {/*return (
     <div
       ref={containerRef}
       className="relative flex flex-1 cursor-pointer flex-col px-6 py-5 transition-colors hover:bg-sol-cream/5"
@@ -196,7 +196,7 @@ function DateField({ label, value, onChange }: DateFieldProps) {
         </div>
       ) : null}
     </div>
-  );
+  );*/}
 }
 
 export default function Hero() {
@@ -253,7 +253,7 @@ export default function Hero() {
             alla tua vacanza più bella.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          {/*<div className="mt-8 flex flex-wrap items-center gap-4">
             <Button variant="primary" href="/camere">
               Scopri le Camere
             </Button>
@@ -264,7 +264,7 @@ export default function Hero() {
             >
               Prenota Direttamente
             </Button>
-          </div>
+          </div>*/}
         </div>
       </div>
 
@@ -287,7 +287,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 bg-sol-bark/85 backdrop-blur-md">
+      {/*<div className="absolute bottom-0 left-0 right-0 bg-sol-bark/85 backdrop-blur-md">
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-1 gap-0 divide-x divide-sol-cream/20">
             <DateField label="Arrivo" value={checkin} onChange={setCheckin} />
@@ -326,7 +326,7 @@ export default function Hero() {
             Verifica disponibilità
           </button>
         </div>
-      </div>
+      </div>*/}
     </section>
   );
 }

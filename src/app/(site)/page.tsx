@@ -6,6 +6,7 @@ import DirectBookingBanner from "@/components/sections/DirectBookingBanner"
 import LocationTeaser from "@/components/sections/LocationTeaser"
 import FinalCTA from "@/components/sections/FinalCTA"
 import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter"
+import FamilyStory from "@/components/sections/FamilyStory"
 
 export default function Home() {
   return (
@@ -13,11 +14,12 @@ export default function Home() {
       <NavbarThemeSetter theme="light" heroLogo={true} />
       <Hero />
       <ValueProposition />
-      <RoomsPreview />
-      <ServicesHighlight />
-      <DirectBookingBanner />
+      {/* <RoomsPreview /> */}
+      {/* <ServicesHighlight /> */}
+      {/* <DirectBookingBanner /> */}
+      <FamilyStory />
       <LocationTeaser />
-      <FinalCTA />
+      {/*<FinalCTA />*/}
     </main>
   )
 }

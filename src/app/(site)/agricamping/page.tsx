@@ -39,7 +39,7 @@ const amenities = [
   "Barbecue (su richiesta, soggetto a disponibilità)",
 ];
 
-const agricampingImages = Array.from({ length: 11 }, (_, index) => ({
+const agricampingImages = Array.from({ length: 10 }, (_, index) => ({
   src: `/images/agricamping/agricamping-${index + 1}.jpg`,
   alt: "Mobilhome luxury Agriglamping Relais del Sol",
   width: 1024,
@@ -49,10 +49,10 @@ const agricampingImages = Array.from({ length: 11 }, (_, index) => ({
 export default function AgricampingPage() {
   return (
     <main>
-      <NavbarThemeSetter theme="dark" />
+      <NavbarThemeSetter theme="light" />
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <Image
-          src="/images/agricamping/agricamping-1.jpg"
+          src="/images/agricamping-hero.jpg"
           alt="Mobilhome luxury Agriglamping Relais del Sol"
           fill
           priority

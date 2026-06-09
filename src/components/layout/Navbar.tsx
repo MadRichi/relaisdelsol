@@ -10,11 +10,11 @@ const BOOKING_URL =
   "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
 
 const navLinks = [
-  { label: "Camere", href: "/camere" },
-  { label: "Agriglamping", href: "/agricamping" },
-  { label: "Esperienze", href: "/esperienze" },
-  { label: "Prodotti", href: "/prodotti" },
-  { label: "Chi Siamo", href: "/chi-siamo" },
+  /* { label: "Camere", href: "/camere" }, */
+  /* { label: "Agriglamping", href: "/agricamping" }, */
+  /* { label: "Esperienze", href: "/esperienze" }, */
+  /* { label: "Prodotti", href: "/prodotti" }, */
+  /* { label: "Chi Siamo", href: "/chi-siamo" }, */
   { label: "Contatti", href: "/contatti" },
 ] as const;
 
@@ -114,11 +114,11 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="ml-auto hidden md:block">
+        {/*<div className="ml-auto hidden md:block">
           <Button variant="primary" size="sm" href={BOOKING_URL}>
             Prenota Ora
           </Button>
-        </div>
+        </div>*/}
 
         <button
           type="button"

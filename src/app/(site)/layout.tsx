@@ -13,7 +13,7 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
       <Navbar />
       <main>{children}</main>
       <Footer />
-      <StickyBookingBar />
+      {/* <StickyBookingBar /> */}
     </>
   );
 }

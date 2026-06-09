@@ -7,11 +7,11 @@ const BOOKING_URL =
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Camere", href: "/camere" },
-  { label: "Agriglamping", href: "/agricamping" },
-  { label: "Esperienze", href: "/esperienze" },
-  { label: "Prodotti", href: "/prodotti" },
-  { label: "Chi Siamo", href: "/chi-siamo" },
+  /* { label: "Camere", href: "/camere" }, */
+  /* { label: "Agriglamping", href: "/agricamping" }, */
+  /* { label: "Esperienze", href: "/esperienze" }, */
+  /* { label: "Prodotti", href: "/prodotti" }, */
+  /* { label: "Chi Siamo", href: "/chi-siamo" }, */
   { label: "Contatti", href: "/contatti" },
 ] as const;
 
@@ -41,18 +41,18 @@ export default function Footer() {
             </p>
             <p className="font-sans text-sm">
               <Link
-                href="https://wa.me/390456490008"
+                href="https://wa.me/393480702953"
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
               >
-                +39 045 649 0008
+                +39 045 1117 7408
               </Link>
             </p>
             <p className="font-sans text-sm">
               <Link
-                href="mailto:info@relaisdelsol.com"
+                href="mailto:info@relaisdelsol.it"
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
               >
-                info@relaisdelsol.com
+                info@relaisdelsol.it
               </Link>
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-5">
-            <p className="font-sans text-xs uppercase tracking-widest text-sol-cream">
+            {/*<p className="font-sans text-xs uppercase tracking-widest text-sol-cream">
               Prenota Direttamente
             </p>
             <p className="font-sans text-sm leading-relaxed text-sol-cream/80">
@@ -88,16 +88,16 @@ export default function Footer() {
             >
               Verifica Disponibilità
             </Button>
-
+*/}
             <div className="flex items-center gap-4">
               <Link
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/relaisdelsol?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
                 aria-label="Instagram"
               >
                 <svg
-                  width="20"
-                  height="20"
+                  width="40"
+                  height="40"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -124,13 +124,13 @@ export default function Footer() {
               </Link>
 
               <Link
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/RelaisdelSol"
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
                 aria-label="Facebook"
               >
                 <svg
-                  width="20"
-                  height="20"
+                  width="40"
+                  height="40"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
