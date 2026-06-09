@@ -200,9 +200,20 @@ function DateField({ label, value, onChange }: DateFieldProps) {
 }
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [checkin, setCheckin] = useState("");
   const [checkout, setCheckout] = useState("");
   const [guests, setGuests] = useState<number>(2);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {
+        // Autoplay blocked, poster will show
+      });
+    }
+  }, []);
 
   const handleBookingClick = () => {
     const url = `https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR${
@@ -217,6 +228,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen h-screen w-full overflow-hidden">
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
@@ -225,8 +237,8 @@ export default function Hero() {
         poster="/images/hero.jpg"
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/videos/hero.webm" type="video/webm" />
         <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/hero.webm" type="video/webm" />
       </video>
 
       <div
