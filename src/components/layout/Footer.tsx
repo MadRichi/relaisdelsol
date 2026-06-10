@@ -41,7 +41,7 @@ export default function Footer() {
             </p>
             <p className="font-sans text-sm">
               <Link
-                href="https://wa.me/393480702953"
+                href="tel:+390451177408"
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
               >
                 +39 045 1117 7408

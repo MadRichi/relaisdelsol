@@ -20,7 +20,7 @@ export function getLodgingBusinessSchema() {
       latitude: 45.5083,
       longitude: 10.7378,
     },
-    telephone: "+390456490008",
+    telephone: "+390451177408",
     priceRange: "€€",
     amenityFeature: ["Pool", "Breakfast", "WiFi", "Dog Friendly", "Lake View"],
   };

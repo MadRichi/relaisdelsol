@@ -1,13 +1,39 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { NavbarThemeProvider } from "@/lib/navbar-theme";
-import { siteConfig } from "@/lib/seo/metadata";
 import { getLodgingBusinessSchema } from "@/lib/seo/schemas";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Agriturismo Relais del Sol | Lazise, Lago di Garda",
-  description: siteConfig.description,
+  metadataBase: new URL("https://www.relaisdelsol.it"),
+  title: "Agriturismo Relais del Sol | Pacengo di Lazise, Lago di Garda",
+  description:
+    "Agriturismo sul Lago di Garda a Pacengo di Lazise. Camere, agriglamping, piscina a sfioro e prodotti della nostra terra. Prenota direttamente.",
+  keywords: [
+    "agriturismo lago di garda",
+    "agriturismo pacengo",
+    "agriturismo lazise",
+    "agriglamping lago di garda",
+    "agriturismo con piscina verona",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "it_IT",
+    url: "https://www.relaisdelsol.it",
+    siteName: "Relais del Sol",
+    title: "Agriturismo Relais del Sol | Pacengo di Lazise, Lago di Garda",
+    description:
+      "Agriturismo sul Lago di Garda a Pacengo di Lazise. Camere, agriglamping, piscina e prodotti della nostra terra.",
+    images: [
+      {
+        url: "/images/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Agriturismo Relais del Sol",
+      },
+    ],
+  },
+  robots: { index: true, follow: true },
 };
 
 type RootLayoutProps = {
