@@ -1,28 +1,42 @@
 import type { Room } from "../content/rooms";
-
-const SITE_URL = "https://www.cadelsol.com";
+import { BOOKING_URL, SITE_URL, contact } from "@/lib/site";
 
 export function getLodgingBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
+    "@id": `${SITE_URL}/#lodging`,
     name: "Agriturismo Relais del Sol",
+    url: SITE_URL,
+    image: `${SITE_URL}/images/og-default.jpg`,
+    email: contact.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Loc. Casa Antonia, 1",
-      addressLocality: "Pacengo di Lazise",
-      addressRegion: "VR",
-      postalCode: "37017",
+      streetAddress: contact.address.street,
+      addressLocality: contact.address.locality,
+      addressRegion: contact.address.region,
+      postalCode: contact.address.postalCode,
       addressCountry: "IT",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 45.5083,
-      longitude: 10.7378,
+      latitude: contact.geo.latitude,
+      longitude: contact.geo.longitude,
     },
-    telephone: "+390451177408",
+    telephone: contact.phoneHref.replace("tel:", ""),
     priceRange: "€€",
-    amenityFeature: ["Pool", "Breakfast", "WiFi", "Dog Friendly", "Lake View"],
+    petsAllowed: true,
+    amenityFeature: ["Piscina", "Colazione", "WiFi", "Parcheggio", "Vista lago"].map(
+      (name) => ({
+        "@type": "LocationFeatureSpecification",
+        name,
+        value: true,
+      }),
+    ),
+    sameAs: [
+      "https://www.instagram.com/relaisdelsol",
+      "https://www.facebook.com/RelaisdelSol",
+    ],
   };
 }
 
@@ -37,36 +51,26 @@ export function getRoomSchema(room: Room) {
     image: room.images.map((image) => `${SITE_URL}${image.src}`),
     occupancy: {
       "@type": "QuantitativeValue",
-      value: room.maxGuests,
+      maxValue: room.maxGuests,
       unitCode: "C62",
     },
-    bed: room.features,
+    bed: room.beds,
     amenityFeature: room.amenities.map((amenity) => ({
       "@type": "LocationFeatureSpecification",
       name: amenity,
       value: true,
     })),
-    petsAllowed: room.amenities.some((amenity) =>
-      amenity.toLowerCase().includes("dog"),
-    ),
     containedInPlace: {
-      "@type": "LodgingBusiness",
-      name: "Agriturismo Relais del Sol",
-      url: SITE_URL,
+      "@id": `${SITE_URL}/#lodging`,
     },
-    offers: room.available
-      ? {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          priceCurrency: "EUR",
-          ...(room.priceFrom ? { price: room.priceFrom } : {}),
-          url: "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR",
-        }
-      : {
-          "@type": "Offer",
-          availability: "https://schema.org/SoldOut",
-          priceCurrency: "EUR",
-          url: "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR",
-        },
+    offers: {
+      "@type": "Offer",
+      availability: room.available
+        ? "https://schema.org/InStock"
+        : "https://schema.org/SoldOut",
+      priceCurrency: "EUR",
+      ...(room.priceFrom ? { price: room.priceFrom } : {}),
+      url: BOOKING_URL,
+    },
   };
 }

@@ -12,7 +12,7 @@ const items = [
     number: "02",
     title: "Ospitalità di famiglia",
     description:
-      "Una grande cura ha caraterizzato la scelta di ogni tessuto, ogni profumo, ogni dettaglio. Non per fare un albergo, ma per condividere il posto dove vivono.",
+      "Una grande cura ha caratterizzato la scelta di ogni tessuto, ogni profumo, ogni dettaglio. Non per fare un albergo, ma per condividere il posto dove vivono.",
   },
   {
     number: "03",

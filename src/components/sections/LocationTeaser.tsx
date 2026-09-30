@@ -1,5 +1,6 @@
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
+import { contact } from "@/lib/site";
 
 export default function LocationTeaser() {
   return (
@@ -12,8 +13,8 @@ export default function LocationTeaser() {
           </h2>
           <p className="mt-6 font-sans text-sm leading-relaxed text-sol-bark/70">
             Pacengo di Lazise è una delle frazioni più tranquille della sponda
-            veronese del Lago di Garda. Siamo a 5 minuti a piedi dall&apos;acqua, a
-            10 minuti da Lazise, a 20 minuti da Bardolino.
+            veronese del Lago di Garda. La spiaggia di Pacengo è a 15 minuti a
+            piedi, Lazise a 8 minuti d&apos;auto, Bardolino a 15.
           </p>
 
           <div className="mt-8 flex flex-col gap-3">
@@ -26,13 +27,13 @@ export default function LocationTeaser() {
             <div className="flex items-center gap-3">
               <span className="h-1.5 w-1.5 rounded-full bg-sol-terracotta" />
               <p className="font-sans text-sm text-sol-bark/70">
-                5 min a piedi dal lago
+                15 min a piedi dal lago · Movieland a 12 min a piedi
               </p>
             </div>
             <div className="flex items-center gap-3">
               <span className="h-1.5 w-1.5 rounded-full bg-sol-terracotta" />
               <p className="font-sans text-sm text-sol-bark/70">
-                10 min da Lazise, 20 min da Bardolino
+                8 min in auto da Lazise, 15 min da Bardolino, 4 min da Gardaland
               </p>
             </div>
           </div>
@@ -40,29 +41,29 @@ export default function LocationTeaser() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Button
               variant="primary"
-              href="https://www.google.com/maps/dir/?api=1&destination=Loc.+Casa+Antonia+1+Pacengo+di+Lazise"
+              href={contact.mapsDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
               Ottieni indicazioni
             </Button>
-            {/*<Button variant="outline" href="/esperienze#territorio">
+            <Button variant="outline" href="/esperienze#territorio">
               Scopri la zona
-            </Button>*/}
+            </Button>
           </div>
         </div>
 
         <div className="min-h-[400px] overflow-hidden rounded-none md:min-h-[500px]">
           <iframe
+            data-cmp-ab="1"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.1668086373817!2d10.721606350999053!3d45.4714915715088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781e94ba76f9b2f%3A0xfec8bc838a99fc43!2sCa&#39;%20del%20Sol!5e1!3m2!1sit!2sit!4v1776344145649!5m2!1sit!2sit"
             width="100%"
             height="100%"
-            style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Posizione Agriturismo Relais del Sol"
-            className="min-h-[400px] w-full md:min-h-[500px]"
+            className="min-h-[400px] w-full border-0 md:min-h-[500px]"
           />
         </div>
       </div>

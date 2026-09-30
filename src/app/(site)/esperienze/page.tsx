@@ -1,19 +1,19 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 import SectionLabel from "@/components/ui/SectionLabel";
 import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter";
+import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
+import { generatePageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Esperienze | Relais Del Sol — Lazise, Lago di Garda",
+export const metadata = generatePageMetadata({
+  title: "Esperienze | Agriturismo Relais del Sol — Lazise, Lago di Garda",
   description:
-    "Scopri le esperienze del Relais Del Sol: parco con piscina a sfioro, colazione con prodotti locali, eventi privati e tutto il territorio del Lago di Garda.",
-};
-
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
+    "Parco con piscina a sfioro, colazione con prodotti locali, eventi privati e tutto il territorio del Lago di Garda: le esperienze del Relais del Sol.",
+  path: "/esperienze",
+  image: "/images/esperienze-hero.jpg",
+});
 
 const poolInfo = [
   { label: "Orario piscina", value: "10:00 - 19:00" },
@@ -37,9 +37,10 @@ const eventsInfo = [
 ] as const;
 
 const practicalInfo = [
-  "A 50m: fermata autobus",
-  "A 2 km: ospedale di Peschiera",
-  "A 4 km: stazione ferroviaria di Peschiera",
+  "A 450 m (7 minuti a piedi): fermata autobus Pacengo",
+  "A 1,2 km (15 minuti a piedi): spiaggia e porto di Pacengo",
+  "A 3,8 km: ospedale Pederzoli di Peschiera del Garda",
+  "A 4,6 km: stazione ferroviaria di Peschiera del Garda",
 ] as const;
 
 const territoryServices = [
@@ -49,25 +50,25 @@ const territoryServices = [
 ] as const;
 
 const distanceCards = [
-  { dist: "1.8 km", name: "Gardaland", desc: "Parco divertimenti n°1 in Italia" },
-  { dist: "200 m", name: "Movieland Park", desc: "Parco tematico dedicato al cinema" },
-  { dist: "200 m", name: "Caneva Aquapark", desc: "Uno dei parchi acquatici più grandi d'Italia" },
-  { dist: "2 km", name: "Parco Natura Viva", desc: "Parco zoologico a Pastrengo" },
-  { dist: "3 km", name: "Bardolino", desc: "Vino DOC e lungolago" },
+  { dist: "900 m · 12 min a piedi", name: "Movieland Park", desc: "Parco tematico dedicato al cinema" },
+  { dist: "1,1 km · 16 min a piedi", name: "Caneva Aquapark", desc: "Uno dei parchi acquatici più grandi d'Italia" },
+  { dist: "2 km · 4 min in auto", name: "Gardaland", desc: "Parco divertimenti n°1 in Italia" },
+  { dist: "9 km · 15 min in auto", name: "Parco Natura Viva", desc: "Parco zoologico a Bussolengo" },
+  { dist: "9,4 km · 15 min in auto", name: "Bardolino", desc: "Vino DOC e lungolago" },
   {
-    dist: "3 km",
+    dist: "2,5 km · 4 min in auto",
     name: "Terme Villa dei Cedri",
     desc: "Parco termale con alberi secolari",
   },
-  { dist: "4 km", name: "Lazise", desc: "Borgo medievale sul lago" },
+  { dist: "4,6 km · 8 min in auto", name: "Lazise", desc: "Borgo medievale sul lago" },
   {
-    dist: "7 km",
+    dist: "16 km · 22 min in auto",
     name: "Parco Sigurtà",
     desc: "Una delle oasi verdi più belle d'Italia",
   },
-  { dist: "15 km", name: "Museo Nicolis", desc: "Museo dell'auto e della meccanica" },
+  { dist: "24 km · 28 min in auto", name: "Museo Nicolis", desc: "Museo dell'auto e della meccanica" },
   {
-    dist: "20 km",
+    dist: "33 km · 35 min in auto",
     name: "Verona",
     desc: "Patrimonio UNESCO — Romeo e Giulietta",
   },
@@ -96,6 +97,7 @@ export default function EsperienzePage() {
           alt="Esperienze tra piscina, parco e Lago di Garda"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-sol-bark/70" />
@@ -138,11 +140,19 @@ export default function EsperienzePage() {
                     },
                     {
                       src: "/images/services/piscina-3.jpg",
-                      alt: "Area relax bordo piscina",
+                      alt: "Piscina a sfioro con lettini e ombrelloni",
                     },
                     {
                       src: "/images/services/piscina-4.jpg",
-                      alt: "Campi sportivi del Relais Del Sol",
+                      alt: "Vaso in terracotta nel giardino accanto alla piscina",
+                    },
+                    {
+                      src: "/images/services/chiosco.jpg",
+                      alt: "Chiosco bordo piscina tra le palme",
+                    },
+                    {
+                      src: "/images/services/parco.jpg",
+                      alt: "Il grande parco verde del Relais del Sol",
                     },
                   ]}
                   aspectRatio="aspect-[4/3] md:aspect-auto md:h-full"
@@ -157,7 +167,7 @@ export default function EsperienzePage() {
                   Un enorme parco con secolari cedri, abeti, pini marittimi e
                   magnolie che raggiungono quasi i 20 metri di altezza circonda il Relais. Al centro, la
                   piscina a sfioro rivestita in mosaico Bisazza, con getti
-                  idromassaggio e sdraio per ogni camera. Si trovano inoltre un'area giochi attrezzata per i bambini e campi da calcio e pallavolo. Un posto dove il
+                  idromassaggio e sdraio per ogni camera. Si trovano inoltre un&apos;area giochi attrezzata per i bambini e campi da calcio e pallavolo. Un posto dove il
                   pomeriggio non ha fretta.
                 </p>
                 <div className="mt-6 grid grid-cols-2 gap-4">
@@ -180,12 +190,27 @@ export default function EsperienzePage() {
             </article>
 
             <article id="colazione" className="grid grid-cols-1 gap-0 bg-sol-mist md:grid-cols-2">
-              <div className="order-2 relative min-h-[400px] overflow-hidden md:order-2">
-                <Image
-                  src="/images/services/colazione.jpg"
-                  alt="Colazione con prodotti locali al Relais Del Sol"
-                  fill
-                  className="object-cover"
+              <div className="order-2 min-h-[400px]">
+                <ImageCarousel
+                  images={[
+                    {
+                      src: "/images/services/colazione-buffet.jpg",
+                      alt: "Buffet della colazione nella veranda del Relais del Sol",
+                    },
+                    {
+                      src: "/images/services/colazione-sala.jpg",
+                      alt: "Tavoli apparecchiati nella veranda della colazione",
+                    },
+                    {
+                      src: "/images/services/colazione.jpg",
+                      alt: "Torte e dolci fatti in casa per la colazione",
+                    },
+                    {
+                      src: "/images/services/colazione-veranda.jpg",
+                      alt: "La veranda della colazione vista dal giardino",
+                    },
+                  ]}
+                  aspectRatio="aspect-[4/3] md:aspect-auto md:h-full"
                 />
               </div>
               <div className="order-1 flex flex-col justify-center p-10 md:p-14">
@@ -198,8 +223,8 @@ export default function EsperienzePage() {
                   vista sul lago di Garda, ogni mattina il buffet si riempie di
                   prodotti italiani: dolci fatti in casa, mieli, marmellate,
                   uova, affettati, frutta fresca, yogurt, prodotti
-                  dell&apos;acetaia. E poi caffe, cappuccino, succhi, te. La
-                  colazione e inclusa nel soggiorno - ma la vista non ha prezzo.
+                  dell&apos;acetaia. E poi caffè, cappuccino, succhi, tè. La
+                  colazione è inclusa nel soggiorno, ma la vista non ha prezzo.
                 </p>
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   {breakfastInfo.map((item) => (
@@ -225,12 +250,12 @@ export default function EsperienzePage() {
                 <ImageCarousel
                   images={[
                     {
-                      src: "/images/services/eventi.jpg",
-                      alt: "Evento privato al Relais Del Sol",
+                      src: "/images/services/eventi-2.jpg",
+                      alt: "Cerimonia all'aperto nel parco del Relais del Sol",
                     },
                     {
-                      src: "/images/services/eventi-2.jpg",
-                      alt: "Matrimonio al Relais Del Sol",
+                      src: "/images/services/eventi-veranda.jpg",
+                      alt: "Veranda con salotti allestita per un evento",
                     },
                     {
                       src: "/images/services/eventi-3.jpg",
@@ -297,9 +322,11 @@ export default function EsperienzePage() {
               qui.
             </p>
             <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">
-              A soli 4 km sorge Lazise, uno dei borghi più belli del lago, con
-              le sue mura medievali e il porto antico. A 3 km Bardolino,
-              capitale del vino Bardolino DOC. A 20 km Verona, città di Romeo e
+              Movieland e Caneva Aquapark si raggiungono a piedi, Gardaland è a
+              due chilometri. A meno di 5 km sorge Lazise, uno dei borghi più
+              belli del lago, con le sue mura medievali e il porto antico. A un
+              quarto d&apos;ora d&apos;auto Bardolino, capitale del vino
+              Bardolino DOC. A circa mezz&apos;ora Verona, città di Romeo e
               Giulietta e patrimonio UNESCO.
             </p>
 
@@ -374,7 +401,9 @@ export default function EsperienzePage() {
         <div className="mt-8 flex flex-col items-center gap-4">
           <Button
             href={BOOKING_URL}
-            className="rounded-none bg-sol-cream px-8 py-4 font-sans text-sm uppercase tracking-wide text-sol-bark hover:bg-sol-sand"
+              {...bookingLinkProps}
+            variant="light"
+            size="xl"
           >
             Verifica disponibilità
           </Button>

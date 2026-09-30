@@ -7,19 +7,24 @@ import LocationTeaser from "@/components/sections/LocationTeaser"
 import FinalCTA from "@/components/sections/FinalCTA"
 import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter"
 import FamilyStory from "@/components/sections/FamilyStory"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+}
 
 export default function Home() {
   return (
-    <main>
+    <>
       <NavbarThemeSetter theme="light" heroLogo={true} />
       <Hero />
       <ValueProposition />
-      {/* <RoomsPreview /> */}
-      {/* <ServicesHighlight /> */}
-      {/* <DirectBookingBanner /> */}
+      <RoomsPreview />
+      <ServicesHighlight />
+      <DirectBookingBanner />
       <FamilyStory />
       <LocationTeaser />
-      {/*<FinalCTA />*/}
-    </main>
+      <FinalCTA />
+    </>
   )
 }

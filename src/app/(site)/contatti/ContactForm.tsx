@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { contact } from "@/lib/site";
 
 type ContactFormValues = {
   nome: string;
@@ -14,6 +16,7 @@ type ContactFormValues = {
     | "Eventi privati"
     | "Altro";
   messaggio: string;
+  privacy: boolean;
 };
 
 const inputClassName =
@@ -38,6 +41,7 @@ export default function ContactForm() {
       telefono: "",
       oggetto: "Informazioni generali",
       messaggio: "",
+      privacy: false,
     },
   });
 
@@ -47,7 +51,13 @@ export default function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          nome: data.nome,
+          email: data.email,
+          telefono: data.telefono,
+          oggetto: data.oggetto,
+          messaggio: data.messaggio,
+        }),
       });
 
       if (!response.ok) {
@@ -57,7 +67,6 @@ export default function ContactForm() {
       setIsSubmitted(true);
     } catch (error) {
       console.error(error);
-      // Show error state — add isError state
       setIsError(true);
     }
   };
@@ -172,6 +181,25 @@ export default function ContactForm() {
             <p className={errorClassName}>{errors.messaggio.message}</p>
           ) : null}
         </div>
+        <div className="md:col-span-2">
+          <label className="flex items-start gap-3 font-sans text-xs leading-relaxed text-sol-bark/70">
+            <input
+              type="checkbox"
+              className="mt-0.5 accent-sol-terracotta"
+              {...register("privacy", {
+                required: "Per inviare il messaggio devi accettare l'informativa privacy.",
+              })}
+            />
+            <span>
+              Ho letto l&apos;
+              <Link href="/privacy-policy" className="underline underline-offset-2">
+                informativa privacy
+              </Link>{" "}
+              e acconsento al trattamento dei dati per ricevere una risposta.
+            </span>
+          </label>
+          {errors.privacy ? <p className={errorClassName}>{errors.privacy.message}</p> : null}
+        </div>
       </div>
 
       <button
@@ -206,8 +234,10 @@ export default function ContactForm() {
       </button>
       {isError ? (
         <p className="mt-3 font-sans text-xs text-sol-terracotta">
-          Si è verificato un errore. Riprova o contattaci direttamente a
-          info@relaisdelsol.com
+          Si è verificato un errore. Riprova o contattaci direttamente a{" "}
+          <Link href={`mailto:${contact.email}`} className="underline underline-offset-2">
+            {contact.email}
+          </Link>
         </p>
       ) : null}
     </form>

@@ -61,7 +61,13 @@ export default function ImageCarousel({
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Image src={image.src} alt={image.alt} fill className="object-cover" />
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
         </div>
       ))}
 

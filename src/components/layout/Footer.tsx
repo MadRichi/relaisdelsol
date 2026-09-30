@@ -1,24 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../ui/Button";
-
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
+import { BOOKING_URL, bookingLinkProps, contact } from "@/lib/site";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  /* { label: "Camere", href: "/camere" }, */
-  /* { label: "Agriglamping", href: "/agricamping" }, */
-  /* { label: "Esperienze", href: "/esperienze" }, */
-  /* { label: "Prodotti", href: "/prodotti" }, */
-  /* { label: "Chi Siamo", href: "/chi-siamo" }, */
+  { label: "Camere", href: "/camere" },
+  { label: "Agriglamping", href: "/agricamping" },
+  { label: "Esperienze", href: "/esperienze" },
+  { label: "Chi Siamo", href: "/chi-siamo" },
   { label: "Contatti", href: "/contatti" },
 ] as const;
 
 export default function Footer() {
   return (
     <footer className="bg-sol-bark text-sol-cream/80">
-      <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-28 md:px-8 md:pb-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -37,22 +34,22 @@ export default function Footer() {
               Dove la campagna tocca il lago
             </p>
             <p className="font-sans text-sm leading-relaxed text-sol-cream/80">
-              Loc. Casa Antonia, 1 — 37017 Pacengo di Lazise (VR)
+              {contact.address.street} — {contact.address.postalCode} {contact.address.locality} ({contact.address.region})
             </p>
             <p className="font-sans text-sm">
               <Link
-                href="tel:+390451177408"
+                href={contact.phoneHref}
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
               >
-                +39 045 1117 7408
+                {contact.phoneDisplay}
               </Link>
             </p>
             <p className="font-sans text-sm">
               <Link
-                href="mailto:info@relaisdelsol.it"
+                href={`mailto:${contact.email}`}
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
               >
-                info@relaisdelsol.it
+                {contact.email}
               </Link>
             </p>
           </div>
@@ -75,25 +72,27 @@ export default function Footer() {
           </div>
 
           <div className="space-y-5">
-            {/*<p className="font-sans text-xs uppercase tracking-widest text-sol-cream">
+            <p className="font-sans text-xs uppercase tracking-widest text-sol-cream">
               Prenota Direttamente
             </p>
             <p className="font-sans text-sm leading-relaxed text-sol-cream/80">
               Il prezzo migliore è sempre sul nostro sito ufficiale.
             </p>
             <Button
-              variant="outline"
+              variant="ghost"
               href={BOOKING_URL}
-              className="border-sol-cream text-sol-cream hover:bg-sol-cream/10"
+              {...bookingLinkProps}
+              className="text-sol-cream"
             >
               Verifica Disponibilità
             </Button>
-*/}
             <div className="flex items-center gap-4">
               <Link
                 href="https://www.instagram.com/relaisdelsol?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   width="40"
@@ -127,6 +126,8 @@ export default function Footer() {
                 href="https://www.facebook.com/RelaisdelSol"
                 className="text-sol-cream/80 transition-colors hover:text-sol-cream"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   width="40"
@@ -149,10 +150,13 @@ export default function Footer() {
         <div className="mt-12 border-t border-sol-cream/20 pt-6">
           <div className="flex flex-col gap-2 font-sans text-xs text-sol-cream/70 md:flex-row md:items-center md:justify-between">
             <p>© {new Date().getFullYear()} Relais del Sol. Tutti i diritti riservati.</p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <p>P.IVA 01930050230</p>
               <Link href="/privacy-policy" className="hover:text-sol-cream transition-colors">
                 Privacy Policy
+              </Link>
+              <Link href="/cookie-policy" className="hover:text-sol-cream transition-colors">
+                Cookie Policy
               </Link>
             </div>
           </div>

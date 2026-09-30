@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
+import { generatePageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Prodotti | Relais Del Sol — Lazise, Lago di Garda",
+export const metadata = generatePageMetadata({
+  title: "Prodotti | Agriturismo Relais del Sol — Lazise, Lago di Garda",
   description:
-    "Vino e olio extravergine prodotti dal Relais Del Sol a Pacengo di Lazise. Acquistali direttamente in struttura.",
-};
-
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
+    "Vino e olio extravergine prodotti dal Relais del Sol a Pacengo di Lazise. Acquistali direttamente in struttura.",
+  path: "/prodotti",
+  noIndex: true,
+});
 
 const galleryImages = [
   "/images/prodotti/prodotti-1.jpg",
@@ -28,6 +28,7 @@ export default function ProdottiPage() {
           alt="Prodotti del Relais Del Sol"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-sol-bark/70" />
@@ -229,7 +230,9 @@ export default function ProdottiPage() {
         <div className="mt-8 flex justify-center">
           <Button
             href={BOOKING_URL}
-            className="rounded-none bg-sol-cream px-8 py-4 font-sans text-sm uppercase tracking-wide text-sol-bark hover:bg-sol-sand"
+              {...bookingLinkProps}
+            variant="light"
+            size="xl"
           >
             Prenota il tuo soggiorno
           </Button>

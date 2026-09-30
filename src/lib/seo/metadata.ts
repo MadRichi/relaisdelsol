@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export const siteConfig = {
   name: "Agriturismo Relais del Sol",
   description:
-    "Agriturismo sul Lago di Garda a Pacengo di Lazise: camere eleganti, agricamping luxury, piscina, colazione e atmosfera autentica tra campagna e lago.",
-  url: "https://www.cadelsol.com",
+    "Agriturismo sul Lago di Garda a Pacengo di Lazise: camere eleganti, agriglamping in mobilhome, piscina, colazione e atmosfera autentica tra campagna e lago.",
+  url: SITE_URL,
   keywords: [
     "agriturismo lago di garda",
     "agriturismo Lazise",
+    "agriturismo Pacengo",
     "glamping lago di garda",
-    "mobilhome luxury lago di garda",
+    "mobilhome lago di garda",
     "agriturismo con piscina Verona",
-    "agriturismo dog friendly lago di garda",
+    "camere vista lago di garda",
   ],
 } as const;
 
@@ -20,6 +22,7 @@ type GeneratePageMetadataInput = {
   description: string;
   path: string;
   image?: string;
+  noIndex?: boolean;
 };
 
 export function generatePageMetadata({
@@ -27,6 +30,7 @@ export function generatePageMetadata({
   description,
   path,
   image,
+  noIndex,
 }: GeneratePageMetadataInput): Metadata {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   const url = `${siteConfig.url}${normalizedPath}`;
@@ -39,7 +43,6 @@ export function generatePageMetadata({
     title,
     description,
     keywords: [...siteConfig.keywords],
-    metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: normalizedPath,
     },
@@ -53,8 +56,6 @@ export function generatePageMetadata({
       images: [
         {
           url: imageUrl,
-          width: 1200,
-          height: 630,
           alt: title,
         },
       ],
@@ -65,5 +66,6 @@ export function generatePageMetadata({
       description,
       images: [imageUrl],
     },
+    ...(noIndex ? { robots: { index: false, follow: false } } : {}),
   };
 }

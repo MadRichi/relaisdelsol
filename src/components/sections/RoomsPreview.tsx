@@ -1,9 +1,11 @@
 import RoomCard from "@/components/cards/RoomCard";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { rooms } from "@/lib/content/rooms";
+import { getRoomFacts, rooms } from "@/lib/content/rooms";
 
 export default function RoomsPreview() {
+  const featuredRooms = rooms.filter((room) => room.featured);
+
   return (
     <section className="bg-sol-cream py-24 md:py-32">
       <div className="mx-auto max-w-2xl px-6 text-center">
@@ -18,7 +20,7 @@ export default function RoomsPreview() {
       </div>
 
       <div className="mx-auto mt-16 flex max-w-7xl flex-col gap-8 px-6 md:px-16">
-        {rooms.slice(0, 3).map((room) => (
+        {featuredRooms.map((room) => (
           <RoomCard
             key={room.slug}
             slug={room.slug}
@@ -26,6 +28,7 @@ export default function RoomsPreview() {
             shortDescription={room.shortDescription}
             badge={room.badge}
             features={room.features}
+            facts={getRoomFacts(room)}
             image={room.images[0]}
             href={`/camere/${room.slug}`}
           />
@@ -34,7 +37,7 @@ export default function RoomsPreview() {
 
       <div className="mt-12 flex justify-center">
         <Button variant="outline" href="/camere">
-          Vedi tutte le camere
+          Vedi tutte le {rooms.length} tipologie
         </Button>
       </div>
     </section>

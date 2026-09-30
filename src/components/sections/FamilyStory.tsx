@@ -9,20 +9,11 @@ export default function FamilyStory() {
         <div className="relative min-h-[400px] overflow-hidden md:min-h-[600px]">
           <Image
             src="/images/relaisdelsolagriturismopacengoFamily.jpg"
-            alt="La famiglia Pietropoli, il cuore di Relais del Sol"
+            alt="Il salotto della casa padronale del Relais del Sol"
             fill
+            sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover"
           />
-
-          {/*<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-sol-bark/80 to-transparent p-8">
-            <p className="font-serif text-lg italic text-sol-cream">
-              Ogni dettaglio è una scelta che abbiamo fatto per te.
-            </p>
-            <p className="mt-2 font-sans text-xs uppercase tracking-wide text-sol-cream/70">
-              — Famiglia Pietropoli
-            </p>
-          </div>
-          */}
         </div>
 
         <div className="flex flex-col justify-center bg-sol-sand p-12 md:p-16">
@@ -39,7 +30,7 @@ export default function FamilyStory() {
           </p>
 
           <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">
-          Sabrina ha immaginato questo luogo come un rifugio accogliente, romantico e naturale, dove sentirsi bene senza formalità inutili. Ogni dettaglio nasce da una scelta precisa: offrire agli ospiti un soggiorno rilassante, elegante e sincero, fatto di comfort, quiete e piccoli gesti di cura.
+          Sabrina e la sua famiglia hanno immaginato questo luogo come un rifugio accogliente, romantico e naturale, dove sentirsi bene senza formalità inutili. Ogni dettaglio nasce da una scelta precisa: offrire agli ospiti un soggiorno rilassante, elegante e sincero, fatto di comfort, quiete e piccoli gesti di cura.
           Relais del Sol è un agriturismo di charme sul Lago di Garda, pensato per chi cerca il piacere delle cose vere: una camera accogliente, una colazione genuina, un bagno in piscina, una pedalata tra lago e colline, un tramonto tra gli ulivi.
           </p>
 
@@ -49,7 +40,7 @@ export default function FamilyStory() {
             Con la naturalezza dell’ospitalità italiana.
           </p>
 
-          {/*<Link
+          <Link
             href="/chi-siamo"
             className="mt-8 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wide text-sol-terracotta transition-all hover:gap-3"
           >
@@ -71,7 +62,6 @@ export default function FamilyStory() {
               />
             </svg>
           </Link>
-          */}
         </div>
       </div>
     </section>

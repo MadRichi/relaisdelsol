@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { contact } from "@/lib/site";
 import ContactForm from "./ContactForm";
+import { generatePageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "Contatti | Agriturismo Relais del Sol — Lazise, Lago di Garda",
   description:
-    "Contatta l'Agriturismo Relais del Sol a Pacengo di Lazise. Telefono, email, mappa e modulo di contatto.",
-};
+    "Contatta l'Agriturismo Relais del Sol a Pacengo di Lazise: telefono, WhatsApp, email, mappa e modulo di contatto.",
+  path: "/contatti",
+});
 
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
 
 const MAP_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.1668086373817!2d10.721606350999053!3d45.4714915715088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781e94ba76f9b2f%3A0xfec8bc838a99fc43!2sCa&#39;%20del%20Sol!5e1!3m2!1sit!2sit!4v1776344579227!5m2!1sit!2sit"
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.1668086373817!2d10.721606350999053!3d45.4714915715088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781e94ba76f9b2f%3A0xfec8bc838a99fc43!2sCa&#39;%20del%20Sol!5e1!3m2!1sit!2sit!4v1776344579227!5m2!1sit!2sit";
+
 export default function ContattiPage() {
   return (
     <>
@@ -64,7 +64,7 @@ export default function ContattiPage() {
                       {"Loc. Casa Antonia, 1\n37017 Pacengo di Lazise (VR)"}
                     </p>
                     <Link
-                      href="https://www.google.com/maps/dir/?api=1&destination=Loc.+Casa+Antonia+1+Pacengo+di+Lazise"
+                      href={contact.mapsDirectionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-1 font-sans text-xs text-sol-cream/60 transition-colors hover:text-sol-cream"
@@ -97,10 +97,10 @@ export default function ContattiPage() {
                       Telefono
                     </p>
                     <Link
-                      href="tel:+3904511177408"
+                      href={contact.phoneHref}
                       className="mt-0.5 font-sans text-sm text-sol-cream transition-colors hover:text-sol-cream/80"
                     >
-                      +39 045 1117 7408
+                      {contact.phoneDisplay}
                     </Link>
                   </div>
                 </div>
@@ -125,12 +125,12 @@ export default function ContattiPage() {
                       WhatsApp
                     </p>
                     <Link
-                      href="https://wa.me/393480702953"
+                      href={contact.whatsappHref}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-0.5 font-sans text-sm text-sol-cream transition-colors hover:text-sol-cream/80"
                     >
-                      +39 348 0702953
+                      {contact.whatsappDisplay}
                     </Link>
                   </div>
                 </div>
@@ -151,10 +151,10 @@ export default function ContattiPage() {
                       Email
                     </p>
                     <Link
-                      href="mailto:info@relaisdelsol.it"
+                      href={`mailto:${contact.email}`}
                       className="mt-0.5 font-sans text-sm text-sol-cream transition-colors hover:text-sol-cream/80"
                     >
-                      info@relaisdelsol.it
+                      {contact.email}
                     </Link>
                   </div>
                 </div>
@@ -172,7 +172,8 @@ export default function ContattiPage() {
 
             <div className="min-h-[500px] h-full w-full">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.1668086373817!2d10.721606350999053!3d45.4714915715088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781e94ba76f9b2f%3A0xfec8bc838a99fc43!2sCa&#39;%20del%20Sol!5e1!3m2!1sit!2sit!4v1776344579227!5m2!1sit!2sit"
+                data-cmp-ab="1"
+                src={MAP_EMBED_SRC}
                 width="100%"
                 height="100%"
                 allowFullScreen
@@ -190,30 +191,6 @@ export default function ContattiPage() {
         </div>
       </section>
 
-      {/*<section className="bg-sol-terracotta py-16 text-center">
-        <div className="px-6">
-          <SectionLabel>
-            <span className="text-sol-cream/70">Prenota direttamente</span>
-          </SectionLabel>
-          <h2 className="mt-3 font-serif text-3xl font-light text-sol-cream md:text-4xl">
-            Miglior prezzo garantito sul sito ufficiale
-          </h2>
-          <div className="mt-6 flex flex-col items-center gap-4">
-            <Button
-              href={BOOKING_URL}
-              className="rounded-none bg-sol-cream px-8 py-4 font-sans text-sm uppercase tracking-wide text-sol-bark transition-colors hover:bg-sol-sand"
-            >
-              Verifica disponibilità
-            </Button>
-            <p className="mt-2 font-sans text-xs text-sol-cream/60">
-              Oppure chiamaci:{" "}
-              <Link href="tel:+390456490008" className="underline underline-offset-2">
-                +39 045 649 0008
-              </Link>
-            </p>
-          </div>
-        </div>
-      </section>*/} 
     </>
   );
 }

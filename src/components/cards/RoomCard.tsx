@@ -9,6 +9,7 @@ export interface RoomCardProps {
   shortDescription: string;
   badge?: string;
   features: string[];
+  facts?: string[];
   image: { src: string; alt: string; width: number; height: number };
   href: string;
 }
@@ -18,6 +19,7 @@ export default function RoomCard({
   shortDescription,
   badge,
   features,
+  facts,
   image,
   href,
 }: RoomCardProps) {
@@ -36,6 +38,7 @@ export default function RoomCard({
             src={image.src}
             alt={image.alt}
             fill
+            sizes="(min-width: 768px) 55vw, 100vw"
             className="object-cover"
           />
         </div>
@@ -45,12 +48,20 @@ export default function RoomCard({
           <h3 className="mt-2 font-serif text-2xl text-sol-bark md:text-3xl">
             {name}
           </h3>
+          {facts?.length ? (
+            <p className="mt-2 font-sans text-xs uppercase tracking-wide text-sol-terracotta">
+              {facts.join(" · ")}
+            </p>
+          ) : null}
           <p className="mt-3 font-sans text-sm leading-relaxed text-sol-bark/70">
             {shortDescription}
           </p>
           <p className="mt-4 font-sans text-xs text-sol-bark/50">
             {features.join(" · ")}
           </p>
+          <span className="mt-6 inline-flex font-sans text-xs uppercase tracking-wide text-sol-terracotta">
+            Scopri la camera →
+          </span>
         </div>
         </div>
       </article>

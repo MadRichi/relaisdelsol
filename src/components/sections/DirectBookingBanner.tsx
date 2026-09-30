@@ -1,8 +1,6 @@
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
-
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
+import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
 
 export default function DirectBookingBanner() {
   return (
@@ -54,7 +52,8 @@ export default function DirectBookingBanner() {
             variant="ghost"
             size="lg"
             href={BOOKING_URL}
-            className="border-sol-cream text-sol-cream hover:bg-sol-cream/10"
+              {...bookingLinkProps}
+            className="text-sol-cream"
           >
             Prenota Ora — Sito Ufficiale
           </Button>

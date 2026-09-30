@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { ComponentProps, ButtonHTMLAttributes, ReactNode } from "react";
 
-type ButtonVariant = "primary" | "ghost" | "outline";
-type ButtonSize = "sm" | "md" | "lg";
+type ButtonVariant = "primary" | "ghost" | "outline" | "light";
+type ButtonSize = "sm" | "md" | "lg" | "xl";
 
 type BaseButtonProps = {
   children: ReactNode;
@@ -26,15 +26,18 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary:
     "bg-sol-terracotta text-white border border-sol-terracotta hover:bg-sol-terracotta/90",
   ghost:
-    "bg-transparent text-current border border-current hover:bg-current/5",
+    "bg-transparent border border-current hover:bg-current/10",
   outline:
     "bg-transparent text-sol-terracotta border border-sol-terracotta hover:bg-sol-terracotta/10",
+  light:
+    "bg-sol-cream text-sol-bark border border-sol-cream hover:bg-sol-sand",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
   sm: "h-9 px-4",
   md: "h-11 px-5",
   lg: "h-12 px-6",
+  xl: "h-14 px-8",
 };
 
 function joinClasses(...classes: Array<string | undefined>) {
@@ -55,22 +58,21 @@ export default function Button(props: ButtonProps) {
   );
 
   if ("href" in props && props.href) {
-    const { href, ...linkProps } = props;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { href, children: _children, variant: _variant, size: _size, className: _className, ...linkProps } = props;
     return (
-      <Link href={href} className={classes} {...linkProps}>
+      <Link href={href} {...linkProps} className={classes}>
         {children}
       </Link>
     );
   }
 
-  const nativeProps = props as NativeButtonProps;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { children: _children, variant: _variant, size: _size, className: _className, href: _href, type, ...nativeProps } =
+    props as NativeButtonProps;
 
   return (
-    <button
-      type={nativeProps.type ?? "button"}
-      className={classes}
-      {...nativeProps}
-    >
+    <button {...nativeProps} type={type ?? "button"} className={classes}>
       {children}
     </button>
   );

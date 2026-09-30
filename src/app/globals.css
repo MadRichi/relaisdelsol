@@ -33,3 +33,9 @@
     overflow-x: clip;
   }
 }
+/* Il pulsante preferenze cookie di iubenda non deve coprire la barra di prenotazione mobile */
+@media (max-width: 767px) {
+  html body .iubenda-tp-btn.iubenda-cs-preferences-link[data-tp-float][data-tp-float] {
+    bottom: 88px !important;
+  }
+}

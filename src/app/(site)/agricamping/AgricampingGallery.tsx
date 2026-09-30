@@ -54,7 +54,13 @@ export default function AgricampingGallery({ images }: AgricampingGalleryProps) 
             onClick={() => setSelectedIndex(index)}
             className="relative aspect-[3/2] cursor-pointer overflow-hidden transition-opacity hover:opacity-90"
           >
-            <Image src={image.src} alt={image.alt} fill className="object-cover" />
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              className="object-cover"
+            />
           </button>
         ))}
       </div>
@@ -108,8 +114,9 @@ export default function AgricampingGallery({ images }: AgricampingGalleryProps) 
             <Image
               src={currentImage.src}
               alt={currentImage.alt}
-              width={1200}
-              height={800}
+              width={currentImage.width}
+              height={currentImage.height}
+              sizes="100vw"
               className="max-h-[80vh] max-w-4xl object-contain"
             />
 

@@ -1,19 +1,19 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
 import AgricampingGallery from "./AgricampingGallery";
 import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter";
+import { BOOKING_URL, bookingLinkProps, contact } from "@/lib/site";
+import { generatePageMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata = generatePageMetadata({
   title: "Agriglamping | Agriturismo Relais del Sol — Lazise, Lago di Garda",
   description:
-    "8 mobilhome luxury da 40mq con veranda privata, giardino e vista sui vigneti. L'esperienza glamping autentica sul Lago di Garda.",
-};
-
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
+    "8 mobilhome da 40 m² con due camere, due bagni, veranda privata di 18 m², giardino e parcheggio. L'agriglamping autentico sul Lago di Garda.",
+  path: "/agricamping",
+  image: "/images/agricamping-hero.jpg",
+});
 
 const features = [
   { value: "40mq", label: "Superficie interna" },
@@ -42,13 +42,13 @@ const amenities = [
 const agricampingImages = Array.from({ length: 10 }, (_, index) => ({
   src: `/images/agricamping/agricamping-${index + 1}.jpg`,
   alt: "Mobilhome luxury Agriglamping Relais del Sol",
-  width: 1024,
-  height: 683,
+  width: 1200,
+  height: 800,
 }));
 
 export default function AgricampingPage() {
   return (
-    <main>
+    <>
       <NavbarThemeSetter theme="light" />
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         <Image
@@ -56,6 +56,7 @@ export default function AgricampingPage() {
           alt="Mobilhome luxury Agriglamping Relais del Sol"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(92,74,50,0.7)]" />
@@ -145,19 +146,21 @@ export default function AgricampingPage() {
           <div className="mt-8 flex flex-col items-center gap-4">
             <Button
               href={BOOKING_URL}
-              className="rounded-none bg-sol-cream px-8 py-4 uppercase tracking-wide text-sol-bark hover:bg-sol-sand"
+              {...bookingLinkProps}
+              variant="light"
+              size="xl"
             >
               Verifica disponibilità
             </Button>
             <p className="mt-2 font-sans text-xs text-sol-cream/60">
               Oppure chiamaci:{" "}
-              <Link href="tel:+390456490008" className="underline underline-offset-2">
-                +39 045 649 0008
+              <Link href={contact.phoneHref} className="underline underline-offset-2">
+                {contact.phoneDisplay}
               </Link>
             </p>
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }

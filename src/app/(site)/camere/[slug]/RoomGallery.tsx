@@ -41,22 +41,21 @@ export default function RoomGallery({ images }: RoomGalleryProps) {
     <>
       <section className="bg-sol-sand py-12">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-6 md:grid-cols-3 md:px-16">
-          <button
-            type="button"
-            onClick={() => setSelectedIndex(0)}
-            className="relative aspect-[4/3] cursor-pointer overflow-hidden transition-opacity hover:opacity-90"
-          >
-            <Image src={images[0].src} alt={images[0].alt} fill className="object-cover" />
-          </button>
-
-          {images.slice(1).map((image, index) => (
+          {images.map((image, index) => (
             <button
               key={image.src}
               type="button"
-              onClick={() => setSelectedIndex(index + 1)}
+              aria-label={`Apri foto ${index + 1}: ${image.alt}`}
+              onClick={() => setSelectedIndex(index)}
               className="relative aspect-[4/3] cursor-pointer overflow-hidden transition-opacity hover:opacity-90"
             >
-              <Image src={image.src} alt={image.alt} fill className="object-cover" />
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(min-width: 768px) 33vw, 50vw"
+                className="object-cover"
+              />
             </button>
           ))}
         </div>
@@ -73,6 +72,7 @@ export default function RoomGallery({ images }: RoomGalleryProps) {
           >
             <button
               type="button"
+              aria-label="Chiudi galleria"
               className="absolute left-0 right-0 top-0 z-20 flex h-16 cursor-pointer items-center justify-end pr-6"
               onClick={() => setSelectedIndex(null)}
             >
@@ -83,6 +83,7 @@ export default function RoomGallery({ images }: RoomGalleryProps) {
               <>
                 <button
                   type="button"
+                  aria-label="Foto precedente"
                   className="absolute left-0 top-0 z-10 flex h-full w-1/4 cursor-pointer items-center justify-start bg-gradient-to-r from-black/30 to-transparent pl-4 transition-colors hover:from-black/50"
                   onClick={() =>
                     setSelectedIndex((prev) => {
@@ -95,6 +96,7 @@ export default function RoomGallery({ images }: RoomGalleryProps) {
                 </button>
                 <button
                   type="button"
+                  aria-label="Foto successiva"
                   className="absolute right-0 top-0 z-10 flex h-full w-1/4 cursor-pointer items-center justify-end bg-gradient-to-l from-black/30 to-transparent pr-4 transition-colors hover:from-black/50"
                   onClick={() =>
                     setSelectedIndex((prev) => {
@@ -111,8 +113,9 @@ export default function RoomGallery({ images }: RoomGalleryProps) {
             <Image
               src={currentImage.src}
               alt={currentImage.alt}
-              width={1200}
-              height={800}
+              width={currentImage.width}
+              height={currentImage.height}
+              sizes="100vw"
               className="max-h-[80vh] max-w-4xl object-contain"
             />
 

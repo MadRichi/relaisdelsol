@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BOOKING_URL, bookingLinkProps, contact } from "@/lib/site";
 
 export default function FinalCTA() {
   return (
@@ -12,7 +13,8 @@ export default function FinalCTA() {
           qui.
         </p>
         <Link
-          href="https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR"
+          href={BOOKING_URL}
+          {...bookingLinkProps}
           className="mt-8 inline-flex rounded-none bg-sol-terracotta px-10 py-4 font-sans text-sm uppercase tracking-wide text-white transition-colors hover:bg-sol-terracotta/90"
         >
           Prenota Ora
@@ -20,10 +22,10 @@ export default function FinalCTA() {
         <p className="mt-4 font-sans text-xs text-sol-cream/40">
           Oppure chiamaci:{" "}
           <Link
-            href="tel:+390456490008"
+            href={contact.phoneHref}
             className="text-sol-cream/60 transition-colors hover:text-sol-cream"
           >
-            +39 045 649 0008
+            {contact.phoneDisplay}
           </Link>
         </p>
       </div>

@@ -5,16 +5,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useNavbarTheme } from "@/lib/navbar-theme";
 import Button from "../ui/Button";
-
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
+import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
 
 const navLinks = [
-  /* { label: "Camere", href: "/camere" }, */
-  /* { label: "Agriglamping", href: "/agricamping" }, */
-  /* { label: "Esperienze", href: "/esperienze" }, */
-  /* { label: "Prodotti", href: "/prodotti" }, */
-  /* { label: "Chi Siamo", href: "/chi-siamo" }, */
+  { label: "Camere", href: "/camere" },
+  { label: "Agriglamping", href: "/agricamping" },
+  { label: "Esperienze", href: "/esperienze" },
+  { label: "Chi Siamo", href: "/chi-siamo" },
   { label: "Contatti", href: "/contatti" },
 ] as const;
 
@@ -114,11 +111,11 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/*<div className="ml-auto hidden md:block">
-          <Button variant="primary" size="sm" href={BOOKING_URL}>
+        <div className="ml-auto hidden md:block">
+          <Button variant="primary" size="sm" href={BOOKING_URL} {...bookingLinkProps}>
             Prenota Ora
           </Button>
-        </div>*/}
+        </div>
 
         <button
           type="button"
@@ -195,7 +192,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Button variant="primary" size="sm" href={BOOKING_URL}>
+            <Button variant="primary" size="sm" href={BOOKING_URL} {...bookingLinkProps}>
               Prenota Ora
             </Button>
           </nav>

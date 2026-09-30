@@ -2,35 +2,37 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import RoomCard from "@/components/cards/RoomCard";
-import { rooms } from "@/lib/content/rooms";
+import { getRoomFacts, rooms } from "@/lib/content/rooms";
+import { generatePageMetadata } from "@/lib/seo/metadata";
+import { BOOKING_URL, bookingLinkProps, contact } from "@/lib/site";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata = generatePageMetadata({
   title: "Camere | Agriturismo Relais del Sol — Lazise, Lago di Garda",
   description:
-    "Le camere dell'Agriturismo Relais del Sol: eleganti, romantiche, alcune con vista lago, alcune con angolo cottura e veranda. Prenota direttamente sul sito ufficiale.",
-};
-
-const BOOKING_URL =
-  "https://be.bookingexpert.it/book/simple/noavail?hotel=42837&layout=14194&lang=it&currency=EUR";
+    "Le camere dell'Agriturismo Relais del Sol: Economy, Standard, Deluxe e Superior vista lago, Family Junior Suite, camere con veranda privata e Family Suite comunicante. Prenota sul sito ufficiale.",
+  path: "/camere",
+  image: "/images/camere-hero.jpg",
+});
 
 const amenities = [
   "Aria condizionata",
   "WiFi gratuito",
-  "Colazione inclusa",
   "Bagno privato",
+  "TV e cassaforte",
   "Piscina",
   "Dog friendly",
 ];
 
 export default function CamerePage() {
   return (
-    <main>
+    <>
       <section className="relative h-64 overflow-hidden md:h-96">
         <Image
           src="/images/camere-hero.jpg"
           alt="Le camere dell'Agriturismo Relais del Sol"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -48,7 +50,7 @@ export default function CamerePage() {
       <section className="bg-sol-cream py-16 md:py-20">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <p className="font-sans text-base leading-relaxed text-sol-bark/70">
-            Ogni stanza dell&apos;Agriturismo Relais del Sol è diversa, ognuna improntata al benessere e al comfort. In tutte le stanze è presente:
+            Sette tipologie, un&apos;unica atmosfera: arredi in stile shabby chic, quiete e cura del dettaglio. Dalla camera essenziale alla suite per tutta la famiglia con vista sul lago. In tutte le stanze è presente:
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-6">
             {amenities.map((amenity) => (
@@ -74,6 +76,7 @@ export default function CamerePage() {
               shortDescription={room.shortDescription}
               badge={room.badge}
               features={room.features}
+              facts={getRoomFacts(room)}
               image={room.images[0]}
               href={`/camere/${room.slug}`}
             />
@@ -92,19 +95,21 @@ export default function CamerePage() {
           <div className="mt-8 flex flex-col items-center gap-4">
             <Button
               href={BOOKING_URL}
-              className="rounded-none bg-sol-cream px-8 py-4 uppercase tracking-wide text-sol-bark hover:bg-sol-sand"
+              {...bookingLinkProps}
+              variant="light"
+              size="xl"
             >
               Verifica disponibilità
             </Button>
             <p className="mt-2 font-sans text-xs text-sol-cream/60">
               Oppure chiamaci:{" "}
-              <Link href="tel:+390456490008" className="underline underline-offset-2">
-                +39 045 649 0008
+              <Link href={contact.phoneHref} className="underline underline-offset-2">
+                {contact.phoneDisplay}
               </Link>
             </p>
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }

@@ -4,7 +4,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 
 const serviceCards = [
   {
-    image: "/images/services/colazione.jpg",
+    image: "/images/services/colazione-buffet.jpg",
     imageAlt: "Colazione con prodotti locali e fatti in casa",
     label: "Ogni mattina",
     title: "Colazione con i sapori di casa",
@@ -22,8 +22,8 @@ const serviceCards = [
     href: "/esperienze#piscina",
   },
   {
-    image: "/images/services/eventi.jpg",
-    imageAlt: "Allestimento per matrimonio o evento privato",
+    image: "/images/services/eventi-2.jpg",
+    imageAlt: "Cerimonia all'aperto nel parco del Relais del Sol",
     label: "Momenti speciali",
     title: "Matrimoni ed eventi privati",
     description:
@@ -52,6 +52,7 @@ export default function ServicesHighlight() {
                   src={card.image}
                   alt={card.imageAlt}
                   fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
                   className="object-cover"
                 />
               </div>
