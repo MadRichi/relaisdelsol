@@ -65,8 +65,11 @@ function legacyRedirects() {
     for (const [section, slugs] of Object.entries(legacySlugs)) {
       const destination = targets[section][lang];
       const group = slugs.join("|");
-      // Esclude gli slug che coincidono già con la nuova pagina (es. /en/rooms, /de/zimmer)
-      const pathGroup = slugs.filter((slug) => `/${lang}/${slug}` !== destination).join("|");
+      // Esclude gli slug che coincidono già con la nuova pagina (es. /en/rooms, /de/zimmer).
+      // Il confronto ignora le maiuscole come il matching delle rotte.
+      const pathGroup = slugs
+        .filter((slug) => `/${lang}/${slug}`.toLowerCase() !== destination.toLowerCase())
+        .join("|");
       // /it/camere/, /en/our-park/, /de/kontakte/...
       if (pathGroup) {
         rules.push({ source: `/${lang}/:slug(${pathGroup})/:rest*`, destination, permanent: true });
