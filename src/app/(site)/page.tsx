@@ -1,30 +1,8 @@
-import Hero from "@/components/sections/Hero"
-import ValueProposition from "@/components/sections/ValueProposition"
-import RoomsPreview from "@/components/sections/RoomsPreview"
-import ServicesHighlight from "@/components/sections/ServicesHighlight"
-import DirectBookingBanner from "@/components/sections/DirectBookingBanner"
-import LocationTeaser from "@/components/sections/LocationTeaser"
-import FinalCTA from "@/components/sections/FinalCTA"
-import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter"
-import FamilyStory from "@/components/sections/FamilyStory"
-import type { Metadata } from "next"
+import HomeView from "@/views/HomeView";
+import { pageMetadata } from "@/views/page-metadata";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-}
+export const metadata = pageMetadata("it", "home");
 
-export default function Home() {
-  return (
-    <>
-      <NavbarThemeSetter theme="light" heroLogo={true} />
-      <Hero />
-      <ValueProposition />
-      <RoomsPreview />
-      <ServicesHighlight />
-      <DirectBookingBanner />
-      <FamilyStory />
-      <LocationTeaser />
-      <FinalCTA />
-    </>
-  )
+export default function Page() {
+  return <HomeView locale="it" />;
 }

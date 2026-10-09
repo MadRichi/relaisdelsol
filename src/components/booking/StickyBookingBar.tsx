@@ -4,7 +4,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
 
-export default function StickyBookingBar() {
+type StickyBookingBarProps = {
+  label: string;
+  text: string;
+  cta: string;
+};
+
+export default function StickyBookingBar({ label, text, cta }: StickyBookingBarProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -29,10 +35,10 @@ export default function StickyBookingBar() {
       <div className="flex w-full items-center justify-between gap-3">
         <div className="flex flex-col justify-center">
           <span className="font-sans text-[10px] uppercase tracking-widest text-sol-cream/50">
-            Miglior prezzo garantito
+            {label}
           </span>
           <span className="font-sans text-xs font-light text-sol-cream">
-            Prenota sul sito ufficiale
+            {text}
           </span>
         </div>
         <Link
@@ -41,7 +47,7 @@ export default function StickyBookingBar() {
           tabIndex={isVisible ? 0 : -1}
           className="flex items-center justify-center rounded-none bg-sol-terracotta px-5 py-3 font-sans text-xs uppercase tracking-wide text-white"
         >
-          Prenota Ora
+          {cta}
         </Link>
       </div>
     </div>

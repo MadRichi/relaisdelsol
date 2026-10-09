@@ -1,15 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { routes, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export default function FamilyStory() {
+export default function FamilyStory({ locale }: { locale: Locale }) {
+  const t = getDictionary(locale).familyStory;
+
   return (
     <section className="bg-sol-cream py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-0 md:grid-cols-2">
         <div className="relative min-h-[400px] overflow-hidden md:min-h-[600px]">
           <Image
             src="/images/relaisdelsolagriturismopacengoFamily.jpg"
-            alt="Il salotto della casa padronale del Relais del Sol"
+            alt={t.imageAlt}
             fill
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover"
@@ -17,34 +21,31 @@ export default function FamilyStory() {
         </div>
 
         <div className="flex flex-col justify-center bg-sol-sand p-12 md:p-16">
-          <SectionLabel>Chi siamo</SectionLabel>
+          <SectionLabel>{t.label}</SectionLabel>
           <h2 className="mt-4 font-serif text-4xl font-light text-sol-bark md:text-5xl">
-            Una famiglia, un posto, una scelta
+            {t.title}
           </h2>
 
-          <p className="mt-6 font-sans text-sm leading-relaxed text-sol-bark/70">
-          Ci sono luoghi che cambiano nome, si rinnovano, si trasformano.
-          E poi ci sono luoghi che, pur evolvendo, restano fedeli alla propria anima.
-          Relais del Sol nasce dall’esperienza e dalla storia dell’Agriturismo Ca’ del Sol, un luogo di accoglienza immerso nel verde, nel cuore della campagna gardesana, a pochi passi dal Lago di Garda.
-          Qui la natura non è uno sfondo: è parte dell’esperienza. Gli ulivi, la luce, i profumi della terra, il silenzio della campagna e l’atmosfera rilassata raccontano ogni giorno un modo di ospitare autentico, semplice e curato.
-          </p>
+          {t.paragraphs.map((paragraph, index) => (
+            <p
+              key={index}
+              className={`${index === 0 ? "mt-6" : "mt-4"} font-sans text-sm leading-relaxed text-sol-bark/70`}
+            >
+              {paragraph}
+            </p>
+          ))}
 
           <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">
-          Sabrina e la sua famiglia hanno immaginato questo luogo come un rifugio accogliente, romantico e naturale, dove sentirsi bene senza formalità inutili. Ogni dettaglio nasce da una scelta precisa: offrire agli ospiti un soggiorno rilassante, elegante e sincero, fatto di comfort, quiete e piccoli gesti di cura.
-          Relais del Sol è un agriturismo di charme sul Lago di Garda, pensato per chi cerca il piacere delle cose vere: una camera accogliente, una colazione genuina, un bagno in piscina, una pedalata tra lago e colline, un tramonto tra gli ulivi.
-          </p>
-
-          <p className="mt-4 font-sans text-sm leading-relaxed text-sol-bark/70">
-            Un luogo dove ritrovare tempo, spazio e leggerezza.
+            {t.closing[0]}
             <br />
-            Con la naturalezza dell’ospitalità italiana.
+            {t.closing[1]}
           </p>
 
           <Link
-            href="/chi-siamo"
+            href={routes.about[locale]}
             className="mt-8 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wide text-sol-terracotta-deep transition-all hover:gap-3"
           >
-            La nostra storia
+            {t.cta}
             <svg
               width="16"
               height="16"

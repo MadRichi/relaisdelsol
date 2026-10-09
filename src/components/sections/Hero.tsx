@@ -6,13 +6,20 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
+import type { Dictionary } from "@/i18n/get-dictionary";
 
 const VIDEO_MOBILE = "/videos/hero-mobile.mp4";
 const VIDEO_DESKTOP = "/videos/hero-desktop.mp4";
 
 type NetworkInformation = { saveData?: boolean };
 
-export default function Hero() {
+type HeroProps = {
+  dict: Dictionary["hero"];
+  roomsHref: string;
+  checkAvailability: string;
+};
+
+export default function Hero({ dict, roomsHref, checkAvailability }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -70,7 +77,7 @@ export default function Hero() {
     <section className="relative min-h-screen h-screen w-full overflow-hidden">
       <Image
         src="/images/hero.jpg"
-        alt="Vista aerea del Relais del Sol tra il parco, la piscina e il Lago di Garda"
+        alt={dict.imageAlt}
         fill
         priority
         fetchPriority="high"
@@ -94,22 +101,20 @@ export default function Hero() {
       <div className="absolute inset-x-0 bottom-36 md:bottom-44 px-6 md:px-16">
         <div className="max-w-4xl">
           <SectionLabel>
-            <span className="text-sol-cream">Agriturismo a Pacengo di Lazise · Lago di Garda</span>
+            <span className="text-sol-cream">{dict.label}</span>
           </SectionLabel>
 
           <h1 className="mt-3 whitespace-pre-line font-serif text-5xl font-light leading-tight text-sol-cream md:text-7xl">
-            {"Dove la campagna\ntocca il lago"}
+            {dict.title}
           </h1>
 
           <p className="mt-4 max-w-xl font-sans text-base text-sol-cream/80 md:text-lg">
-            Un angolo d&apos;Italia dove il tempo rallenta, la campagna profuma di
-            vino e ulivi, e il lago è sempre lì — a due passi, a fare da sfondo
-            alla tua vacanza più bella.
+            {dict.text}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button variant="primary" href="/camere">
-              Scopri le Camere
+            <Button variant="primary" href={roomsHref}>
+              {dict.discoverRooms}
             </Button>
             <Button
               variant="ghost"
@@ -117,7 +122,7 @@ export default function Hero() {
               {...bookingLinkProps}
               className="text-sol-cream"
             >
-              Prenota Direttamente
+              {dict.bookDirect}
             </Button>
           </div>
         </div>
@@ -146,10 +151,10 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row md:items-stretch">
           <div className="flex flex-1 flex-col justify-center px-6 py-4 md:px-16 md:py-5">
             <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-sol-cream/50">
-              Prenotazione diretta
+              {dict.barLabel}
             </span>
             <span className="mt-1 font-sans text-sm font-light text-sol-cream">
-              Miglior prezzo garantito · Nessuna commissione
+              {dict.barText}
             </span>
           </div>
 
@@ -158,7 +163,7 @@ export default function Hero() {
             {...bookingLinkProps}
             className="flex w-full items-center justify-center whitespace-nowrap bg-sol-terracotta px-8 py-4 font-sans text-xs uppercase tracking-[0.2em] text-white transition-colors hover:bg-sol-terracotta/90 md:w-64 md:py-5"
           >
-            Verifica disponibilità
+            {checkAvailability}
           </Link>
         </div>
       </div>

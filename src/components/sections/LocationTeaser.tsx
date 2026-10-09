@@ -1,41 +1,30 @@
 import SectionLabel from "@/components/ui/SectionLabel";
 import Button from "@/components/ui/Button";
-import { contact } from "@/lib/site";
+import { contact, mapEmbedSrc } from "@/lib/site";
+import { routes, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 
-export default function LocationTeaser() {
+export default function LocationTeaser({ locale }: { locale: Locale }) {
+  const t = getDictionary(locale).location;
+  const address = `${contact.address.street} — ${contact.address.postalCode} ${contact.address.locality} (${contact.address.region})`;
+
   return (
     <section className="bg-sol-sand py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 md:grid-cols-2 md:gap-0 md:px-16">
         <div className="flex flex-col justify-center">
-          <SectionLabel>Dove siamo</SectionLabel>
+          <SectionLabel>{t.label}</SectionLabel>
           <h2 className="mt-4 font-serif text-4xl font-light text-sol-bark md:text-5xl">
-            A due passi dal lago, lontano dal caos
+            {t.title}
           </h2>
-          <p className="mt-6 font-sans text-sm leading-relaxed text-sol-bark/70">
-            Pacengo di Lazise è una delle frazioni più tranquille della sponda
-            veronese del Lago di Garda. La spiaggia di Pacengo è a 15 minuti a
-            piedi, Lazise a 8 minuti d&apos;auto, Bardolino a 15.
-          </p>
+          <p className="mt-6 font-sans text-sm leading-relaxed text-sol-bark/70">{t.text}</p>
 
           <div className="mt-8 flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-sol-terracotta" />
-              <p className="font-sans text-sm text-sol-bark/70">
-                Loc. Casa Antonia, 1 — 37017 Pacengo di Lazise (VR)
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-sol-terracotta" />
-              <p className="font-sans text-sm text-sol-bark/70">
-                15 min a piedi dal lago · Movieland a 12 min a piedi
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-sol-terracotta" />
-              <p className="font-sans text-sm text-sol-bark/70">
-                8 min in auto da Lazise, 15 min da Bardolino, 4 min da Gardaland
-              </p>
-            </div>
+            {[address, ...t.bullets].map((line) => (
+              <div key={line} className="flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-sol-terracotta" />
+                <p className="font-sans text-sm text-sol-bark/70">{line}</p>
+              </div>
+            ))}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -45,10 +34,10 @@ export default function LocationTeaser() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Ottieni indicazioni
+              {t.directions}
             </Button>
-            <Button variant="outline" href="/esperienze#territorio">
-              Scopri la zona
+            <Button variant="outline" href={`${routes.experiences[locale]}#territorio`}>
+              {t.discoverArea}
             </Button>
           </div>
         </div>
@@ -56,13 +45,13 @@ export default function LocationTeaser() {
         <div className="min-h-[400px] overflow-hidden rounded-none md:min-h-[500px]">
           <iframe
             data-cmp-ab="1"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.1668086373817!2d10.721606350999053!3d45.4714915715088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781e94ba76f9b2f%3A0xfec8bc838a99fc43!2sCa&#39;%20del%20Sol!5e1!3m2!1sit!2sit!4v1776344145649!5m2!1sit!2sit"
+            src={mapEmbedSrc(locale)}
             width="100%"
             height="100%"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Posizione Agriturismo Relais del Sol"
+            title={t.mapTitle}
             className="min-h-[400px] w-full border-0 md:min-h-[500px]"
           />
         </div>

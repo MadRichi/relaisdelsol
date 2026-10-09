@@ -2,17 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "../ui/Button";
 import { BOOKING_URL, bookingLinkProps, contact } from "@/lib/site";
+import { localeLabels, locales, routes, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { getLocalizedRooms } from "@/lib/content/rooms";
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Camere", href: "/camere" },
-  { label: "Agriglamping", href: "/agricamping" },
-  { label: "Esperienze", href: "/esperienze" },
-  { label: "Chi Siamo", href: "/chi-siamo" },
-  { label: "Contatti", href: "/contatti" },
-] as const;
 
-export default function Footer() {
+type FooterProps = { locale: Locale };
+
+export default function Footer({ locale }: FooterProps) {
+  const t = getDictionary(locale);
+  const navLinks = [
+    { label: t.nav.home, href: routes.home[locale] },
+    { label: t.nav.links.rooms, href: routes.rooms[locale] },
+    { label: t.nav.links.glamping, href: routes.glamping[locale] },
+    { label: t.nav.links.experiences, href: routes.experiences[locale] },
+    { label: t.nav.links.about, href: routes.about[locale] },
+    { label: t.nav.links.contact, href: routes.contact[locale] },
+  ];
+  const roomLinks = getLocalizedRooms(locale);
+
   return (
     <footer className="bg-sol-bark text-sol-cream/80">
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-28 md:px-8 md:pb-16">
@@ -31,10 +39,10 @@ export default function Footer() {
               </p>
             </div>
             <p className="font-sans text-sm text-sol-cream/80">
-              Dove la campagna tocca il lago
+              {t.footer.tagline}
             </p>
             <p className="font-sans text-xs text-sol-cream/70">
-              Agriturismo a Pacengo di Lazise, già Agriturismo Ca&apos; del Sol
+              {t.footer.formerName}
             </p>
             <p className="font-sans text-sm leading-relaxed text-sol-cream/80">
               {contact.address.street} — {contact.address.postalCode} {contact.address.locality} ({contact.address.region})
@@ -59,7 +67,7 @@ export default function Footer() {
 
           <div className="space-y-4">
             <p className="font-sans text-xs uppercase tracking-widest text-sol-cream">
-              Esplora
+              {t.footer.explore}
             </p>
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
@@ -72,14 +80,25 @@ export default function Footer() {
                 </Link>
               ))}
             </nav>
+            <nav className="flex flex-col gap-1.5 border-t border-sol-cream/15 pt-4">
+              {roomLinks.map((room) => (
+                <Link
+                  key={room.path}
+                  href={room.path}
+                  className="font-sans text-xs text-sol-cream/70 transition-colors hover:text-sol-cream"
+                >
+                  {room.name}
+                </Link>
+              ))}
+            </nav>
           </div>
 
           <div className="space-y-5">
             <p className="font-sans text-xs uppercase tracking-widest text-sol-cream">
-              Prenota Direttamente
+              {t.footer.bookDirectTitle}
             </p>
             <p className="font-sans text-sm leading-relaxed text-sol-cream/80">
-              Il prezzo migliore è sempre sul nostro sito ufficiale.
+              {t.footer.bookDirectText}
             </p>
             <Button
               variant="ghost"
@@ -87,7 +106,7 @@ export default function Footer() {
               {...bookingLinkProps}
               className="text-sol-cream"
             >
-              Verifica Disponibilità
+              {t.common.checkAvailability}
             </Button>
             <div className="flex items-center gap-4">
               <Link
@@ -152,9 +171,14 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-sol-cream/20 pt-6">
           <div className="flex flex-col gap-2 font-sans text-xs text-sol-cream/70 md:flex-row md:items-center md:justify-between">
-            <p>© {new Date().getFullYear()} Relais del Sol. Tutti i diritti riservati.</p>
+            <p>© {new Date().getFullYear()} Relais del Sol. {t.footer.rights}</p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <p>P.IVA 01930050230</p>
+              <p>{t.footer.vat} 01930050230</p>
+              {locales.map((l) => (
+                <Link key={l} href={routes.home[l]} hrefLang={l} lang={l} className="hover:text-sol-cream transition-colors">
+                  {localeLabels[l]}
+                </Link>
+              ))}
               <Link href="/privacy-policy" className="hover:text-sol-cream transition-colors">
                 Privacy Policy
               </Link>

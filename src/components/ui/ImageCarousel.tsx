@@ -11,11 +11,13 @@ type CarouselImage = {
 type ImageCarouselProps = {
   images: CarouselImage[];
   aspectRatio?: string;
+  labels?: { prev: string; next: string; goTo: string };
 };
 
 export default function ImageCarousel({
   images,
   aspectRatio = "aspect-[4/3]",
+  labels = { prev: "Immagine precedente", next: "Immagine successiva", goTo: "Vai all'immagine" },
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -75,7 +77,7 @@ export default function ImageCarousel({
         <>
           <button
             type="button"
-            aria-label="Immagine precedente"
+            aria-label={labels.prev}
             onClick={goToPrevious}
             className="absolute left-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center bg-black/30 transition-colors hover:bg-black/50"
           >
@@ -98,7 +100,7 @@ export default function ImageCarousel({
 
           <button
             type="button"
-            aria-label="Immagine successiva"
+            aria-label={labels.next}
             onClick={goToNext}
             className="absolute right-3 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 cursor-pointer items-center justify-center bg-black/30 transition-colors hover:bg-black/50"
           >
@@ -124,7 +126,7 @@ export default function ImageCarousel({
               <button
                 key={index}
                 type="button"
-                aria-label={`Vai all'immagine ${index + 1}`}
+                aria-label={`${labels.goTo} ${index + 1}`}
                 onClick={() => goToSlide(index)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   index === currentIndex ? "w-3 bg-white" : "w-1.5 bg-white/50"

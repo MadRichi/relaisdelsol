@@ -12,6 +12,8 @@ export interface RoomCardProps {
   facts?: string[];
   image: { src: string; alt: string; width: number; height: number };
   href: string;
+  label: string;
+  cta: string;
 }
 
 export default function RoomCard({
@@ -22,6 +24,8 @@ export default function RoomCard({
   facts,
   image,
   href,
+  label,
+  cta,
 }: RoomCardProps) {
   return (
     <Link href={href} className="block">
@@ -44,7 +48,7 @@ export default function RoomCard({
         </div>
 
         <div className="flex flex-col justify-center p-8 md:p-12">
-          <SectionLabel>La tua stanza</SectionLabel>
+          <SectionLabel>{label}</SectionLabel>
           <h3 className="mt-2 font-serif text-2xl text-sol-bark md:text-3xl">
             {name}
           </h3>
@@ -60,7 +64,7 @@ export default function RoomCard({
             {features.join(" · ")}
           </p>
           <span className="mt-6 inline-flex font-sans text-xs uppercase tracking-wide text-sol-terracotta-deep">
-            Scopri la camera →
+            {cta}
           </span>
         </div>
         </div>

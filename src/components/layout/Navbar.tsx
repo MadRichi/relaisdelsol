@@ -2,25 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useNavbarTheme } from "@/lib/navbar-theme";
 import Button from "../ui/Button";
 import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
+import { alternatePaths, locales, routes, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/get-dictionary";
 
-const navLinks = [
-  { label: "Camere", href: "/camere" },
-  { label: "Agriglamping", href: "/agricamping" },
-  { label: "Esperienze", href: "/esperienze" },
-  { label: "Chi Siamo", href: "/chi-siamo" },
-  { label: "Contatti", href: "/contatti" },
-] as const;
+type NavbarProps = {
+  locale: Locale;
+  dict: Dictionary["nav"];
+  bookNow: string;
+};
 
 function joinClasses(...classes: Array<string | false>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({ locale, dict, bookNow }: NavbarProps) {
   const { theme } = useNavbarTheme();
+  const pathname = usePathname();
+  const languagePaths = alternatePaths(pathname ?? "/");
+  const navLinks = [
+    { label: dict.links.rooms, href: routes.rooms[locale] },
+    { label: dict.links.glamping, href: routes.glamping[locale] },
+    { label: dict.links.experiences, href: routes.experiences[locale] },
+    { label: dict.links.about, href: routes.about[locale] },
+    { label: dict.links.contact, href: routes.contact[locale] },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -71,7 +81,7 @@ export default function Navbar() {
         <div className="w-10 md:hidden" />
 
         <Link
-          href="/"
+          href={routes.home[locale]}
           className="flex flex-1 items-center justify-center gap-2 transition-all duration-300 md:flex-none md:justify-start"
           onClick={closeMobileMenu}
         >
@@ -111,9 +121,28 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="ml-auto hidden md:block">
+        <div className="ml-auto hidden items-center gap-5 md:flex">
+          <nav aria-label={dict.language} className="flex items-center gap-1 font-sans text-xs uppercase tracking-wide">
+            {locales.map((l) => (
+              <Link
+                key={l}
+                href={languagePaths[l]}
+                hrefLang={l}
+                lang={l}
+                aria-current={l === locale ? "true" : undefined}
+                className={joinClasses(
+                  "px-1 py-1 transition-colors",
+                  l === locale ? "font-semibold underline underline-offset-4" : "opacity-80 hover:opacity-100",
+                  isScrolled ? "text-sol-bark" : transparentTextClass,
+                )}
+                style={!isScrolled ? { textShadow: "0 1px 3px rgba(0,0,0,0.4)" } : undefined}
+              >
+                {l}
+              </Link>
+            ))}
+          </nav>
           <Button variant="primary" size="sm" href={BOOKING_URL} {...bookingLinkProps}>
-            Prenota Ora
+            {bookNow}
           </Button>
         </div>
 
@@ -123,12 +152,12 @@ export default function Navbar() {
             "ml-auto inline-flex h-10 w-10 items-center justify-center md:hidden",
             isScrolled ? "text-sol-bark" : transparentTextClass,
           )}
-          aria-label={isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+          aria-label={isMobileMenuOpen ? dict.closeMenu : dict.openMenu}
           aria-expanded={isMobileMenuOpen}
           onClick={() => setIsMobileMenuOpen((open) => !open)}
         >
           <span className="sr-only">
-            {isMobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+            {isMobileMenuOpen ? dict.closeMenu : dict.openMenu}
           </span>
           <svg
             width="22"
@@ -193,8 +222,26 @@ export default function Navbar() {
               </Link>
             ))}
             <Button variant="primary" size="sm" href={BOOKING_URL} {...bookingLinkProps}>
-              Prenota Ora
+              {bookNow}
             </Button>
+            <div className="mt-2 flex items-center gap-4 font-sans text-xs uppercase tracking-wide">
+              {locales.map((l) => (
+                <Link
+                  key={l}
+                  href={languagePaths[l]}
+                  hrefLang={l}
+                  lang={l}
+                  onClick={closeMobileMenu}
+                  aria-current={l === locale ? "true" : undefined}
+                  className={joinClasses(
+                    "px-2 py-1 text-sol-bark",
+                    l === locale ? "font-semibold underline underline-offset-4" : "opacity-70",
+                  )}
+                >
+                  {l}
+                </Link>
+              ))}
+            </div>
           </nav>
         </div>
       ) : null}

@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { contact } from "@/lib/site";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/get-dictionary";
 
 type ContactFormValues = {
   nome: string;
@@ -27,7 +29,12 @@ const labelClassName =
 
 const errorClassName = "mt-1 font-sans text-xs text-sol-terracotta-deep";
 
-export default function ContactForm() {
+type ContactFormProps = {
+  dict: Dictionary["contactForm"];
+  locale: Locale;
+};
+
+export default function ContactForm({ dict, locale }: ContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
   const {
@@ -57,6 +64,7 @@ export default function ContactForm() {
           telefono: data.telefono,
           oggetto: data.oggetto,
           messaggio: data.messaggio,
+          lingua: locale,
         }),
       });
 
@@ -89,9 +97,9 @@ export default function ContactForm() {
             strokeLinejoin="round"
           />
         </svg>
-        <h3 className="mt-4 font-serif text-2xl text-sol-bark">Messaggio inviato</h3>
+        <h3 className="mt-4 font-serif text-2xl text-sol-bark">{dict.successTitle}</h3>
         <p className="mt-2 font-sans text-sm text-sol-bark/70">
-          Ti risponderemo entro 24 ore.
+          {dict.successText}
         </p>
       </div>
     );
@@ -102,32 +110,32 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div>
           <label htmlFor="nome" className={labelClassName}>
-            Nome
+            {dict.name}
           </label>
           <input
             id="nome"
             type="text"
             className={inputClassName}
-            placeholder="Il tuo nome"
-            {...register("nome", { required: "Inserisci il tuo nome." })}
+            placeholder={dict.namePlaceholder}
+            {...register("nome", { required: dict.nameRequired })}
           />
           {errors.nome ? <p className={errorClassName}>{errors.nome.message}</p> : null}
         </div>
 
         <div>
           <label htmlFor="email" className={labelClassName}>
-            Email
+            {dict.email}
           </label>
           <input
             id="email"
             type="email"
             className={inputClassName}
-            placeholder="nome@email.it"
+            placeholder={dict.emailPlaceholder}
             {...register("email", {
-              required: "Inserisci la tua email.",
+              required: dict.emailRequired,
               pattern: {
                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Inserisci un indirizzo email valido.",
+                message: dict.emailInvalid,
               },
             })}
           />
@@ -136,7 +144,7 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="telefono" className={labelClassName}>
-            Telefono
+            {dict.phone}
           </label>
           <input
             id="telefono"
@@ -149,31 +157,31 @@ export default function ContactForm() {
 
         <div>
           <label htmlFor="oggetto" className={labelClassName}>
-            Oggetto
+            {dict.subject}
           </label>
           <select id="oggetto" className={inputClassName} {...register("oggetto")}>
-            <option value="Informazioni generali">Informazioni generali</option>
-            <option value="Prenotazione camere">Prenotazione camere</option>
-            <option value="Prenotazione agriglamping">Prenotazione agriglamping</option>
-            <option value="Eventi privati">Eventi privati</option>
-            <option value="Altro">Altro</option>
+            <option value="Informazioni generali">{dict.subjects["Informazioni generali"]}</option>
+            <option value="Prenotazione camere">{dict.subjects["Prenotazione camere"]}</option>
+            <option value="Prenotazione agriglamping">{dict.subjects["Prenotazione agriglamping"]}</option>
+            <option value="Eventi privati">{dict.subjects["Eventi privati"]}</option>
+            <option value="Altro">{dict.subjects["Altro"]}</option>
           </select>
         </div>
 
         <div className="md:col-span-2">
           <label htmlFor="messaggio" className={labelClassName}>
-            Messaggio
+            {dict.message}
           </label>
           <textarea
             id="messaggio"
             rows={4}
             className={inputClassName}
-            placeholder="Scrivi qui il tuo messaggio..."
+            placeholder={dict.messagePlaceholder}
             {...register("messaggio", {
-              required: "Inserisci un messaggio.",
+              required: dict.messageRequired,
               minLength: {
                 value: 10,
-                message: "Il messaggio deve contenere almeno 10 caratteri.",
+                message: dict.messageMin,
               },
             })}
           />
@@ -187,15 +195,15 @@ export default function ContactForm() {
               type="checkbox"
               className="mt-0.5 accent-sol-terracotta"
               {...register("privacy", {
-                required: "Per inviare il messaggio devi accettare l'informativa privacy.",
+                required: dict.privacyRequired,
               })}
             />
             <span>
-              Ho letto l&apos;
+              {dict.privacyBefore}
               <Link href="/privacy-policy" className="underline underline-offset-2">
-                informativa privacy
-              </Link>{" "}
-              e acconsento al trattamento dei dati per ricevere una risposta.
+                {dict.privacyLink}
+              </Link>
+              {dict.privacyAfter}
             </span>
           </label>
           {errors.privacy ? <p className={errorClassName}>{errors.privacy.message}</p> : null}
@@ -224,17 +232,17 @@ export default function ContactForm() {
                 strokeLinejoin="round"
               />
             </svg>
-            Messaggio inviato
+            {dict.successTitle}
           </>
         ) : isSubmitting ? (
-          "Invio in corso..."
+          dict.submitting
         ) : (
-          "Invia messaggio"
+          dict.submit
         )}
       </button>
       {isError ? (
         <p className="mt-3 font-sans text-xs text-sol-terracotta-deep">
-          Si è verificato un errore. Riprova o contattaci direttamente a{" "}
+          {dict.error}{" "}
           <Link href={`mailto:${contact.email}`} className="underline underline-offset-2">
             {contact.email}
           </Link>

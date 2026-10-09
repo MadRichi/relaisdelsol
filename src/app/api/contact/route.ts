@@ -13,6 +13,7 @@ const contactSchema = z.object({
   telefono: z.string().trim().max(40).optional().default(''),
   oggetto: z.string().trim().max(120).optional().default('Informazioni generali'),
   messaggio: z.string().trim().min(10).max(5000),
+  lingua: z.enum(['it', 'en', 'de']).optional().default('it'),
 })
 
 function escapeHtml(value: string) {
@@ -46,13 +47,14 @@ export async function POST(request: Request) {
   const oggetto = escapeHtml(parsed.data.oggetto)
   const messaggio = escapeHtml(parsed.data.messaggio)
   const safeEmail = escapeHtml(email)
+  const lingua = { it: 'Italiano', en: 'Inglese', de: 'Tedesco' }[parsed.data.lingua]
 
   try {
     const { error } = await resend.emails.send({
       from: 'Relais Del Sol <info@relaisdelsol.it>',
       to: CONTACT_EMAIL,
       replyTo: email,
-      subject: `[Contatto] ${parsed.data.oggetto} — ${parsed.data.nome}`.replace(/[\r\n]+/g, ' '),
+      subject: `[Contatto${parsed.data.lingua === 'it' ? '' : ' ' + parsed.data.lingua.toUpperCase()}] ${parsed.data.oggetto} — ${parsed.data.nome}`.replace(/[\r\n]+/g, ' '),
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #5C4A32;">Nuovo messaggio dal sito</h2>
@@ -72,6 +74,10 @@ export async function POST(request: Request) {
             <tr style="background: #F5F0E8;">
               <td style="padding: 8px; font-weight: bold; color: #5C4A32;">Oggetto</td>
               <td style="padding: 8px;">${oggetto}</td>
+            </tr>
+            <tr style="background: #F5F0E8;">
+              <td style="padding: 8px; font-weight: bold; color: #5C4A32;">Lingua</td>
+              <td style="padding: 8px;">${lingua}</td>
             </tr>
             <tr>
               <td style="padding: 8px; font-weight: bold; color: #5C4A32; vertical-align: top;">Messaggio</td>

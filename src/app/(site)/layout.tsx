@@ -1,19 +1,6 @@
 import type { ReactNode } from "react";
-import StickyBookingBar from "@/components/booking/StickyBookingBar";
-import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
+import LocaleShell from "@/components/layout/LocaleShell";
 
-type SiteLayoutProps = {
-  children: ReactNode;
-};
-
-export default function SiteLayout({ children }: SiteLayoutProps) {
-  return (
-    <>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-      <StickyBookingBar />
-    </>
-  );
+export default function SiteLayout({ children }: { children: ReactNode }) {
+  return <LocaleShell locale="it">{children}</LocaleShell>;
 }

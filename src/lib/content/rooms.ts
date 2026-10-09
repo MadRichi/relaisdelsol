@@ -1,3 +1,6 @@
+import { roomPath, roomSlugs, type Locale } from "@/i18n/config";
+import { roomTranslations } from "./rooms-i18n";
+
 export interface RoomImage {
   src: string;
   alt: string;
@@ -262,3 +265,29 @@ export const rooms: Room[] = [
     available: true,
   },
 ];
+
+export type LocalizedRoom = Room & { itSlug: string; path: string };
+
+const photoWord: Record<Locale, string> = { it: "foto", en: "photo", de: "Foto" };
+
+/** Camera con testi, slug e URL nella lingua richiesta. */
+export function getLocalizedRoom(room: Room, locale: Locale): LocalizedRoom {
+  const path = roomPath(room.slug, locale);
+  if (locale === "it") return { ...room, itSlug: room.slug, path };
+  const text = roomTranslations[room.slug][locale];
+  return {
+    ...room,
+    ...text,
+    itSlug: room.slug,
+    slug: roomSlugs[room.slug][locale],
+    path,
+    images: room.images.map((image, index) => ({
+      ...image,
+      alt: `${text.name} – Relais del Sol, Lazise (${photoWord[locale]} ${index + 1})`,
+    })),
+  };
+}
+
+export function getLocalizedRooms(locale: Locale): LocalizedRoom[] {
+  return rooms.map((room) => getLocalizedRoom(room, locale));
+}

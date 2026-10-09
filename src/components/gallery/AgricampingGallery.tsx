@@ -12,9 +12,10 @@ type AgricampingImage = {
 
 type AgricampingGalleryProps = {
   images: AgricampingImage[];
+  labels: { open: string; close: string; prev: string; next: string };
 };
 
-export default function AgricampingGallery({ images }: AgricampingGalleryProps) {
+export default function AgricampingGallery({ images, labels }: AgricampingGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ export default function AgricampingGallery({ images }: AgricampingGalleryProps) 
           <button
             key={image.src}
             type="button"
+            aria-label={`${labels.open} ${index + 1}`}
             onClick={() => setSelectedIndex(index)}
             className="relative aspect-[3/2] cursor-pointer overflow-hidden transition-opacity hover:opacity-90"
           >
@@ -76,6 +78,7 @@ export default function AgricampingGallery({ images }: AgricampingGalleryProps) 
           >
             <button
               type="button"
+              aria-label={labels.close}
               className="absolute left-0 right-0 top-0 z-20 flex h-16 cursor-pointer items-center justify-end pr-6"
               onClick={() => setSelectedIndex(null)}
             >
@@ -86,6 +89,7 @@ export default function AgricampingGallery({ images }: AgricampingGalleryProps) 
               <>
                 <button
                   type="button"
+                  aria-label={labels.prev}
                   className="absolute left-0 top-0 z-10 flex h-full w-1/4 cursor-pointer items-center justify-start bg-gradient-to-r from-black/30 to-transparent pl-4 transition-colors hover:from-black/50"
                   onClick={() =>
                     setSelectedIndex((prev) => {
@@ -98,6 +102,7 @@ export default function AgricampingGallery({ images }: AgricampingGalleryProps) 
                 </button>
                 <button
                   type="button"
+                  aria-label={labels.next}
                   className="absolute right-0 top-0 z-10 flex h-full w-1/4 cursor-pointer items-center justify-end bg-gradient-to-l from-black/30 to-transparent pr-4 transition-colors hover:from-black/50"
                   onClick={() =>
                     setSelectedIndex((prev) => {
