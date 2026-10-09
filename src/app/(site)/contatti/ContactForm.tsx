@@ -23,9 +23,9 @@ const inputClassName =
   "w-full bg-transparent border-b border-sol-bark/20 font-sans text-sm text-sol-bark py-3 focus:outline-none focus:border-sol-terracotta transition-colors placeholder:text-sol-bark/30";
 
 const labelClassName =
-  "mb-1 block font-sans text-xs uppercase tracking-widest text-sol-bark/50";
+  "mb-1 block font-sans text-xs uppercase tracking-widest text-sol-bark/70";
 
-const errorClassName = "mt-1 font-sans text-xs text-sol-terracotta";
+const errorClassName = "mt-1 font-sans text-xs text-sol-terracotta-deep";
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -233,7 +233,7 @@ export default function ContactForm() {
         )}
       </button>
       {isError ? (
-        <p className="mt-3 font-sans text-xs text-sol-terracotta">
+        <p className="mt-3 font-sans text-xs text-sol-terracotta-deep">
           Si è verificato un errore. Riprova o contattaci direttamente a{" "}
           <Link href={`mailto:${contact.email}`} className="underline underline-offset-2">
             {contact.email}

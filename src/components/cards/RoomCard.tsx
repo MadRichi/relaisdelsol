@@ -49,17 +49,17 @@ export default function RoomCard({
             {name}
           </h3>
           {facts?.length ? (
-            <p className="mt-2 font-sans text-xs uppercase tracking-wide text-sol-terracotta">
+            <p className="mt-2 font-sans text-xs uppercase tracking-wide text-sol-terracotta-deep">
               {facts.join(" · ")}
             </p>
           ) : null}
           <p className="mt-3 font-sans text-sm leading-relaxed text-sol-bark/70">
             {shortDescription}
           </p>
-          <p className="mt-4 font-sans text-xs text-sol-bark/50">
+          <p className="mt-4 font-sans text-xs text-sol-bark/70">
             {features.join(" · ")}
           </p>
-          <span className="mt-6 inline-flex font-sans text-xs uppercase tracking-wide text-sol-terracotta">
+          <span className="mt-6 inline-flex font-sans text-xs uppercase tracking-wide text-sol-terracotta-deep">
             Scopri la camera →
           </span>
         </div>

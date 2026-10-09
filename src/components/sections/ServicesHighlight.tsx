@@ -63,7 +63,7 @@ export default function ServicesHighlight() {
                 <p className="mt-3 font-sans text-sm leading-relaxed text-sol-bark/70">
                   {card.description}
                 </p>
-                  <span className="mt-auto pt-4 inline-flex font-sans text-xs uppercase tracking-wide text-sol-terracotta">
+                  <span className="mt-auto pt-4 inline-flex font-sans text-xs uppercase tracking-wide text-sol-terracotta-deep">
                   Scopri →
                 </span>
               </div>

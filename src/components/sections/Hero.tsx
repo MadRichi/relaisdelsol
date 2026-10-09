@@ -1,17 +1,28 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
 
+const VIDEO_MOBILE = "/videos/hero-mobile.mp4";
+const VIDEO_DESKTOP = "/videos/hero-desktop.mp4";
+
+type NetworkInformation = { saveData?: boolean };
+
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const saveData = (navigator as Navigator & { connection?: NetworkInformation }).connection?.saveData;
+    if (prefersReducedMotion || saveData) return;
 
     video.muted = true;
     video.defaultMuted = true;
@@ -19,25 +30,37 @@ export default function Hero() {
     const tryPlay = () => {
       video.play().catch(() => {});
     };
-
-    // Try immediately
-    tryPlay();
-
-    // Try when video metadata is loaded
-    video.addEventListener("loadeddata", tryPlay);
-
-    // Try when page becomes visible
-    document.addEventListener("visibilitychange", tryPlay);
-
-    // Try on first user interaction (iOS fallback)
+    const onPlaying = () => setIsPlaying(true);
     const onInteraction = () => {
       tryPlay();
       document.removeEventListener("touchstart", onInteraction);
     };
-    document.addEventListener("touchstart", onInteraction);
+
+    // Il video parte solo dopo il caricamento della pagina: l'immagine resta
+    // l'elemento principale (LCP) e il video non rallenta il primo rendering.
+    const startVideo = () => {
+      video.src = window.matchMedia("(min-width: 768px)").matches ? VIDEO_DESKTOP : VIDEO_MOBILE;
+      video.load();
+      video.addEventListener("loadeddata", tryPlay);
+      video.addEventListener("playing", onPlaying);
+      document.addEventListener("visibilitychange", tryPlay);
+      // Fallback iOS: prima interazione dell'utente
+      document.addEventListener("touchstart", onInteraction, { passive: true });
+      tryPlay();
+    };
+
+    let timeoutId: number | undefined;
+    const schedule = () => {
+      timeoutId = window.setTimeout(startVideo, 300);
+    };
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
 
     return () => {
+      window.clearTimeout(timeoutId);
+      window.removeEventListener("load", schedule);
       video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("playing", onPlaying);
       document.removeEventListener("visibilitychange", tryPlay);
       document.removeEventListener("touchstart", onInteraction);
     };
@@ -45,26 +68,33 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen h-screen w-full overflow-hidden">
+      <Image
+        src="/images/hero.jpg"
+        alt="Vista aerea del Relais del Sol tra il parco, la piscina e il Lago di Garda"
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="object-cover"
+      />
       <video
         ref={videoRef}
-        autoPlay
         muted
         loop
         playsInline
-        preload="auto"
-        poster="/images/hero.jpg"
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/videos/agriturismorelaisdelsolpacengo.mp4" type="video/mp4" />
-        <source src="/videos/hero.webm" type="video/webm" />
-      </video>
+        preload="none"
+        aria-hidden="true"
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+          isPlaying ? "opacity-100" : "opacity-0"
+        }`}
+      />
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(92,74,50,0.7)]" />
 
       <div className="absolute inset-x-0 bottom-36 md:bottom-44 px-6 md:px-16">
         <div className="max-w-4xl">
           <SectionLabel>
-            <span className="text-sol-cream">Pacengo di Lazise · Lago di Garda</span>
+            <span className="text-sol-cream">Agriturismo a Pacengo di Lazise · Lago di Garda</span>
           </SectionLabel>
 
           <h1 className="mt-3 whitespace-pre-line font-serif text-5xl font-light leading-tight text-sol-cream md:text-7xl">

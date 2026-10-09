@@ -173,7 +173,7 @@ export default function EsperienzePage() {
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   {poolInfo.map((item) => (
                     <div key={item.label} className="bg-sol-sand p-4">
-                      <p className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/40">
+                      <p className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/70">
                         {item.label}
                       </p>
                       <p className="mt-1 font-sans text-sm text-sol-bark">
@@ -182,7 +182,7 @@ export default function EsperienzePage() {
                     </div>
                   ))}
                 </div>
-                <p className="mt-4 font-sans text-xs italic text-sol-bark/50">
+                <p className="mt-4 font-sans text-xs italic text-sol-bark/70">
                   Al chiosco: vino, olio, birra, panini, pizza, gelati e
                   bibite.
                 </p>
@@ -229,7 +229,7 @@ export default function EsperienzePage() {
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   {breakfastInfo.map((item) => (
                     <div key={item.label} className="bg-sol-sand p-4">
-                      <p className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/40">
+                      <p className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/70">
                         {item.label}
                       </p>
                       <p className="mt-1 font-sans text-sm text-sol-bark">
@@ -238,7 +238,7 @@ export default function EsperienzePage() {
                     </div>
                   ))}
                 </div>
-                <p className="mt-4 font-sans text-xs italic text-sol-bark/50">
+                <p className="mt-4 font-sans text-xs italic text-sol-bark/70">
                   Prodotti senza glutine e latte vegetale disponibili su
                   richiesta.
                 </p>
@@ -284,7 +284,7 @@ export default function EsperienzePage() {
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   {eventsInfo.map((item) => (
                     <div key={item.label} className="bg-sol-sand p-4">
-                      <p className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/40">
+                      <p className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/70">
                         {item.label}
                       </p>
                       <p className="mt-1 font-sans text-sm text-sol-bark">
@@ -293,12 +293,12 @@ export default function EsperienzePage() {
                     </div>
                   ))}
                 </div>
-                <p className="mt-4 font-sans text-xs italic text-sol-bark/50">
+                <p className="mt-4 font-sans text-xs italic text-sol-bark/70">
                   Contattaci per un preventivo personalizzato.
                 </p>
                 <Link
                   href="/contatti"
-                  className="mt-6 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wide text-sol-terracotta"
+                  className="mt-6 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wide text-sol-terracotta-deep"
                 >
                   Richiedi informazioni →
                 </Link>
@@ -342,7 +342,7 @@ export default function EsperienzePage() {
             <div className="mt-6 flex flex-col gap-2">
               {territoryServices.map((item) => (
                 <p key={item} className="font-sans text-sm text-sol-bark/70">
-                  <span className="mr-2 text-sol-terracotta">→</span>
+                  <span className="mr-2 text-sol-terracotta-deep">→</span>
                   {item}
                 </p>
               ))}
@@ -353,8 +353,8 @@ export default function EsperienzePage() {
             {distanceCards.map((card) => (
               <article key={card.name} className="bg-sol-cream p-5">
                 <p className="font-serif text-xl text-sol-bark">{card.name}</p>
-                <p className="mt-0.5 font-sans text-xs text-sol-bark/50">{card.desc}</p>
-                <p className="mt-3 font-sans text-xs uppercase tracking-widest text-sol-terracotta">
+                <p className="mt-0.5 font-sans text-xs text-sol-bark/70">{card.desc}</p>
+                <p className="mt-3 font-sans text-xs uppercase tracking-widest text-sol-terracotta-deep">
                   {card.dist}
                 </p>
               </article>
@@ -381,7 +381,7 @@ export default function EsperienzePage() {
           <div className="flex flex-col divide-y divide-sol-bark/10">
             {weeklyMarkets.map((market) => (
               <div key={market.day} className="flex items-start gap-4 py-3">
-                <p className="w-20 flex-shrink-0 pt-0.5 font-sans text-xs uppercase tracking-widest text-sol-terracotta">
+                <p className="w-20 flex-shrink-0 pt-0.5 font-sans text-xs uppercase tracking-widest text-sol-terracotta-deep">
                   {market.day}
                 </p>
                 <p className="font-sans text-sm text-sol-bark/70">{market.places}</p>

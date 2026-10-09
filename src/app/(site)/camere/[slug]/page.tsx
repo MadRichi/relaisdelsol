@@ -8,7 +8,7 @@ import SectionLabel from "@/components/ui/SectionLabel";
 import Badge from "@/components/ui/Badge";
 import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter";
 import { generatePageMetadata } from "@/lib/seo/metadata";
-import { getRoomSchema } from "@/lib/seo/schemas";
+import { getBreadcrumbSchema, getRoomSchema } from "@/lib/seo/schemas";
 import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
 import RoomGallery from "./RoomGallery";
 
@@ -45,7 +45,14 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
     notFound();
   }
 
-  const roomSchema = getRoomSchema(room);
+  const roomSchema = [
+    getRoomSchema(room),
+    getBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Camere", path: "/camere" },
+      { name: room.name, path: `/camere/${room.slug}` },
+    ]),
+  ];
   const facts = [
     { label: "Dimensione", value: room.size },
     { label: "Ospiti", value: room.guests },
@@ -95,7 +102,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
               <dl className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
                 {facts.map((fact) => (
                   <div key={fact.label} className="bg-sol-sand p-4">
-                    <dt className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/50">
+                    <dt className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/70">
                       {fact.label}
                     </dt>
                     <dd className="mt-1 font-sans text-sm text-sol-bark">{fact.value}</dd>
@@ -119,7 +126,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
             {room.notes?.length ? (
               <ul className="mt-6 space-y-1">
                 {room.notes.map((note) => (
-                  <li key={note} className="font-sans text-xs italic text-sol-bark/50">
+                  <li key={note} className="font-sans text-xs italic text-sol-bark/70">
                     {note}
                   </li>
                 ))}
@@ -132,7 +139,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
               <SectionLabel>Prenota questa stanza</SectionLabel>
               <h3 className="mt-2 font-serif text-xl text-sol-bark">{room.name}</h3>
               <div className="mt-4 h-px w-full bg-sol-bark/15" />
-              <p className="mt-4 font-sans text-xs text-sol-bark/50">
+              <p className="mt-4 font-sans text-xs text-sol-bark/70">
                 Miglior prezzo sul sito ufficiale · Nessuna commissione
               </p>
               {room.bookingUnits?.length ? (
@@ -152,7 +159,7 @@ export default async function RoomDetailPage({ params }: RoomPageProps) {
                 </Button>
                 <Link
                   href="/camere"
-                  className="font-sans text-sm uppercase tracking-wide text-sol-terracotta transition-colors hover:text-sol-bark"
+                  className="font-sans text-sm uppercase tracking-wide text-sol-terracotta-deep transition-colors hover:text-sol-bark"
                 >
                   Vedi altre camere
                 </Link>

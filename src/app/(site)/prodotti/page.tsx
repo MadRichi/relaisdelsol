@@ -103,7 +103,7 @@ export default function ProdottiPage() {
                     Vino Rosé
                   </span>
                 </div>
-                <p className="mt-4 font-sans text-xs italic text-sol-bark/40">
+                <p className="mt-4 font-sans text-xs italic text-sol-bark/70">
                   Disponibile in struttura — assortimento soggetto a
                   stagionalità
                 </p>
@@ -135,7 +135,7 @@ export default function ProdottiPage() {
                     Produzione propria
                   </span>
                 </div>
-                <p className="mt-4 font-sans text-xs italic text-sol-bark/40">
+                <p className="mt-4 font-sans text-xs italic text-sol-bark/70">
                   Disponibile in struttura — quantità limitata per stagione
                 </p>
               </div>

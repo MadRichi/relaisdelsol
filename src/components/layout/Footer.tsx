@@ -33,6 +33,9 @@ export default function Footer() {
             <p className="font-sans text-sm text-sol-cream/80">
               Dove la campagna tocca il lago
             </p>
+            <p className="font-sans text-xs text-sol-cream/70">
+              Agriturismo a Pacengo di Lazise, già Agriturismo Ca&apos; del Sol
+            </p>
             <p className="font-sans text-sm leading-relaxed text-sol-cream/80">
               {contact.address.street} — {contact.address.postalCode} {contact.address.locality} ({contact.address.region})
             </p>

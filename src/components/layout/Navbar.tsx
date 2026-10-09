@@ -58,7 +58,7 @@ export default function Navbar() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const transparentTextClass = theme === "dark" ? "text-sol-bark" : "text-sol-cream";
   const transparentHoverClass =
-    theme === "dark" ? "hover:text-sol-terracotta" : "hover:text-sol-cream/70";
+    theme === "dark" ? "hover:text-sol-terracotta-deep" : "hover:text-sol-cream/70";
 
   return (
     <header
@@ -77,7 +77,7 @@ export default function Navbar() {
         >
           <Image
             src="/images/logo.png"
-            alt="Relais Del Sol"
+            alt=""
             width={36}
             height={36}
             className="object-contain"
@@ -101,7 +101,7 @@ export default function Navbar() {
               className={joinClasses(
                 "font-sans text-sm uppercase tracking-wide transition-colors",
                 isScrolled
-                  ? "text-sol-bark hover:text-sol-terracotta font-medium"
+                  ? "text-sol-bark hover:text-sol-terracotta-deep font-medium"
                   : joinClasses(transparentTextClass, transparentHoverClass, "font-medium"),
               )}
               style={!isScrolled ? { textShadow: "0 1px 3px rgba(0,0,0,0.4)" } : undefined}
@@ -187,7 +187,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={closeMobileMenu}
-                className="font-sans text-sm uppercase tracking-wide text-sol-bark transition-colors hover:text-sol-terracotta"
+                className="font-sans text-sm uppercase tracking-wide text-sol-bark transition-colors hover:text-sol-terracotta-deep"
               >
                 {link.label}
               </Link>

@@ -98,7 +98,7 @@ export default function AgricampingPage() {
           <div className="grid grid-cols-2 gap-4">
             {features.map((feature) => (
               <div key={feature.label} className="bg-sol-mist p-5">
-                <p className="font-serif text-3xl font-light text-sol-terracotta">
+                <p className="font-serif text-3xl font-light text-sol-terracotta-deep">
                   {feature.value}
                 </p>
                 <p className="mt-1 font-sans text-xs uppercase tracking-wide text-sol-bark/60">

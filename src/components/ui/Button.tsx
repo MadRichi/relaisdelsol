@@ -28,7 +28,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   ghost:
     "bg-transparent border border-current hover:bg-current/10",
   outline:
-    "bg-transparent text-sol-terracotta border border-sol-terracotta hover:bg-sol-terracotta/10",
+    "bg-transparent text-sol-terracotta-deep border border-sol-terracotta hover:bg-sol-terracotta/10",
   light:
     "bg-sol-cream text-sol-bark border border-sol-cream hover:bg-sol-sand",
 };

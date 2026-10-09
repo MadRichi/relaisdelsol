@@ -21,7 +21,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/camere"
-          className="inline-flex h-11 items-center border border-sol-terracotta px-5 font-sans text-sm uppercase tracking-wide text-sol-terracotta"
+          className="inline-flex h-11 items-center border border-sol-terracotta px-5 font-sans text-sm uppercase tracking-wide text-sol-terracotta-deep"
         >
           Le camere
         </Link>

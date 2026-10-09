@@ -31,6 +31,13 @@ export default function ValueProposition() {
         <h2 className="mt-4 font-serif text-4xl font-light text-sol-bark md:text-5xl">
           Non un hotel. Un posto dove tornare.
         </h2>
+        <p className="mt-6 font-sans text-sm leading-relaxed text-sol-bark/70">
+          Relais del Sol, già Agriturismo Ca&apos; del Sol, è un agriturismo a
+          Pacengo di Lazise, sulla sponda veronese del Lago di Garda: camere in
+          stile shabby chic, alcune con vista lago, family suite e mobilhome,
+          immerse in 13 ettari di parco tra vigneti e uliveti, con piscina a
+          sfioro e colazione in veranda.
+        </p>
       </div>
 
       <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 items-stretch gap-12 px-6 md:grid-cols-3 md:px-16">

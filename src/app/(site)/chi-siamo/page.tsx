@@ -100,7 +100,7 @@ export default function ChiSiamoPage() {
               Abbiamo scelto di aprire le porte di casa nostra perché crediamo
               che la vera ospitalità non si insegna: si sente.
             </blockquote>
-            <p className="mt-6 font-sans text-xs uppercase tracking-widest text-sol-bark/40">
+            <p className="mt-6 font-sans text-xs uppercase tracking-widest text-sol-bark/70">
               — La famiglia Pietropoli
             </p>
           </div>

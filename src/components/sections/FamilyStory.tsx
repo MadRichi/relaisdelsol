@@ -42,7 +42,7 @@ export default function FamilyStory() {
 
           <Link
             href="/chi-siamo"
-            className="mt-8 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wide text-sol-terracotta transition-all hover:gap-3"
+            className="mt-8 inline-flex items-center gap-2 font-sans text-sm uppercase tracking-wide text-sol-terracotta-deep transition-all hover:gap-3"
           >
             La nostra storia
             <svg

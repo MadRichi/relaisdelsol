@@ -67,6 +67,7 @@ export default function CamerePage() {
       </section>
 
       <section className="bg-sol-sand py-16 md:py-24">
+        <h2 className="sr-only">Tutte le tipologie di camere</h2>
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 md:px-16">
           {rooms.map((room) => (
             <RoomCard
