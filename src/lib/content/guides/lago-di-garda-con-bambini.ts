@@ -10,7 +10,16 @@ const NAVIGAZIONE = "https://www.navigazionelaghi.it/";
 export const FAMILY_GUIDE: Guide = {
   id: "lago-di-garda-con-bambini",
   date: "2026-10-21",
-  image: { src: "/images/services/piscina-3.jpg", width: 2000, height: 1333 },
+  image: {
+    src: "/images/guide/gardaland-vista-aerea.jpg",
+    width: 2000,
+    height: 1126,
+    credit: {
+      author: "Daniel Reust",
+      license: "CC BY-SA 4.0",
+      url: "https://commons.wikimedia.org/wiki/File:Luftansicht_Gardaland,_2024.jpg",
+    },
+  },
   translations: {
     it: {
       title: "Lago di Garda con bambini: dove dormire vicino a Gardaland e Movieland e cosa fare",
@@ -20,7 +29,7 @@ export const FAMILY_GUIDE: Guide = {
       excerpt:
         "Gardaland e Movieland sono vicini? Dove conviene dormire? Cosa fare se piove? Le risposte pratiche per organizzare una vacanza in famiglia sul Lago di Garda.",
       category: "Famiglie",
-      imageAlt: "La piscina a sfioro del Relais del Sol con lettini e ombrelloni, a 2 km da Gardaland",
+      imageAlt: "Vista aerea di Gardaland con il Lago di Garda sullo sfondo",
       blocks: [
         {
           type: "p",
@@ -153,7 +162,7 @@ export const FAMILY_GUIDE: Guide = {
       excerpt:
         "Are Gardaland and Movieland close? Where should you stay? What to do when it rains? Practical answers for planning a family holiday on Lake Garda.",
       category: "Families",
-      imageAlt: "The infinity pool at Relais del Sol with sun loungers, 2 km from Gardaland",
+      imageAlt: "Aerial view of Gardaland with Lake Garda in the background",
       blocks: [
         {
           type: "p",
@@ -286,7 +295,7 @@ export const FAMILY_GUIDE: Guide = {
       excerpt:
         "Liegen Gardaland und Movieland nah beieinander? Wo übernachtet man am besten? Was tun bei Regen? Praktische Antworten für den Familienurlaub am Gardasee.",
       category: "Familien",
-      imageAlt: "Der Infinity-Pool des Relais del Sol mit Liegen, 2 km von Gardaland entfernt",
+      imageAlt: "Luftaufnahme von Gardaland mit dem Gardasee im Hintergrund",
       blocks: [
         {
           type: "p",

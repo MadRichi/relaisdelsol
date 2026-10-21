@@ -21,6 +21,11 @@ export default function GuideCard({ guide, dateLabel, readMore, minutes }: Guide
             sizes="(min-width: 768px) 33vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
+          {guide.image.credit ? (
+            <span className="absolute bottom-1 right-2 font-sans text-[9px] text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.8)]">
+              © {guide.image.credit.author} · {guide.image.credit.license}
+            </span>
+          ) : null}
         </div>
         <div className="flex flex-1 flex-col p-6">
           <p className="font-sans text-[10px] uppercase tracking-widest text-sol-bark/70">

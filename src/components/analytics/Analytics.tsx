@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { useEffect } from "react";
-import { GA_MEASUREMENT_ID } from "@/lib/site";
+import { GA_MEASUREMENT_ID, GTM_ID } from "@/lib/site";
 
 type Gtag = (...args: unknown[]) => void;
 
@@ -12,7 +12,7 @@ function track(event: string, params: Record<string, string>) {
 }
 
 /**
- * Google Analytics 4 con Consent Mode v2.
+ * Google Analytics 4 e Google Tag Manager con Consent Mode v2.
  * Il consenso di default (negato) è impostato nel layout radice prima di ogni altro script;
  * iubenda lo aggiorna quando l'utente sceglie. Il tag viene caricato dopo la pagina.
  */
@@ -41,6 +41,9 @@ export default function Analytics() {
       />
       <Script id="ga4-config" strategy="lazyOnload">
         {`gtag('js', new Date()); gtag('config', '${GA_MEASUREMENT_ID}');`}
+      </Script>
+      <Script id="gtm" strategy="lazyOnload">
+        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
       </Script>
     </>
   );

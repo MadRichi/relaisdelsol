@@ -62,6 +62,11 @@ export const roomSlugs: Record<string, Record<Locale, string>> = {
 
 /** Slug degli articoli della guida per lingua (chiave = id articolo). */
 export const guideSlugs: Record<string, Record<Locale, string>> = {
+  "cosa-vedere-a-lazise": {
+    it: "cosa-vedere-a-lazise-cosa-fare",
+    en: "things-to-do-in-lazise-lake-garda",
+    de: "lazise-sehenswuerdigkeiten-gardasee",
+  },
   "lago-di-garda-con-bambini": {
     it: "lago-di-garda-con-bambini-dove-dormire-gardaland-movieland",
     en: "lake-garda-with-kids-where-to-stay-gardaland-movieland",

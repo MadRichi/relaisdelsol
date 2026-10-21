@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import RichText from "@/components/guide/RichText";
 import GuideCard from "@/components/guide/GuideCard";
+import PhotoCredit from "@/components/guide/PhotoCredit";
 import { guidePath, guideSlugs, locales, routes, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { getLocalizedGuide, getLocalizedGuides, guides, type GuideBlock } from "@/lib/content/guides";
@@ -144,6 +145,7 @@ export default function GuideArticleView({ id, locale }: { id: string; locale: L
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-sol-bark/20 to-sol-bark/80" />
+        {guide.image.credit ? <PhotoCredit credit={guide.image.credit} className="right-4 top-24" /> : null}
       </section>
 
       <article className="bg-sol-cream pb-20">

@@ -1,5 +1,6 @@
 import { guidePath, guideSlugs, type Locale } from "@/i18n/config";
 import { FAMILY_GUIDE } from "./guides/lago-di-garda-con-bambini";
+import { LAZISE_GUIDE } from "./guides/cosa-vedere-a-lazise";
 
 /**
  * Blocchi di contenuto di un articolo.
@@ -29,7 +30,15 @@ export interface Guide {
   /** Data di pubblicazione (YYYY-MM-DD). */
   date: string;
   updated?: string;
-  image: { src: string; width: number; height: number };
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    /** Credito obbligatorio per foto con licenza Creative Commons. */
+    credit?: { author: string; license: string; url: string };
+  };
+  /** In evidenza: mostrato prima degli altri (es. articoli stagionali). */
+  pinned?: boolean;
   translations: Record<Locale, GuideTranslation>;
 }
 
@@ -39,10 +48,13 @@ const SAN_ZENO =
 const GARDALAND = "https://www.gardaland.it/esplora-gardaland/eventi-aperture-speciali/magic-halloween/";
 
 export const guides: Guide[] = [
+  LAZISE_GUIDE,
   FAMILY_GUIDE,
   {
     id: "halloween-autunno-2026",
     date: "2026-10-21",
+    // Stagionale: in evidenza fino a inizio novembre, poi togliere `pinned`
+    pinned: true,
     image: { src: "/images/guide/zucche-relais-del-sol.jpg", width: 2000, height: 1500 },
     translations: {
       it: {
@@ -384,9 +396,9 @@ export function getLocalizedGuide(guide: Guide, locale: Locale): LocalizedGuide 
   };
 }
 
-/** Articoli nella lingua richiesta, dal più recente. */
+/** Articoli nella lingua richiesta: prima quelli in evidenza, poi dal più recente. */
 export function getLocalizedGuides(locale: Locale): LocalizedGuide[] {
   return [...guides]
-    .sort((a, b) => b.date.localeCompare(a.date))
+    .sort((a, b) => Number(Boolean(b.pinned)) - Number(Boolean(a.pinned)) || b.date.localeCompare(a.date))
     .map((guide) => getLocalizedGuide(guide, locale));
 }

@@ -34,3 +34,6 @@ export function mapEmbedSrc(language: "it" | "en" | "de") {
 
 /** Google Analytics 4 (proprietà "relaisdelsol.it"). */
 export const GA_MEASUREMENT_ID = "G-EFT3K5GY8Y";
+
+/** Google Tag Manager: contenitore per i tag futuri (Ads, Meta…). GA4 NON va aggiunto qui: è già installato direttamente. */
+export const GTM_ID = "GTM-56PD9826";
