@@ -66,6 +66,7 @@ export const rooms: Room[] = [
     longDescription:
       "La Camera Economy è pensata per chi passa le giornate tra il lago, i borghi e la piscina e cerca un rifugio semplice, pulito e silenzioso per la notte. Gli arredi in stile provenzale, i tessuti chiari e la quiete della campagna gardesana rendono il soggiorno piacevole anche nella formula più essenziale, con tutti i servizi del Relais a disposizione.",
     badge: "Essenziale",
+    bookingUnits: ["Economy Passione"],
     guests: "2 ospiti",
     beds: "Letto matrimoniale",
     features: [
@@ -89,6 +90,7 @@ export const rooms: Room[] = [
     longDescription:
       "Ti svegli con una luce morbida che entra dalle tende chiare e accarezza gli arredi shabby chic della stanza. Dopo la colazione in veranda rientri in un ambiente curato, dove ogni dettaglio resta semplice e autentico: tessuti leggeri, profumi puliti, quiete vera. Ogni camera Standard ha un suo carattere e un suo nome, ma tutte condividono la stessa atmosfera romantica e rilassata.",
     badge: "Romantica",
+    bookingUnits: ["Standard Romantica", "Standard Imperiale", "Standard Desideri"],
     guests: "2 ospiti",
     beds: "Letto matrimoniale",
     features: [
