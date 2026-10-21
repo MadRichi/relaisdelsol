@@ -29,6 +29,8 @@ export default function Navbar({ locale, dict, bookNow }: NavbarProps) {
     { label: dict.links.glamping, href: routes.glamping[locale] },
     { label: dict.links.experiences, href: routes.experiences[locale] },
     { label: dict.links.about, href: routes.about[locale] },
+    // La guida compare nella barra desktop solo da lg in su (a md lo spazio non basta)
+    { label: dict.guideShort, href: routes.guide[locale], wideOnly: true },
     { label: dict.links.contact, href: routes.contact[locale] },
   ];
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,6 +112,7 @@ export default function Navbar({ locale, dict, bookNow }: NavbarProps) {
               href={link.href}
               className={joinClasses(
                 "font-sans text-sm uppercase tracking-wide transition-colors",
+                "wideOnly" in link && link.wideOnly === true && "hidden lg:inline",
                 isScrolled
                   ? "text-sol-bark hover:text-sol-terracotta-deep font-medium"
                   : joinClasses(transparentTextClass, transparentHoverClass, "font-medium"),

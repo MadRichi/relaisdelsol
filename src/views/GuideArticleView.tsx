@@ -9,7 +9,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import { getLocalizedGuide, getLocalizedGuides, guides, type GuideBlock } from "@/lib/content/guides";
 import { formatDate } from "@/lib/format-date";
 import { generatePageMetadata } from "@/lib/seo/metadata";
-import { getArticleSchema, getBreadcrumbSchema } from "@/lib/seo/schemas";
+import { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from "@/lib/seo/schemas";
 import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
 
 export function guideIdFor(slug: string, locale: Locale) {
@@ -72,6 +72,28 @@ function Block({ block }: { block: GuideBlock }) {
           </ul>
         </aside>
       );
+    case "faq":
+      return (
+        <section className="mt-12">
+          <h2 className="font-serif text-3xl font-light text-sol-bark">{block.title}</h2>
+          <div className="mt-6 divide-y divide-sol-bark/15 border-y border-sol-bark/15">
+            {block.items.map((item) => (
+              <details key={item.q} className="group py-4">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-serif text-lg text-sol-bark [&::-webkit-details-marker]:hidden">
+                  <h3>{item.q}</h3>
+                  <span
+                    aria-hidden="true"
+                    className="font-sans text-xl text-sol-terracotta-deep transition-transform duration-300 group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 font-sans text-sm leading-relaxed text-sol-bark/80">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      );
     case "highlight":
       return <p className="mt-10 font-serif text-2xl italic text-sol-bark">{block.text}</p>;
     default:
@@ -89,7 +111,9 @@ export default function GuideArticleView({ id, locale }: { id: string; locale: L
   const guide = getLocalizedGuide(guides.find((g) => g.id === id)!, locale);
   const related = getLocalizedGuides(locale).filter((g) => g.id !== id).slice(0, 3);
 
+  const faqItems = guide.blocks.flatMap((block) => (block.type === "faq" ? block.items : []));
   const schema = [
+    ...(faqItems.length ? [getFaqSchema(faqItems, locale)] : []),
     getArticleSchema({
       title: guide.title,
       description: guide.description,

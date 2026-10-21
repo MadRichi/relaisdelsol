@@ -59,6 +59,7 @@ const it = {
       contact: "Contatti",
       guide: "Guida al Lago di Garda",
     },
+    guideShort: "Guida",
     home: "Home",
     openMenu: "Apri menu",
     closeMenu: "Chiudi menu",

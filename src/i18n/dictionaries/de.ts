@@ -61,6 +61,7 @@ const de: Dictionary = {
       contact: "Kontakt",
       guide: "Gardasee-Reiseführer",
     },
+    guideShort: "Reiseführer",
     home: "Startseite",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen",

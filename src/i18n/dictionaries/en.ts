@@ -61,6 +61,7 @@ const en: Dictionary = {
       contact: "Contact",
       guide: "Lake Garda Guide",
     },
+    guideShort: "Guide",
     home: "Home",
     openMenu: "Open menu",
     closeMenu: "Close menu",

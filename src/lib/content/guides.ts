@@ -1,4 +1,5 @@
 import { guidePath, guideSlugs, type Locale } from "@/i18n/config";
+import { FAMILY_GUIDE } from "./guides/lago-di-garda-con-bambini";
 
 /**
  * Blocchi di contenuto di un articolo.
@@ -10,7 +11,8 @@ export type GuideBlock =
   | { type: "h3"; text: string }
   | { type: "list"; items: string[] }
   | { type: "facts"; title: string; items: string[] }
-  | { type: "highlight"; text: string };
+  | { type: "highlight"; text: string }
+  | { type: "faq"; title: string; items: { q: string; a: string }[] };
 
 export interface GuideTranslation {
   title: string;
@@ -37,6 +39,7 @@ const SAN_ZENO =
 const GARDALAND = "https://www.gardaland.it/esplora-gardaland/eventi-aperture-speciali/magic-halloween/";
 
 export const guides: Guide[] = [
+  FAMILY_GUIDE,
   {
     id: "halloween-autunno-2026",
     date: "2026-10-21",
@@ -353,9 +356,15 @@ export type LocalizedGuide = GuideTranslation & {
   readingMinutes: number;
 };
 
+function blockText(block: GuideBlock): string[] {
+  if (block.type === "faq") return [block.title, ...block.items.flatMap((item) => [item.q, item.a])];
+  if ("items" in block) return [...block.items, "title" in block ? block.title : ""];
+  return [block.text];
+}
+
 function readingMinutes(blocks: GuideBlock[]) {
   const words = blocks
-    .flatMap((block) => ("items" in block ? [...block.items, "title" in block ? block.title : ""] : [block.text]))
+    .flatMap(blockText)
     .join(" ")
     .split(/\s+/).length;
   return Math.max(1, Math.round(words / 200));
