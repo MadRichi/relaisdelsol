@@ -31,6 +31,11 @@ const it = {
       description:
         "Contatta l'agriturismo Relais del Sol a Pacengo di Lazise (VR): telefono, WhatsApp, email, mappa e modulo di contatto.",
     },
+    guide: {
+      title: "Guida al Lago di Garda: cosa fare a Lazise e dintorni | Relais del Sol",
+      description:
+        "Idee, eventi e itinerari per vivere il Lago di Garda: cosa fare a Lazise, Pacengo e dintorni, consigliati dalla famiglia del Relais del Sol.",
+    },
     lodgingDescription:
       "Agriturismo a Pacengo di Lazise sul Lago di Garda con camere in stile shabby chic, family suite, mobilhome, piscina a sfioro e 13 ettari di parco tra vigneti e uliveti.",
   },
@@ -52,6 +57,7 @@ const it = {
       experiences: "Esperienze",
       about: "Chi Siamo",
       contact: "Contatti",
+      guide: "Guida al Lago di Garda",
     },
     home: "Home",
     openMenu: "Apri menu",
@@ -237,6 +243,30 @@ const it = {
     text: "Prenota direttamente sul sito ufficiale. Il prezzo migliore è sempre qui.",
   },
 
+  guideSection: {
+    label: "Idee e consigli",
+    title: "Guida al Lago di Garda",
+    text: "Eventi, itinerari e consigli per scoprire Lazise e i dintorni, raccontati da chi qui ci vive.",
+    cta: "Tutte le guide al Lago di Garda",
+  },
+
+  guidePage: {
+    heroAlt: "Il Lago di Garda visto dal Relais del Sol",
+    label: "Relais del Sol · Lazise",
+    title: "Guida al Lago di Garda",
+    intro:
+      "Cosa fare a Lazise, a Pacengo e sul Lago di Garda: eventi di stagione, itinerari, sapori e tradizioni del territorio. Consigli pratici, con le distanze dal Relais, scritti da chi questo lago lo vive ogni giorno.",
+    readMore: "Leggi la guida →",
+    minutes: "min di lettura",
+    publishedOn: "Pubblicato il",
+    backToGuides: "← Tutte le guide",
+    ctaLabel: "Dormi al Relais del Sol",
+    ctaTitle: "La tua base sul Lago di Garda",
+    ctaText: "Agriturismo a Pacengo di Lazise, a 2 km da Gardaland e a 15 minuti a piedi dal lago.",
+    ctaRooms: "Scopri le camere",
+    related: "Altre guide",
+  },
+
   roomsPage: {
     heroAlt: "Le camere dell'Agriturismo Relais del Sol",
     label: "Dove dormire",
@@ -345,7 +375,7 @@ const it = {
       ],
       note: "Prodotti senza glutine e latte vegetale disponibili su richiesta.",
       images: [
-        "Buffet della colazione nella veranda del Relais del Sol",
+        "Buffet della colazione con torte fatte in casa, croissant e marmellate",
         "Tavoli apparecchiati nella veranda della colazione",
         "Torte e dolci fatti in casa per la colazione",
         "La veranda della colazione vista dal giardino",

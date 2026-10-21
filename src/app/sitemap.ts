@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { rooms } from '@/lib/content/rooms'
+import { guides } from '@/lib/content/guides'
 import { SITE_URL } from '@/lib/site'
-import { locales, roomPath, routes, type Locale, type RouteKey } from '@/i18n/config'
+import { guidePath, locales, roomPath, routes, type Locale, type RouteKey } from '@/i18n/config'
 
 type Entry = MetadataRoute.Sitemap[number]
 
@@ -12,15 +13,20 @@ const pages: { key: RouteKey; priority: number; changeFrequency: Entry['changeFr
   { key: 'experiences', priority: 0.7, changeFrequency: 'monthly' },
   { key: 'about', priority: 0.6, changeFrequency: 'monthly' },
   { key: 'contact', priority: 0.8, changeFrequency: 'monthly' },
+  { key: 'guide', priority: 0.7, changeFrequency: 'weekly' },
 ]
 
 function url(path: string) {
   return `${SITE_URL}${path === '/' ? '' : path}`
 }
 
-function entries(paths: Record<Locale, string>, priority: number, changeFrequency: Entry['changeFrequency']): Entry[] {
+function entries(
+  paths: Record<Locale, string>,
+  priority: number,
+  changeFrequency: Entry['changeFrequency'],
+  lastModified: Date = new Date(),
+): Entry[] {
   const languages = Object.fromEntries(locales.map((l) => [l, url(paths[l])]))
-  const lastModified = new Date()
   return locales.map((locale) => ({
     url: url(paths[locale]),
     lastModified,
@@ -39,6 +45,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         Object.fromEntries(locales.map((l) => [l, roomPath(room.slug, l)])) as Record<Locale, string>,
         0.8,
         'monthly',
+      ),
+    ),
+    ...guides.flatMap((guide) =>
+      entries(
+        Object.fromEntries(locales.map((l) => [l, guidePath(guide.id, l)])) as Record<Locale, string>,
+        0.6,
+        'monthly',
+        new Date(`${guide.updated ?? guide.date}T12:00:00`),
       ),
     ),
   ]

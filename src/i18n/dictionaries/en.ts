@@ -33,6 +33,11 @@ const en: Dictionary = {
       description:
         "Contact the Relais del Sol agriturismo in Pacengo di Lazise (Verona): phone, WhatsApp, email, map and contact form.",
     },
+    guide: {
+      title: "Lake Garda Guide: Things to Do in Lazise & Around | Relais del Sol",
+      description:
+        "Ideas, events and itineraries for Lake Garda: things to do in Lazise, Pacengo and the surroundings, recommended by the family at Relais del Sol.",
+    },
     lodgingDescription:
       "Agriturismo (farm stay) in Pacengo di Lazise on Lake Garda with shabby-chic rooms, family suites, mobile homes, an infinity pool and a 13-hectare park among vineyards and olive groves.",
   },
@@ -54,6 +59,7 @@ const en: Dictionary = {
       experiences: "Experiences",
       about: "About Us",
       contact: "Contact",
+      guide: "Lake Garda Guide",
     },
     home: "Home",
     openMenu: "Open menu",
@@ -239,6 +245,30 @@ const en: Dictionary = {
     text: "Book directly on the official website. The best price is always here.",
   },
 
+  guideSection: {
+    label: "Ideas and tips",
+    title: "Lake Garda Guide",
+    text: "Events, itineraries and tips to discover Lazise and the surroundings, from people who live here.",
+    cta: "All Lake Garda guides",
+  },
+
+  guidePage: {
+    heroAlt: "Lake Garda seen from Relais del Sol",
+    label: "Relais del Sol · Lazise",
+    title: "Lake Garda Guide",
+    intro:
+      "Things to do in Lazise, Pacengo and around Lake Garda: seasonal events, itineraries, local flavours and traditions. Practical tips, with distances from the Relais, written by people who live on the lake every day.",
+    readMore: "Read the guide →",
+    minutes: "min read",
+    publishedOn: "Published on",
+    backToGuides: "← All guides",
+    ctaLabel: "Stay at Relais del Sol",
+    ctaTitle: "Your base on Lake Garda",
+    ctaText: "Agriturismo in Pacengo di Lazise, 2 km from Gardaland and a 15-minute walk from the lake.",
+    ctaRooms: "Discover the rooms",
+    related: "More guides",
+  },
+
   roomsPage: {
     heroAlt: "The rooms of Agriturismo Relais del Sol",
     label: "Where to stay",
@@ -347,7 +377,7 @@ const en: Dictionary = {
       ],
       note: "Gluten-free products and plant-based milk available on request.",
       images: [
-        "Breakfast buffet on the veranda of Relais del Sol",
+        "Breakfast buffet with homemade cakes, croissants and jams",
         "Laid tables on the breakfast veranda",
         "Homemade cakes and pastries for breakfast",
         "The breakfast veranda seen from the garden",

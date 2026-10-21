@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 import SectionLabel from "@/components/ui/SectionLabel";
 import NavbarThemeSetter from "@/components/layout/NavbarThemeSetter";
+import LatestGuides from "@/components/sections/LatestGuides";
 import { BOOKING_URL, bookingLinkProps } from "@/lib/site";
 import { routes, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -17,7 +18,7 @@ const poolImages = [
   "/images/services/parco.jpg",
 ];
 const breakfastImages = [
-  "/images/services/colazione-buffet.jpg",
+  "/images/services/colazione-relais.jpg",
   "/images/services/colazione-sala.jpg",
   "/images/services/colazione.jpg",
   "/images/services/colazione-veranda.jpg",
@@ -197,6 +198,8 @@ export default function ExperiencesView({ locale }: { locale: Locale }) {
             ))}
           </div>
         </div>
+
+        <LatestGuides locale={locale} />
       </section>
 
       <section className="bg-sol-cream py-16 md:py-20">

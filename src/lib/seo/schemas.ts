@@ -120,3 +120,28 @@ export function getFaqSchema(items: { q: string; a: string }[], locale: Locale) 
     })),
   };
 }
+
+export function getArticleSchema(article: {
+  title: string;
+  description: string;
+  path: string;
+  image: string;
+  date: string;
+  updated?: string;
+  locale: Locale;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${SITE_URL}${article.path}#article`,
+    headline: article.title,
+    description: article.description,
+    image: `${SITE_URL}${article.image}`,
+    datePublished: article.date,
+    dateModified: article.updated ?? article.date,
+    inLanguage: inLanguage[article.locale],
+    mainEntityOfPage: `${SITE_URL}${article.path}`,
+    author: { "@type": "Organization", name: "Relais del Sol", url: SITE_URL },
+    publisher: { "@id": `${SITE_URL}/#lodging` },
+  };
+}

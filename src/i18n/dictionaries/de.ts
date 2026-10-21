@@ -33,6 +33,11 @@ const de: Dictionary = {
       description:
         "Kontaktieren Sie das Agriturismo Relais del Sol in Pacengo di Lazise (Verona): Telefon, WhatsApp, E-Mail, Karte und Kontaktformular.",
     },
+    guide: {
+      title: "Gardasee-Reiseführer: Was unternehmen in Lazise & Umgebung | Relais del Sol",
+      description:
+        "Ideen, Events und Ausflugstipps für den Gardasee: Was man in Lazise, Pacengo und Umgebung unternehmen kann – empfohlen von der Familie des Relais del Sol.",
+    },
     lodgingDescription:
       "Agriturismo (Urlaub auf dem Bauernhof) in Pacengo di Lazise am Gardasee mit Zimmern im Shabby-Chic-Stil, Familiensuiten, Mobilheimen, Infinity-Pool und 13 Hektar Park zwischen Weinbergen und Olivenhainen.",
   },
@@ -54,6 +59,7 @@ const de: Dictionary = {
       experiences: "Erlebnisse",
       about: "Über uns",
       contact: "Kontakt",
+      guide: "Gardasee-Reiseführer",
     },
     home: "Startseite",
     openMenu: "Menü öffnen",
@@ -239,6 +245,30 @@ const de: Dictionary = {
     text: "Buchen Sie direkt auf der offiziellen Website. Hier gibt es immer den besten Preis.",
   },
 
+  guideSection: {
+    label: "Ideen und Tipps",
+    title: "Gardasee-Reiseführer",
+    text: "Events, Ausflüge und Tipps, um Lazise und die Umgebung zu entdecken – von Menschen, die hier leben.",
+    cta: "Alle Gardasee-Tipps",
+  },
+
+  guidePage: {
+    heroAlt: "Der Gardasee vom Relais del Sol aus gesehen",
+    label: "Relais del Sol · Lazise",
+    title: "Gardasee-Reiseführer",
+    intro:
+      "Was man in Lazise, Pacengo und am Gardasee unternehmen kann: saisonale Events, Ausflüge, Genuss und Traditionen der Region. Praktische Tipps mit Entfernungen vom Relais, geschrieben von Menschen, die den See jeden Tag erleben.",
+    readMore: "Weiterlesen →",
+    minutes: "Min. Lesezeit",
+    publishedOn: "Veröffentlicht am",
+    backToGuides: "← Alle Tipps",
+    ctaLabel: "Übernachten im Relais del Sol",
+    ctaTitle: "Ihr Ausgangspunkt am Gardasee",
+    ctaText: "Agriturismo in Pacengo di Lazise, 2 km von Gardaland und 15 Gehminuten vom See entfernt.",
+    ctaRooms: "Zimmer entdecken",
+    related: "Weitere Tipps",
+  },
+
   roomsPage: {
     heroAlt: "Die Zimmer des Agriturismo Relais del Sol",
     label: "Unterkunft",
@@ -347,7 +377,7 @@ const de: Dictionary = {
       ],
       note: "Glutenfreie Produkte und Pflanzenmilch auf Anfrage.",
       images: [
-        "Frühstücksbuffet auf der Veranda des Relais del Sol",
+        "Frühstücksbuffet mit hausgemachten Kuchen, Croissants und Marmeladen",
         "Gedeckte Tische auf der Frühstücksveranda",
         "Hausgemachte Kuchen und Gebäck zum Frühstück",
         "Die Frühstücksveranda vom Garten aus",

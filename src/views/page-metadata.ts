@@ -3,7 +3,7 @@ import { routes, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { generatePageMetadata } from "@/lib/seo/metadata";
 
-type MetaKey = "home" | "rooms" | "glamping" | "experiences" | "about" | "contact";
+type MetaKey = "home" | "rooms" | "glamping" | "experiences" | "about" | "contact" | "guide";
 
 const images: Record<MetaKey, string> = {
   home: "/images/og-default.jpg",
@@ -12,6 +12,7 @@ const images: Record<MetaKey, string> = {
   experiences: "/images/esperienze-hero.jpg",
   about: "/images/chi-siamo-hero.jpg",
   contact: "/images/og-default.jpg",
+  guide: "/images/panoramica.jpg",
 };
 
 export function pageMetadata(locale: Locale, key: MetaKey): Metadata {

@@ -17,6 +17,7 @@ export default function Footer({ locale }: FooterProps) {
     { label: t.nav.links.glamping, href: routes.glamping[locale] },
     { label: t.nav.links.experiences, href: routes.experiences[locale] },
     { label: t.nav.links.about, href: routes.about[locale] },
+    { label: t.nav.links.guide, href: routes.guide[locale] },
     { label: t.nav.links.contact, href: routes.contact[locale] },
   ];
   const roomLinks = getLocalizedRooms(locale);

@@ -22,6 +22,7 @@ export const routes = {
   experiences: { it: "/esperienze", en: "/en/experiences", de: "/de/erlebnisse" },
   about: { it: "/chi-siamo", en: "/en/about-us", de: "/de/ueber-uns" },
   contact: { it: "/contatti", en: "/en/contact", de: "/de/kontakt" },
+  guide: { it: "/guida-lago-di-garda", en: "/en/lake-garda-guide", de: "/de/gardasee-reisefuehrer" },
   privacy: { it: "/privacy-policy", en: "/privacy-policy", de: "/privacy-policy" },
   cookie: { it: "/cookie-policy", en: "/cookie-policy", de: "/cookie-policy" },
 } as const satisfies Record<string, Record<Locale, string>>;
@@ -59,6 +60,19 @@ export const roomSlugs: Record<string, Record<Locale, string>> = {
   },
 };
 
+/** Slug degli articoli della guida per lingua (chiave = id articolo). */
+export const guideSlugs: Record<string, Record<Locale, string>> = {
+  "halloween-autunno-2026": {
+    it: "halloween-autunno-lago-di-garda-weekend",
+    en: "halloween-autumn-weekend-lake-garda",
+    de: "halloween-herbst-wochenende-gardasee",
+  },
+};
+
+export function guidePath(id: string, locale: Locale) {
+  return `${routes.guide[locale]}/${guideSlugs[id][locale]}`;
+}
+
 export function roomPath(itSlug: string, locale: Locale) {
   return `${routes.rooms[locale]}/${roomSlugs[itSlug][locale]}`;
 }
@@ -86,6 +100,11 @@ export function alternatePaths(pathname: string): Record<Locale, string> {
   for (const itSlug of Object.keys(roomSlugs)) {
     if (locales.some((l) => roomPath(itSlug, l) === path)) {
       return { it: roomPath(itSlug, "it"), en: roomPath(itSlug, "en"), de: roomPath(itSlug, "de") };
+    }
+  }
+  for (const id of Object.keys(guideSlugs)) {
+    if (locales.some((l) => guidePath(id, l) === path)) {
+      return { it: guidePath(id, "it"), en: guidePath(id, "en"), de: guidePath(id, "de") };
     }
   }
   return { ...routes.home };
