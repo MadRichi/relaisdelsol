@@ -40,7 +40,7 @@ export const guides: Guide[] = [
   {
     id: "halloween-autunno-2026",
     date: "2026-10-21",
-    image: { src: "/images/panoramica.jpg", width: 2000, height: 1333 },
+    image: { src: "/images/guide/zucche-relais-del-sol.jpg", width: 2000, height: 1500 },
     translations: {
       it: {
         title: "Halloween e sapori d'autunno sul Lago di Garda: un weekend tra zucche, borghi e tradizioni",
@@ -50,7 +50,7 @@ export const guides: Guide[] = [
         excerpt:
           "Zucche, castagne, borghi e Halloween: le date dell'autunno 2026 e il nostro itinerario per un weekend sul Lago di Garda.",
         category: "Eventi d'autunno",
-        imageAlt: "Il Relais del Sol tra vigneti e uliveti con il Lago di Garda sullo sfondo",
+        imageAlt: "Le zucche del nostro orto con lanterne davanti alla casa padronale del Relais del Sol",
         blocks: [
           { type: "p", text: "**Le zucche non fanno soltanto paura. Raccontano anche il sapore dell'autunno.**" },
           {
@@ -149,7 +149,7 @@ export const guides: Guide[] = [
         excerpt:
           "Pumpkins, chestnuts, villages and Halloween: the autumn 2026 dates and our itinerary for a weekend on Lake Garda.",
         category: "Autumn events",
-        imageAlt: "Relais del Sol among vineyards and olive groves with Lake Garda in the background",
+        imageAlt: "Pumpkins from our garden with lanterns in front of the Relais del Sol manor house",
         blocks: [
           { type: "p", text: "**Pumpkins aren't only scary. They also tell the taste of autumn.**" },
           {
@@ -248,7 +248,7 @@ export const guides: Guide[] = [
         excerpt:
           "Kürbisse, Kastanien, Dörfer und Halloween: die Termine im Herbst 2026 und unser Tipp für ein Wochenende am Gardasee.",
         category: "Herbst-Events",
-        imageAlt: "Das Relais del Sol zwischen Weinbergen und Olivenhainen mit dem Gardasee im Hintergrund",
+        imageAlt: "Kürbisse aus unserem Garten mit Laternen vor dem Herrenhaus des Relais del Sol",
         blocks: [
           { type: "p", text: "**Kürbisse machen nicht nur Angst. Sie erzählen auch vom Geschmack des Herbstes.**" },
           {

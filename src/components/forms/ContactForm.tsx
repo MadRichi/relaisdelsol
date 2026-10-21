@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { contact } from "@/lib/site";
+import { track } from "@/components/analytics/Analytics";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 
@@ -72,6 +73,7 @@ export default function ContactForm({ dict, locale }: ContactFormProps) {
         throw new Error("Errore durante l'invio");
       }
 
+      track("generate_lead", { form: "contatti", subject: data.oggetto, language: locale });
       setIsSubmitted(true);
     } catch (error) {
       console.error(error);
